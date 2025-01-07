@@ -1,0 +1,15 @@
+dist
+/node_modules
+/test
+/utils
+/templates
+/.openapi-generator
+publish-sdks.js
+generate-sdks.js
+clean-openapi.js
+config.js
+config.json
+.openapi-generator-ignore
+openapitools.json
+package-lock.json
+.env

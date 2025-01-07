@@ -1,1 +1,0 @@
-"# Segnivo PHP SDK" 
