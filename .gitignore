@@ -7,6 +7,10 @@ dist
 publish-sdks.js
 generate-sdks.js
 clean-openapi.js
+openapi_old.yaml
+readme.mustache
+test.ts
+observations.txt
 config.js
 config.json
 .openapi-generator-ignore

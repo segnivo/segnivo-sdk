@@ -3,6 +3,7 @@ package com.segnivo.sdk.api;
 import com.segnivo.sdk.ApiClient;
 import com.segnivo.sdk.BaseApi;
 
+import com.segnivo.sdk.model.EmailAddressVerificationRequest;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -40,24 +41,24 @@ public class EmailAddressVerificationApi extends BaseApi {
      * Email Address Verification Validation
      * The &#x60;/validate-email&#x60; endpoint allows you to pass the email addresses you wish to verify and get a response on each of their status.  The following data should be passed in JSON format in the request body  - **emails** - An array/collection containing a minimum of one and maximum of fifty email addresses for verification/validation.
      * <p><b>200</b> - OK
-     * @param body  (optional)
+     * @param emailAddressVerificationRequest  (optional)
      * @return Object
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public Object validateEmailPost(Object body) throws RestClientException {
-        return validateEmailPostWithHttpInfo(body).getBody();
+    public Object validateEmailPost(EmailAddressVerificationRequest emailAddressVerificationRequest) throws RestClientException {
+        return validateEmailPostWithHttpInfo(emailAddressVerificationRequest).getBody();
     }
 
     /**
      * Email Address Verification Validation
      * The &#x60;/validate-email&#x60; endpoint allows you to pass the email addresses you wish to verify and get a response on each of their status.  The following data should be passed in JSON format in the request body  - **emails** - An array/collection containing a minimum of one and maximum of fifty email addresses for verification/validation.
      * <p><b>200</b> - OK
-     * @param body  (optional)
+     * @param emailAddressVerificationRequest  (optional)
      * @return ResponseEntity&lt;Object&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Object> validateEmailPostWithHttpInfo(Object body) throws RestClientException {
-        Object localVarPostBody = body;
+    public ResponseEntity<Object> validateEmailPostWithHttpInfo(EmailAddressVerificationRequest emailAddressVerificationRequest) throws RestClientException {
+        Object localVarPostBody = emailAddressVerificationRequest;
         
 
         final MultiValueMap<String, String> localVarQueryParams = new LinkedMultiValueMap<String, String>();

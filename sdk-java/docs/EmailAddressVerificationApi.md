@@ -10,7 +10,7 @@ All URIs are relative to *https://api.segnivo.com/v1*
 
 ## validateEmailPost
 
-> Object validateEmailPost(body)
+> Object validateEmailPost(emailAddressVerificationRequest)
 
 Email Address Verification Validation
 
@@ -39,9 +39,9 @@ public class Example {
         //apiKeyAuth.setApiKeyPrefix("Token");
 
         EmailAddressVerificationApi apiInstance = new EmailAddressVerificationApi(defaultClient);
-        Object body = null; // Object | 
+        EmailAddressVerificationRequest emailAddressVerificationRequest = new EmailAddressVerificationRequest(); // EmailAddressVerificationRequest | 
         try {
-            Object result = apiInstance.validateEmailPost(body);
+            Object result = apiInstance.validateEmailPost(emailAddressVerificationRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling EmailAddressVerificationApi#validateEmailPost");
@@ -59,7 +59,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | **Object**|  | [optional] |
+| **emailAddressVerificationRequest** | [**EmailAddressVerificationRequest**](EmailAddressVerificationRequest.md)|  | [optional] |
 
 ### Return type
 

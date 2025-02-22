@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **relay_send_post**
-> object relay_send_post(body=body)
+> object relay_send_post(relay_email_request=relay_email_request)
 
 Send an Email
 
@@ -20,6 +20,7 @@ The `/send` endpoint lets you send marketing and transactional emails from your 
 
 ```python
 import segnivo_sdk
+from segnivo_sdk.models.relay_email_request import RelayEmailRequest
 from segnivo_sdk.rest import ApiException
 from pprint import pprint
 
@@ -44,11 +45,11 @@ configuration.api_key['apiKeyAuth'] = os.environ["API_KEY"]
 with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.RelayTransactionalEmailsApi(api_client)
-    body = None # object |  (optional)
+    relay_email_request = segnivo_sdk.RelayEmailRequest() # RelayEmailRequest |  (optional)
 
     try:
         # Send an Email
-        api_response = api_instance.relay_send_post(body=body)
+        api_response = api_instance.relay_send_post(relay_email_request=relay_email_request)
         print("The response of RelayTransactionalEmailsApi->relay_send_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -62,7 +63,7 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **object**|  | [optional] 
+ **relay_email_request** | [**RelayEmailRequest**](RelayEmailRequest.md)|  | [optional] 
 
 ### Return type
 

@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 group = 'com.segnivo'
-version = '1.7.2'
+version = '1.7.16'
 
 buildscript {
     repositories {

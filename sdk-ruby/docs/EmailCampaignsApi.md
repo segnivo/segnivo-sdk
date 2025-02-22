@@ -15,7 +15,7 @@ All URIs are relative to *https://api.segnivo.com/v1*
 
 ## messages_get
 
-> Object messages_get(opts)
+> Object messages_get
 
 Get campaigns
 
@@ -35,13 +35,10 @@ SegnivoSDK.configure do |config|
 end
 
 api_instance = SegnivoSDK::EmailCampaignsApi.new
-opts = {
-  accept: 'application/json' # String | 
-}
 
 begin
   # Get campaigns
-  result = api_instance.messages_get(opts)
+  result = api_instance.messages_get
   p result
 rescue SegnivoSDK::ApiError => e
   puts "Error when calling EmailCampaignsApi->messages_get: #{e}"
@@ -52,12 +49,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> messages_get_with_http_info(opts)
+> <Array(Object, Integer, Hash)> messages_get_with_http_info
 
 ```ruby
 begin
   # Get campaigns
-  data, status_code, headers = api_instance.messages_get_with_http_info(opts)
+  data, status_code, headers = api_instance.messages_get_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
@@ -68,9 +65,7 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **accept** | **String** |  | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -109,9 +104,7 @@ end
 
 api_instance = SegnivoSDK::EmailCampaignsApi.new
 opts = {
-  content_type: 'application/json', # String | 
-  accept: 'application/json', # String | 
-  body: { ... } # Object | 
+  campaign_create_request: SegnivoSDK::CampaignCreateRequest.new # CampaignCreateRequest | 
 }
 
 begin
@@ -145,9 +138,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **content_type** | **String** |  | [optional] |
-| **accept** | **String** |  | [optional] |
-| **body** | **Object** |  | [optional] |
+| **campaign_create_request** | [**CampaignCreateRequest**](CampaignCreateRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -187,7 +178,6 @@ end
 api_instance = SegnivoSDK::EmailCampaignsApi.new
 uid = '<string>' # String | (Required) The uid of the campaign to delete
 opts = {
-  accept: 'application/json', # String | 
   body: { ... } # Object | 
 }
 
@@ -223,7 +213,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **uid** | **String** | (Required) The uid of the campaign to delete |  |
-| **accept** | **String** |  | [optional] |
 | **body** | **Object** |  | [optional] |
 
 ### Return type
@@ -242,7 +231,7 @@ end
 
 ## messages_uid_get
 
-> Object messages_uid_get(uid, opts)
+> Object messages_uid_get(uid)
 
 Get a campaign
 
@@ -263,13 +252,10 @@ end
 
 api_instance = SegnivoSDK::EmailCampaignsApi.new
 uid = '<string>' # String | (Required) The uid of the campaign to fetch
-opts = {
-  accept: 'application/json' # String | 
-}
 
 begin
   # Get a campaign
-  result = api_instance.messages_uid_get(uid, opts)
+  result = api_instance.messages_uid_get(uid)
   p result
 rescue SegnivoSDK::ApiError => e
   puts "Error when calling EmailCampaignsApi->messages_uid_get: #{e}"
@@ -280,12 +266,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> messages_uid_get_with_http_info(uid, opts)
+> <Array(Object, Integer, Hash)> messages_uid_get_with_http_info(uid)
 
 ```ruby
 begin
   # Get a campaign
-  data, status_code, headers = api_instance.messages_uid_get_with_http_info(uid, opts)
+  data, status_code, headers = api_instance.messages_uid_get_with_http_info(uid)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
@@ -299,7 +285,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **uid** | **String** | (Required) The uid of the campaign to fetch |  |
-| **accept** | **String** |  | [optional] |
 
 ### Return type
 
@@ -339,9 +324,7 @@ end
 api_instance = SegnivoSDK::EmailCampaignsApi.new
 uid = '<string>' # String | (Required) The uid of the campaign to update
 opts = {
-  content_type: 'application/json', # String | 
-  accept: 'application/json', # String | 
-  body: { ... } # Object | 
+  campaign_update_request: SegnivoSDK::CampaignUpdateRequest.new({name: 'Your Campaign Name', subject: 'Welcome to our service!', from_email: 'no-reply@example.com', from_name: 'Example Team', reply_to: 'support@example.com'}) # CampaignUpdateRequest | 
 }
 
 begin
@@ -376,9 +359,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **uid** | **String** | (Required) The uid of the campaign to update |  |
-| **content_type** | **String** |  | [optional] |
-| **accept** | **String** |  | [optional] |
-| **body** | **Object** |  | [optional] |
+| **campaign_update_request** | [**CampaignUpdateRequest**](CampaignUpdateRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -418,7 +399,6 @@ end
 api_instance = SegnivoSDK::EmailCampaignsApi.new
 uid = '<string>' # String | (Required) The uid of the campaign to pause
 opts = {
-  accept: 'application/json', # String | 
   body: { ... } # Object | 
 }
 
@@ -454,7 +434,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **uid** | **String** | (Required) The uid of the campaign to pause |  |
-| **accept** | **String** |  | [optional] |
 | **body** | **Object** |  | [optional] |
 
 ### Return type
@@ -495,7 +474,6 @@ end
 api_instance = SegnivoSDK::EmailCampaignsApi.new
 uid = '<string>' # String | (Required) The uid of the campaign to resume
 opts = {
-  accept: 'application/json', # String | 
   body: { ... } # Object | 
 }
 
@@ -531,7 +509,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **uid** | **String** | (Required) The uid of the campaign to resume |  |
-| **accept** | **String** |  | [optional] |
 | **body** | **Object** |  | [optional] |
 
 ### Return type

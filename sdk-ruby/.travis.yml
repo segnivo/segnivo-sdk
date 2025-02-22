@@ -8,4 +8,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build segnivo_sdk.gemspec
-  - gem install ./segnivo_sdk-1.7.6.gem
+  - gem install ./segnivo_sdk-1.7.16.gem

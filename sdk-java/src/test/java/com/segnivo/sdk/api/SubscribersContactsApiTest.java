@@ -13,6 +13,9 @@
 
 package com.segnivo.sdk.api;
 
+import com.segnivo.sdk.model.AddContactRequest;
+import com.segnivo.sdk.model.ContactUpdateRequest;
+import com.segnivo.sdk.model.ContactsUidAddTagPostRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.client.RestClientException;
@@ -43,12 +46,11 @@ class SubscribersContactsApiTest {
      */
     @Test
     void contactsGetTest() {
-        String accept = null;
         String email = null;
         Integer perPage = null;
         Integer page = null;
 
-        Object response = api.contactsGet(accept, email, perPage, page);
+        Object response = api.contactsGet(email, perPage, page);
 
         // TODO: test validations
     }
@@ -63,11 +65,9 @@ class SubscribersContactsApiTest {
      */
     @Test
     void contactsPostTest() {
-        String contentType = null;
-        String accept = null;
-        Object body = null;
+        AddContactRequest addContactRequest = null;
 
-        Object response = api.contactsPost(contentType, accept, body);
+        Object response = api.contactsPost(addContactRequest);
 
         // TODO: test validations
     }
@@ -83,11 +83,9 @@ class SubscribersContactsApiTest {
     @Test
     void contactsUidAddTagPostTest() {
         String uid = null;
-        String contentType = null;
-        String accept = null;
-        Object body = null;
+        ContactsUidAddTagPostRequest contactsUidAddTagPostRequest = null;
 
-        Object response = api.contactsUidAddTagPost(uid, contentType, accept, body);
+        Object response = api.contactsUidAddTagPost(uid, contactsUidAddTagPostRequest);
 
         // TODO: test validations
     }
@@ -103,10 +101,9 @@ class SubscribersContactsApiTest {
     @Test
     void contactsUidDeletePostTest() {
         String uid = null;
-        String accept = null;
         Object body = null;
 
-        Object response = api.contactsUidDeletePost(uid, accept, body);
+        Object response = api.contactsUidDeletePost(uid, body);
 
         // TODO: test validations
     }
@@ -122,9 +119,8 @@ class SubscribersContactsApiTest {
     @Test
     void contactsUidGetTest() {
         String uid = null;
-        String accept = null;
 
-        Object response = api.contactsUidGet(uid, accept);
+        Object response = api.contactsUidGet(uid);
 
         // TODO: test validations
     }
@@ -140,11 +136,9 @@ class SubscribersContactsApiTest {
     @Test
     void contactsUidPatchTest() {
         String uid = null;
-        String contentType = null;
-        String accept = null;
-        Object body = null;
+        ContactUpdateRequest contactUpdateRequest = null;
 
-        Object response = api.contactsUidPatch(uid, contentType, accept, body);
+        Object response = api.contactsUidPatch(uid, contactUpdateRequest);
 
         // TODO: test validations
     }
@@ -160,11 +154,10 @@ class SubscribersContactsApiTest {
     @Test
     void contactsUidSubscribePatchTest() {
         String uid = null;
-        String accept = null;
         String listUid = null;
         Object body = null;
 
-        Object response = api.contactsUidSubscribePatch(uid, accept, listUid, body);
+        Object response = api.contactsUidSubscribePatch(uid, listUid, body);
 
         // TODO: test validations
     }
@@ -180,11 +173,10 @@ class SubscribersContactsApiTest {
     @Test
     void contactsUidUnsubscribePatchTest() {
         String uid = null;
-        String accept = null;
         String listUid = null;
         Object body = null;
 
-        Object response = api.contactsUidUnsubscribePatch(uid, accept, listUid, body);
+        Object response = api.contactsUidUnsubscribePatch(uid, listUid, body);
 
         // TODO: test validations
     }

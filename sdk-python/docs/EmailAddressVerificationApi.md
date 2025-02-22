@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **validate_email_post**
-> object validate_email_post(body=body)
+> object validate_email_post(email_address_verification_request=email_address_verification_request)
 
 Email Address Verification Validation
 
@@ -20,6 +20,7 @@ The `/validate-email` endpoint allows you to pass the email addresses you wish t
 
 ```python
 import segnivo_sdk
+from segnivo_sdk.models.email_address_verification_request import EmailAddressVerificationRequest
 from segnivo_sdk.rest import ApiException
 from pprint import pprint
 
@@ -44,11 +45,11 @@ configuration.api_key['apiKeyAuth'] = os.environ["API_KEY"]
 with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.EmailAddressVerificationApi(api_client)
-    body = None # object |  (optional)
+    email_address_verification_request = segnivo_sdk.EmailAddressVerificationRequest() # EmailAddressVerificationRequest |  (optional)
 
     try:
         # Email Address Verification Validation
-        api_response = api_instance.validate_email_post(body=body)
+        api_response = api_instance.validate_email_post(email_address_verification_request=email_address_verification_request)
         print("The response of EmailAddressVerificationApi->validate_email_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -62,7 +63,7 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **object**|  | [optional] 
+ **email_address_verification_request** | [**EmailAddressVerificationRequest**](EmailAddressVerificationRequest.md)|  | [optional] 
 
 ### Return type
 

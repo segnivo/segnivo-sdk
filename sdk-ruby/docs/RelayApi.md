@@ -106,11 +106,11 @@ end
 
 api_instance = SegnivoSDK::RelayApi.new
 opts = {
-  message: 'message_example', # String | 
-  is_transactional: true, # Boolean | 
-  track_click: true, # Boolean | 
-  track_open: true, # Boolean | 
-  sign_dkim: true # Boolean | 
+  message: 'message_example', # String | The raw email content in RFC822 format. This should include headers, body content, and any attachments.
+  is_transactional: true, # Boolean | Indicates whether the email is transactional (e.g., receipts, order confirmations) or marketing. Transactional emails typically bypass unsubscribes.
+  track_click: true, # Boolean | Enables or disables click tracking within the email. When enabled, any hyperlinks in the email will be tracked to gather analytics on user interactions.
+  track_open: true, # Boolean | Enables or disables open tracking for the email. When enabled, a tracking pixel is embedded in the email to monitor whether the recipient has opened it.
+  sign_dkim: true # Boolean | Specifies whether the email should be signed with a DKIM (DomainKeys Identified Mail) signature. DKIM helps improve email deliverability by ensuring the email's integrity.
 }
 
 begin
@@ -144,11 +144,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **message** | **String** |  | [optional] |
-| **is_transactional** | **Boolean** |  | [optional] |
-| **track_click** | **Boolean** |  | [optional] |
-| **track_open** | **Boolean** |  | [optional] |
-| **sign_dkim** | **Boolean** |  | [optional] |
+| **message** | **String** | The raw email content in RFC822 format. This should include headers, body content, and any attachments. | [optional] |
+| **is_transactional** | **Boolean** | Indicates whether the email is transactional (e.g., receipts, order confirmations) or marketing. Transactional emails typically bypass unsubscribes. | [optional] |
+| **track_click** | **Boolean** | Enables or disables click tracking within the email. When enabled, any hyperlinks in the email will be tracked to gather analytics on user interactions. | [optional] |
+| **track_open** | **Boolean** | Enables or disables open tracking for the email. When enabled, a tracking pixel is embedded in the email to monitor whether the recipient has opened it. | [optional] |
+| **sign_dkim** | **Boolean** | Specifies whether the email should be signed with a DKIM (DomainKeys Identified Mail) signature. DKIM helps improve email deliverability by ensuring the email&#39;s integrity. | [optional] |
 
 ### Return type
 

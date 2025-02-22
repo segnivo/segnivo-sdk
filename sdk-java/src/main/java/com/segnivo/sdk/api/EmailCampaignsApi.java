@@ -3,6 +3,8 @@ package com.segnivo.sdk.api;
 import com.segnivo.sdk.ApiClient;
 import com.segnivo.sdk.BaseApi;
 
+import com.segnivo.sdk.model.CampaignCreateRequest;
+import com.segnivo.sdk.model.CampaignUpdateRequest;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -40,23 +42,21 @@ public class EmailCampaignsApi extends BaseApi {
      * Get campaigns
      * Returns a collection of all your campaigns
      * <p><b>200</b> - OK
-     * @param accept  (optional)
      * @return Object
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public Object messagesGet(String accept) throws RestClientException {
-        return messagesGetWithHttpInfo(accept).getBody();
+    public Object messagesGet() throws RestClientException {
+        return messagesGetWithHttpInfo().getBody();
     }
 
     /**
      * Get campaigns
      * Returns a collection of all your campaigns
      * <p><b>200</b> - OK
-     * @param accept  (optional)
      * @return ResponseEntity&lt;Object&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Object> messagesGetWithHttpInfo(String accept) throws RestClientException {
+    public ResponseEntity<Object> messagesGetWithHttpInfo() throws RestClientException {
         Object localVarPostBody = null;
         
 
@@ -64,9 +64,6 @@ public class EmailCampaignsApi extends BaseApi {
         final HttpHeaders localVarHeaderParams = new HttpHeaders();
         final MultiValueMap<String, String> localVarCookieParams = new LinkedMultiValueMap<String, String>();
         final MultiValueMap<String, Object> localVarFormParams = new LinkedMultiValueMap<String, Object>();
-
-        if (accept != null)
-        localVarHeaderParams.add("Accept", apiClient.parameterToString(accept));
 
         final String[] localVarAccepts = { 
             "application/json"
@@ -84,39 +81,30 @@ public class EmailCampaignsApi extends BaseApi {
      * Create a Campaign
      * Creat an email campaign for processing
      * <p><b>201</b> - Created
-     * @param contentType  (optional)
-     * @param accept  (optional)
-     * @param body  (optional)
+     * @param campaignCreateRequest  (optional)
      * @return Object
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public Object messagesPost(String contentType, String accept, Object body) throws RestClientException {
-        return messagesPostWithHttpInfo(contentType, accept, body).getBody();
+    public Object messagesPost(CampaignCreateRequest campaignCreateRequest) throws RestClientException {
+        return messagesPostWithHttpInfo(campaignCreateRequest).getBody();
     }
 
     /**
      * Create a Campaign
      * Creat an email campaign for processing
      * <p><b>201</b> - Created
-     * @param contentType  (optional)
-     * @param accept  (optional)
-     * @param body  (optional)
+     * @param campaignCreateRequest  (optional)
      * @return ResponseEntity&lt;Object&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Object> messagesPostWithHttpInfo(String contentType, String accept, Object body) throws RestClientException {
-        Object localVarPostBody = body;
+    public ResponseEntity<Object> messagesPostWithHttpInfo(CampaignCreateRequest campaignCreateRequest) throws RestClientException {
+        Object localVarPostBody = campaignCreateRequest;
         
 
         final MultiValueMap<String, String> localVarQueryParams = new LinkedMultiValueMap<String, String>();
         final HttpHeaders localVarHeaderParams = new HttpHeaders();
         final MultiValueMap<String, String> localVarCookieParams = new LinkedMultiValueMap<String, String>();
         final MultiValueMap<String, Object> localVarFormParams = new LinkedMultiValueMap<String, Object>();
-
-        if (contentType != null)
-        localVarHeaderParams.add("Content-Type", apiClient.parameterToString(contentType));
-        if (accept != null)
-        localVarHeaderParams.add("Accept", apiClient.parameterToString(accept));
 
         final String[] localVarAccepts = { 
             "application/json"
@@ -137,13 +125,12 @@ public class EmailCampaignsApi extends BaseApi {
      * Delete the specified campaign
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the campaign to delete (required)
-     * @param accept  (optional)
      * @param body  (optional)
      * @return Object
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public Object messagesUidDeletePost(String uid, String accept, Object body) throws RestClientException {
-        return messagesUidDeletePostWithHttpInfo(uid, accept, body).getBody();
+    public Object messagesUidDeletePost(String uid, Object body) throws RestClientException {
+        return messagesUidDeletePostWithHttpInfo(uid, body).getBody();
     }
 
     /**
@@ -151,12 +138,11 @@ public class EmailCampaignsApi extends BaseApi {
      * Delete the specified campaign
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the campaign to delete (required)
-     * @param accept  (optional)
      * @param body  (optional)
      * @return ResponseEntity&lt;Object&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Object> messagesUidDeletePostWithHttpInfo(String uid, String accept, Object body) throws RestClientException {
+    public ResponseEntity<Object> messagesUidDeletePostWithHttpInfo(String uid, Object body) throws RestClientException {
         Object localVarPostBody = body;
         
         // verify the required parameter 'uid' is set
@@ -172,9 +158,6 @@ public class EmailCampaignsApi extends BaseApi {
         final HttpHeaders localVarHeaderParams = new HttpHeaders();
         final MultiValueMap<String, String> localVarCookieParams = new LinkedMultiValueMap<String, String>();
         final MultiValueMap<String, Object> localVarFormParams = new LinkedMultiValueMap<String, Object>();
-
-        if (accept != null)
-        localVarHeaderParams.add("Accept", apiClient.parameterToString(accept));
 
         final String[] localVarAccepts = { 
             "application/json"
@@ -195,12 +178,11 @@ public class EmailCampaignsApi extends BaseApi {
      * Returns the specified campaign details
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the campaign to fetch (required)
-     * @param accept  (optional)
      * @return Object
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public Object messagesUidGet(String uid, String accept) throws RestClientException {
-        return messagesUidGetWithHttpInfo(uid, accept).getBody();
+    public Object messagesUidGet(String uid) throws RestClientException {
+        return messagesUidGetWithHttpInfo(uid).getBody();
     }
 
     /**
@@ -208,11 +190,10 @@ public class EmailCampaignsApi extends BaseApi {
      * Returns the specified campaign details
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the campaign to fetch (required)
-     * @param accept  (optional)
      * @return ResponseEntity&lt;Object&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Object> messagesUidGetWithHttpInfo(String uid, String accept) throws RestClientException {
+    public ResponseEntity<Object> messagesUidGetWithHttpInfo(String uid) throws RestClientException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'uid' is set
@@ -228,9 +209,6 @@ public class EmailCampaignsApi extends BaseApi {
         final HttpHeaders localVarHeaderParams = new HttpHeaders();
         final MultiValueMap<String, String> localVarCookieParams = new LinkedMultiValueMap<String, String>();
         final MultiValueMap<String, Object> localVarFormParams = new LinkedMultiValueMap<String, Object>();
-
-        if (accept != null)
-        localVarHeaderParams.add("Accept", apiClient.parameterToString(accept));
 
         final String[] localVarAccepts = { 
             "application/json"
@@ -249,14 +227,12 @@ public class EmailCampaignsApi extends BaseApi {
      * Updates a previously added campaign. Only Active and Paused campaigns can be updated.
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the campaign to update (required)
-     * @param contentType  (optional)
-     * @param accept  (optional)
-     * @param body  (optional)
+     * @param campaignUpdateRequest  (optional)
      * @return Object
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public Object messagesUidPatch(String uid, String contentType, String accept, Object body) throws RestClientException {
-        return messagesUidPatchWithHttpInfo(uid, contentType, accept, body).getBody();
+    public Object messagesUidPatch(String uid, CampaignUpdateRequest campaignUpdateRequest) throws RestClientException {
+        return messagesUidPatchWithHttpInfo(uid, campaignUpdateRequest).getBody();
     }
 
     /**
@@ -264,14 +240,12 @@ public class EmailCampaignsApi extends BaseApi {
      * Updates a previously added campaign. Only Active and Paused campaigns can be updated.
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the campaign to update (required)
-     * @param contentType  (optional)
-     * @param accept  (optional)
-     * @param body  (optional)
+     * @param campaignUpdateRequest  (optional)
      * @return ResponseEntity&lt;Object&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Object> messagesUidPatchWithHttpInfo(String uid, String contentType, String accept, Object body) throws RestClientException {
-        Object localVarPostBody = body;
+    public ResponseEntity<Object> messagesUidPatchWithHttpInfo(String uid, CampaignUpdateRequest campaignUpdateRequest) throws RestClientException {
+        Object localVarPostBody = campaignUpdateRequest;
         
         // verify the required parameter 'uid' is set
         if (uid == null) {
@@ -286,11 +260,6 @@ public class EmailCampaignsApi extends BaseApi {
         final HttpHeaders localVarHeaderParams = new HttpHeaders();
         final MultiValueMap<String, String> localVarCookieParams = new LinkedMultiValueMap<String, String>();
         final MultiValueMap<String, Object> localVarFormParams = new LinkedMultiValueMap<String, Object>();
-
-        if (contentType != null)
-        localVarHeaderParams.add("Content-Type", apiClient.parameterToString(contentType));
-        if (accept != null)
-        localVarHeaderParams.add("Accept", apiClient.parameterToString(accept));
 
         final String[] localVarAccepts = { 
             "application/json"
@@ -311,13 +280,12 @@ public class EmailCampaignsApi extends BaseApi {
      * Pause the specified campaign
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the campaign to pause (required)
-     * @param accept  (optional)
      * @param body  (optional)
      * @return Object
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public Object messagesUidPausePost(String uid, String accept, Object body) throws RestClientException {
-        return messagesUidPausePostWithHttpInfo(uid, accept, body).getBody();
+    public Object messagesUidPausePost(String uid, Object body) throws RestClientException {
+        return messagesUidPausePostWithHttpInfo(uid, body).getBody();
     }
 
     /**
@@ -325,12 +293,11 @@ public class EmailCampaignsApi extends BaseApi {
      * Pause the specified campaign
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the campaign to pause (required)
-     * @param accept  (optional)
      * @param body  (optional)
      * @return ResponseEntity&lt;Object&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Object> messagesUidPausePostWithHttpInfo(String uid, String accept, Object body) throws RestClientException {
+    public ResponseEntity<Object> messagesUidPausePostWithHttpInfo(String uid, Object body) throws RestClientException {
         Object localVarPostBody = body;
         
         // verify the required parameter 'uid' is set
@@ -346,9 +313,6 @@ public class EmailCampaignsApi extends BaseApi {
         final HttpHeaders localVarHeaderParams = new HttpHeaders();
         final MultiValueMap<String, String> localVarCookieParams = new LinkedMultiValueMap<String, String>();
         final MultiValueMap<String, Object> localVarFormParams = new LinkedMultiValueMap<String, Object>();
-
-        if (accept != null)
-        localVarHeaderParams.add("Accept", apiClient.parameterToString(accept));
 
         final String[] localVarAccepts = { 
             "application/json"
@@ -369,13 +333,12 @@ public class EmailCampaignsApi extends BaseApi {
      * Resume delivery of the specified campaign
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the campaign to resume (required)
-     * @param accept  (optional)
      * @param body  (optional)
      * @return Object
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public Object messagesUidResumePost(String uid, String accept, Object body) throws RestClientException {
-        return messagesUidResumePostWithHttpInfo(uid, accept, body).getBody();
+    public Object messagesUidResumePost(String uid, Object body) throws RestClientException {
+        return messagesUidResumePostWithHttpInfo(uid, body).getBody();
     }
 
     /**
@@ -383,12 +346,11 @@ public class EmailCampaignsApi extends BaseApi {
      * Resume delivery of the specified campaign
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the campaign to resume (required)
-     * @param accept  (optional)
      * @param body  (optional)
      * @return ResponseEntity&lt;Object&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Object> messagesUidResumePostWithHttpInfo(String uid, String accept, Object body) throws RestClientException {
+    public ResponseEntity<Object> messagesUidResumePostWithHttpInfo(String uid, Object body) throws RestClientException {
         Object localVarPostBody = body;
         
         // verify the required parameter 'uid' is set
@@ -404,9 +366,6 @@ public class EmailCampaignsApi extends BaseApi {
         final HttpHeaders localVarHeaderParams = new HttpHeaders();
         final MultiValueMap<String, String> localVarCookieParams = new LinkedMultiValueMap<String, String>();
         final MultiValueMap<String, Object> localVarFormParams = new LinkedMultiValueMap<String, Object>();
-
-        if (accept != null)
-        localVarHeaderParams.add("Accept", apiClient.parameterToString(accept));
 
         final String[] localVarAccepts = { 
             "application/json"

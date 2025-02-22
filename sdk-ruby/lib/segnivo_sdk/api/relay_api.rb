@@ -88,11 +88,11 @@ module SegnivoSDK
     # Send a Raw Email Message
     # The `/raw` endpoint lets you send marketing and transactional emails from your `Segnivo Messaging` account by passing a raw RFC822 message to the `message` attribute in the request body.  The following parameters should be passed as a form data to the endpoint  - **message** - A raw RFC822 message      - **sign_dkim** (optional, defaults to `true`) - A boolean value on if a DKIM signature should be included in this message      - **track_click** (optional, defaults to `true`) - A boolean value on if email clicks should be tracked. If `true` links in the email will be rewritten to enable tracking      - **track_open** (optional, defaults to `true`) - A boolean value on if the email opens should be tracked      - **is_transactional** (optional, defaults to `false`) - A boolean value to flag this email as a transactional email
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :message 
-    # @option opts [Boolean] :is_transactional 
-    # @option opts [Boolean] :track_click 
-    # @option opts [Boolean] :track_open 
-    # @option opts [Boolean] :sign_dkim 
+    # @option opts [String] :message The raw email content in RFC822 format. This should include headers, body content, and any attachments.
+    # @option opts [Boolean] :is_transactional Indicates whether the email is transactional (e.g., receipts, order confirmations) or marketing. Transactional emails typically bypass unsubscribes.
+    # @option opts [Boolean] :track_click Enables or disables click tracking within the email. When enabled, any hyperlinks in the email will be tracked to gather analytics on user interactions.
+    # @option opts [Boolean] :track_open Enables or disables open tracking for the email. When enabled, a tracking pixel is embedded in the email to monitor whether the recipient has opened it.
+    # @option opts [Boolean] :sign_dkim Specifies whether the email should be signed with a DKIM (DomainKeys Identified Mail) signature. DKIM helps improve email deliverability by ensuring the email&#39;s integrity.
     # @return [Object]
     def relay_raw_post(opts = {})
       data, _status_code, _headers = relay_raw_post_with_http_info(opts)
@@ -102,11 +102,11 @@ module SegnivoSDK
     # Send a Raw Email Message
     # The &#x60;/raw&#x60; endpoint lets you send marketing and transactional emails from your &#x60;Segnivo Messaging&#x60; account by passing a raw RFC822 message to the &#x60;message&#x60; attribute in the request body.  The following parameters should be passed as a form data to the endpoint  - **message** - A raw RFC822 message      - **sign_dkim** (optional, defaults to &#x60;true&#x60;) - A boolean value on if a DKIM signature should be included in this message      - **track_click** (optional, defaults to &#x60;true&#x60;) - A boolean value on if email clicks should be tracked. If &#x60;true&#x60; links in the email will be rewritten to enable tracking      - **track_open** (optional, defaults to &#x60;true&#x60;) - A boolean value on if the email opens should be tracked      - **is_transactional** (optional, defaults to &#x60;false&#x60;) - A boolean value to flag this email as a transactional email
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :message 
-    # @option opts [Boolean] :is_transactional 
-    # @option opts [Boolean] :track_click 
-    # @option opts [Boolean] :track_open 
-    # @option opts [Boolean] :sign_dkim 
+    # @option opts [String] :message The raw email content in RFC822 format. This should include headers, body content, and any attachments.
+    # @option opts [Boolean] :is_transactional Indicates whether the email is transactional (e.g., receipts, order confirmations) or marketing. Transactional emails typically bypass unsubscribes.
+    # @option opts [Boolean] :track_click Enables or disables click tracking within the email. When enabled, any hyperlinks in the email will be tracked to gather analytics on user interactions.
+    # @option opts [Boolean] :track_open Enables or disables open tracking for the email. When enabled, a tracking pixel is embedded in the email to monitor whether the recipient has opened it.
+    # @option opts [Boolean] :sign_dkim Specifies whether the email should be signed with a DKIM (DomainKeys Identified Mail) signature. DKIM helps improve email deliverability by ensuring the email&#39;s integrity.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def relay_raw_post_with_http_info(opts = {})
       if @api_client.config.debugging

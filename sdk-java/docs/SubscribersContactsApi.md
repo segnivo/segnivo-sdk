@@ -17,7 +17,7 @@ All URIs are relative to *https://api.segnivo.com/v1*
 
 ## contactsGet
 
-> Object contactsGet(accept, email, perPage, page)
+> Object contactsGet(email, perPage, page)
 
 Get contacts
 
@@ -46,12 +46,11 @@ public class Example {
         //apiKeyAuth.setApiKeyPrefix("Token");
 
         SubscribersContactsApi apiInstance = new SubscribersContactsApi(defaultClient);
-        String accept = "application/json"; // String | 
         String email = "<string>"; // String | An email address to search for.
         Integer perPage = 20; // Integer | How many items should be returned ahead.
         Integer page = 1; // Integer | The offset for the items to be returned, helps in pagination.
         try {
-            Object result = apiInstance.contactsGet(accept, email, perPage, page);
+            Object result = apiInstance.contactsGet(email, perPage, page);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SubscribersContactsApi#contactsGet");
@@ -69,7 +68,6 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **accept** | **String**|  | [optional] |
 | **email** | **String**| An email address to search for. | [optional] |
 | **perPage** | **Integer**| How many items should be returned ahead. | [optional] |
 | **page** | **Integer**| The offset for the items to be returned, helps in pagination. | [optional] |
@@ -96,7 +94,7 @@ public class Example {
 
 ## contactsPost
 
-> Object contactsPost(contentType, accept, body)
+> Object contactsPost(addContactRequest)
 
 Add a Contact
 
@@ -125,11 +123,9 @@ public class Example {
         //apiKeyAuth.setApiKeyPrefix("Token");
 
         SubscribersContactsApi apiInstance = new SubscribersContactsApi(defaultClient);
-        String contentType = "application/json"; // String | 
-        String accept = "application/json"; // String | 
-        Object body = null; // Object | 
+        AddContactRequest addContactRequest = new AddContactRequest(); // AddContactRequest | 
         try {
-            Object result = apiInstance.contactsPost(contentType, accept, body);
+            Object result = apiInstance.contactsPost(addContactRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SubscribersContactsApi#contactsPost");
@@ -147,9 +143,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **contentType** | **String**|  | [optional] |
-| **accept** | **String**|  | [optional] |
-| **body** | **Object**|  | [optional] |
+| **addContactRequest** | [**AddContactRequest**](AddContactRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -173,7 +167,7 @@ public class Example {
 
 ## contactsUidAddTagPost
 
-> Object contactsUidAddTagPost(uid, contentType, accept, body)
+> Object contactsUidAddTagPost(uid, contactsUidAddTagPostRequest)
 
 Add tags to a contact
 
@@ -203,11 +197,9 @@ public class Example {
 
         SubscribersContactsApi apiInstance = new SubscribersContactsApi(defaultClient);
         String uid = "<string>"; // String | (Required) The uid of the contact to update with the tags.
-        String contentType = "application/json"; // String | 
-        String accept = "application/json"; // String | 
-        Object body = null; // Object | 
+        ContactsUidAddTagPostRequest contactsUidAddTagPostRequest = new ContactsUidAddTagPostRequest(); // ContactsUidAddTagPostRequest | 
         try {
-            Object result = apiInstance.contactsUidAddTagPost(uid, contentType, accept, body);
+            Object result = apiInstance.contactsUidAddTagPost(uid, contactsUidAddTagPostRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SubscribersContactsApi#contactsUidAddTagPost");
@@ -226,9 +218,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **uid** | **String**| (Required) The uid of the contact to update with the tags. | |
-| **contentType** | **String**|  | [optional] |
-| **accept** | **String**|  | [optional] |
-| **body** | **Object**|  | [optional] |
+| **contactsUidAddTagPostRequest** | [**ContactsUidAddTagPostRequest**](ContactsUidAddTagPostRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +242,7 @@ public class Example {
 
 ## contactsUidDeletePost
 
-> Object contactsUidDeletePost(uid, accept, body)
+> Object contactsUidDeletePost(uid, body)
 
 Delete a contact
 
@@ -282,10 +272,9 @@ public class Example {
 
         SubscribersContactsApi apiInstance = new SubscribersContactsApi(defaultClient);
         String uid = "<string>"; // String | (Required) The uid of the contact to delete.
-        String accept = "application/json"; // String | 
         Object body = null; // Object | 
         try {
-            Object result = apiInstance.contactsUidDeletePost(uid, accept, body);
+            Object result = apiInstance.contactsUidDeletePost(uid, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SubscribersContactsApi#contactsUidDeletePost");
@@ -304,7 +293,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **uid** | **String**| (Required) The uid of the contact to delete. | |
-| **accept** | **String**|  | [optional] |
 | **body** | **Object**|  | [optional] |
 
 ### Return type
@@ -329,7 +317,7 @@ public class Example {
 
 ## contactsUidGet
 
-> Object contactsUidGet(uid, accept)
+> Object contactsUidGet(uid)
 
 Get a contact
 
@@ -359,9 +347,8 @@ public class Example {
 
         SubscribersContactsApi apiInstance = new SubscribersContactsApi(defaultClient);
         String uid = "<string>"; // String | (Required) The uid of the contact to get.
-        String accept = "application/json"; // String | 
         try {
-            Object result = apiInstance.contactsUidGet(uid, accept);
+            Object result = apiInstance.contactsUidGet(uid);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SubscribersContactsApi#contactsUidGet");
@@ -380,7 +367,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **uid** | **String**| (Required) The uid of the contact to get. | |
-| **accept** | **String**|  | [optional] |
 
 ### Return type
 
@@ -404,7 +390,7 @@ public class Example {
 
 ## contactsUidPatch
 
-> Object contactsUidPatch(uid, contentType, accept, body)
+> Object contactsUidPatch(uid, contactUpdateRequest)
 
 Update Contact
 
@@ -434,11 +420,9 @@ public class Example {
 
         SubscribersContactsApi apiInstance = new SubscribersContactsApi(defaultClient);
         String uid = "<string>"; // String | (Required) The uid of the contact to update.
-        String contentType = "application/json"; // String | 
-        String accept = "application/json"; // String | 
-        Object body = null; // Object | 
+        ContactUpdateRequest contactUpdateRequest = new ContactUpdateRequest(); // ContactUpdateRequest | 
         try {
-            Object result = apiInstance.contactsUidPatch(uid, contentType, accept, body);
+            Object result = apiInstance.contactsUidPatch(uid, contactUpdateRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SubscribersContactsApi#contactsUidPatch");
@@ -457,9 +441,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **uid** | **String**| (Required) The uid of the contact to update. | |
-| **contentType** | **String**|  | [optional] |
-| **accept** | **String**|  | [optional] |
-| **body** | **Object**|  | [optional] |
+| **contactUpdateRequest** | [**ContactUpdateRequest**](ContactUpdateRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -483,7 +465,7 @@ public class Example {
 
 ## contactsUidSubscribePatch
 
-> Object contactsUidSubscribePatch(uid, accept, listUid, body)
+> Object contactsUidSubscribePatch(uid, listUid, body)
 
 Subscribe a contact
 
@@ -513,11 +495,10 @@ public class Example {
 
         SubscribersContactsApi apiInstance = new SubscribersContactsApi(defaultClient);
         String uid = "<string>"; // String | (Required) The uid of the contact to subscribe.
-        String accept = "application/json"; // String | 
         String listUid = "<string>"; // String | (Required) The uid of the mail list to subscribe the contact.
         Object body = null; // Object | 
         try {
-            Object result = apiInstance.contactsUidSubscribePatch(uid, accept, listUid, body);
+            Object result = apiInstance.contactsUidSubscribePatch(uid, listUid, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SubscribersContactsApi#contactsUidSubscribePatch");
@@ -536,7 +517,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **uid** | **String**| (Required) The uid of the contact to subscribe. | |
-| **accept** | **String**|  | [optional] |
 | **listUid** | **String**| (Required) The uid of the mail list to subscribe the contact. | [optional] |
 | **body** | **Object**|  | [optional] |
 
@@ -562,7 +542,7 @@ public class Example {
 
 ## contactsUidUnsubscribePatch
 
-> Object contactsUidUnsubscribePatch(uid, accept, listUid, body)
+> Object contactsUidUnsubscribePatch(uid, listUid, body)
 
 Unsubscribe a contact
 
@@ -592,11 +572,10 @@ public class Example {
 
         SubscribersContactsApi apiInstance = new SubscribersContactsApi(defaultClient);
         String uid = "<string>"; // String | (Required) The uid of the contact to unsubscribe.
-        String accept = "application/json"; // String | 
         String listUid = "<string>"; // String | (Required) The uid of the mail list to unsubscribe the contact.
         Object body = null; // Object | 
         try {
-            Object result = apiInstance.contactsUidUnsubscribePatch(uid, accept, listUid, body);
+            Object result = apiInstance.contactsUidUnsubscribePatch(uid, listUid, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SubscribersContactsApi#contactsUidUnsubscribePatch");
@@ -615,7 +594,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **uid** | **String**| (Required) The uid of the contact to unsubscribe. | |
-| **accept** | **String**|  | [optional] |
 | **listUid** | **String**| (Required) The uid of the mail list to unsubscribe the contact. | [optional] |
 | **body** | **Object**|  | [optional] |
 

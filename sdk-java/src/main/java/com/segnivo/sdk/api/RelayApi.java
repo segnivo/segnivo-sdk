@@ -94,11 +94,11 @@ public class RelayApi extends BaseApi {
      * Send a Raw Email Message
      * The &#x60;/raw&#x60; endpoint lets you send marketing and transactional emails from your &#x60;Segnivo Messaging&#x60; account by passing a raw RFC822 message to the &#x60;message&#x60; attribute in the request body.  The following parameters should be passed as a form data to the endpoint  - **message** - A raw RFC822 message      - **sign_dkim** (optional, defaults to &#x60;true&#x60;) - A boolean value on if a DKIM signature should be included in this message      - **track_click** (optional, defaults to &#x60;true&#x60;) - A boolean value on if email clicks should be tracked. If &#x60;true&#x60; links in the email will be rewritten to enable tracking      - **track_open** (optional, defaults to &#x60;true&#x60;) - A boolean value on if the email opens should be tracked      - **is_transactional** (optional, defaults to &#x60;false&#x60;) - A boolean value to flag this email as a transactional email
      * <p><b>200</b> - OK
-     * @param message  (optional)
-     * @param isTransactional  (optional)
-     * @param trackClick  (optional)
-     * @param trackOpen  (optional)
-     * @param signDkim  (optional)
+     * @param message The raw email content in RFC822 format. This should include headers, body content, and any attachments. (optional)
+     * @param isTransactional Indicates whether the email is transactional (e.g., receipts, order confirmations) or marketing. Transactional emails typically bypass unsubscribes. (optional)
+     * @param trackClick Enables or disables click tracking within the email. When enabled, any hyperlinks in the email will be tracked to gather analytics on user interactions. (optional)
+     * @param trackOpen Enables or disables open tracking for the email. When enabled, a tracking pixel is embedded in the email to monitor whether the recipient has opened it. (optional)
+     * @param signDkim Specifies whether the email should be signed with a DKIM (DomainKeys Identified Mail) signature. DKIM helps improve email deliverability by ensuring the email&#39;s integrity. (optional)
      * @return Object
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
@@ -110,11 +110,11 @@ public class RelayApi extends BaseApi {
      * Send a Raw Email Message
      * The &#x60;/raw&#x60; endpoint lets you send marketing and transactional emails from your &#x60;Segnivo Messaging&#x60; account by passing a raw RFC822 message to the &#x60;message&#x60; attribute in the request body.  The following parameters should be passed as a form data to the endpoint  - **message** - A raw RFC822 message      - **sign_dkim** (optional, defaults to &#x60;true&#x60;) - A boolean value on if a DKIM signature should be included in this message      - **track_click** (optional, defaults to &#x60;true&#x60;) - A boolean value on if email clicks should be tracked. If &#x60;true&#x60; links in the email will be rewritten to enable tracking      - **track_open** (optional, defaults to &#x60;true&#x60;) - A boolean value on if the email opens should be tracked      - **is_transactional** (optional, defaults to &#x60;false&#x60;) - A boolean value to flag this email as a transactional email
      * <p><b>200</b> - OK
-     * @param message  (optional)
-     * @param isTransactional  (optional)
-     * @param trackClick  (optional)
-     * @param trackOpen  (optional)
-     * @param signDkim  (optional)
+     * @param message The raw email content in RFC822 format. This should include headers, body content, and any attachments. (optional)
+     * @param isTransactional Indicates whether the email is transactional (e.g., receipts, order confirmations) or marketing. Transactional emails typically bypass unsubscribes. (optional)
+     * @param trackClick Enables or disables click tracking within the email. When enabled, any hyperlinks in the email will be tracked to gather analytics on user interactions. (optional)
+     * @param trackOpen Enables or disables open tracking for the email. When enabled, a tracking pixel is embedded in the email to monitor whether the recipient has opened it. (optional)
+     * @param signDkim Specifies whether the email should be signed with a DKIM (DomainKeys Identified Mail) signature. DKIM helps improve email deliverability by ensuring the email&#39;s integrity. (optional)
      * @return ResponseEntity&lt;Object&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */

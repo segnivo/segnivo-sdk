@@ -10,7 +10,7 @@ All URIs are relative to *https://api.segnivo.com/v1*
 
 ## relaySendPost
 
-> Object relaySendPost(body)
+> Object relaySendPost(relayEmailRequest)
 
 Send an Email
 
@@ -39,9 +39,9 @@ public class Example {
         //apiKeyAuth.setApiKeyPrefix("Token");
 
         RelayTransactionalEmailsApi apiInstance = new RelayTransactionalEmailsApi(defaultClient);
-        Object body = null; // Object | 
+        RelayEmailRequest relayEmailRequest = new RelayEmailRequest(); // RelayEmailRequest | 
         try {
-            Object result = apiInstance.relaySendPost(body);
+            Object result = apiInstance.relaySendPost(relayEmailRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RelayTransactionalEmailsApi#relaySendPost");
@@ -59,7 +59,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | **Object**|  | [optional] |
+| **relayEmailRequest** | [**RelayEmailRequest**](RelayEmailRequest.md)|  | [optional] |
 
 ### Return type
 

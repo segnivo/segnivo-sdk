@@ -19,6 +19,8 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr
 from typing import Any, Dict, Optional
 from typing_extensions import Annotated
+from segnivo_sdk.models.campaign_create_request import CampaignCreateRequest
+from segnivo_sdk.models.campaign_update_request import CampaignUpdateRequest
 
 from segnivo_sdk.api_client import ApiClient, RequestSerialized
 from segnivo_sdk.api_response import ApiResponse
@@ -41,7 +43,6 @@ class EmailCampaignsApi:
     @validate_call
     def messages_get(
         self,
-        accept: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -59,8 +60,6 @@ class EmailCampaignsApi:
 
         Returns a collection of all your campaigns
 
-        :param accept:
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -84,7 +83,6 @@ class EmailCampaignsApi:
         """ # noqa: E501
 
         _param = self._messages_get_serialize(
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -108,7 +106,6 @@ class EmailCampaignsApi:
     @validate_call
     def messages_get_with_http_info(
         self,
-        accept: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -126,8 +123,6 @@ class EmailCampaignsApi:
 
         Returns a collection of all your campaigns
 
-        :param accept:
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -151,7 +146,6 @@ class EmailCampaignsApi:
         """ # noqa: E501
 
         _param = self._messages_get_serialize(
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -175,7 +169,6 @@ class EmailCampaignsApi:
     @validate_call
     def messages_get_without_preload_content(
         self,
-        accept: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -193,8 +186,6 @@ class EmailCampaignsApi:
 
         Returns a collection of all your campaigns
 
-        :param accept:
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -218,7 +209,6 @@ class EmailCampaignsApi:
         """ # noqa: E501
 
         _param = self._messages_get_serialize(
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -237,7 +227,6 @@ class EmailCampaignsApi:
 
     def _messages_get_serialize(
         self,
-        accept,
         _request_auth,
         _content_type,
         _headers,
@@ -261,8 +250,6 @@ class EmailCampaignsApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
 
@@ -302,9 +289,7 @@ class EmailCampaignsApi:
     @validate_call
     def messages_post(
         self,
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        campaign_create_request: Optional[CampaignCreateRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -322,12 +307,8 @@ class EmailCampaignsApi:
 
         Creat an email campaign for processing
 
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param campaign_create_request:
+        :type campaign_create_request: CampaignCreateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -351,9 +332,7 @@ class EmailCampaignsApi:
         """ # noqa: E501
 
         _param = self._messages_post_serialize(
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            campaign_create_request=campaign_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -377,9 +356,7 @@ class EmailCampaignsApi:
     @validate_call
     def messages_post_with_http_info(
         self,
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        campaign_create_request: Optional[CampaignCreateRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -397,12 +374,8 @@ class EmailCampaignsApi:
 
         Creat an email campaign for processing
 
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param campaign_create_request:
+        :type campaign_create_request: CampaignCreateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -426,9 +399,7 @@ class EmailCampaignsApi:
         """ # noqa: E501
 
         _param = self._messages_post_serialize(
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            campaign_create_request=campaign_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -452,9 +423,7 @@ class EmailCampaignsApi:
     @validate_call
     def messages_post_without_preload_content(
         self,
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        campaign_create_request: Optional[CampaignCreateRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -472,12 +441,8 @@ class EmailCampaignsApi:
 
         Creat an email campaign for processing
 
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param campaign_create_request:
+        :type campaign_create_request: CampaignCreateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -501,9 +466,7 @@ class EmailCampaignsApi:
         """ # noqa: E501
 
         _param = self._messages_post_serialize(
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            campaign_create_request=campaign_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -522,9 +485,7 @@ class EmailCampaignsApi:
 
     def _messages_post_serialize(
         self,
-        content_type,
-        accept,
-        body,
+        campaign_create_request,
         _request_auth,
         _content_type,
         _headers,
@@ -548,14 +509,10 @@ class EmailCampaignsApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if campaign_create_request is not None:
+            _body_params = campaign_create_request
 
 
         # set the HTTP header `Accept`
@@ -607,7 +564,6 @@ class EmailCampaignsApi:
     def messages_uid_delete_post(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the campaign to delete")],
-        accept: Optional[StrictStr] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
             None,
@@ -628,8 +584,6 @@ class EmailCampaignsApi:
 
         :param uid: (Required) The uid of the campaign to delete (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param body:
         :type body: object
         :param _request_timeout: timeout setting for this request. If one
@@ -656,7 +610,6 @@ class EmailCampaignsApi:
 
         _param = self._messages_uid_delete_post_serialize(
             uid=uid,
-            accept=accept,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -682,7 +635,6 @@ class EmailCampaignsApi:
     def messages_uid_delete_post_with_http_info(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the campaign to delete")],
-        accept: Optional[StrictStr] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
             None,
@@ -703,8 +655,6 @@ class EmailCampaignsApi:
 
         :param uid: (Required) The uid of the campaign to delete (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param body:
         :type body: object
         :param _request_timeout: timeout setting for this request. If one
@@ -731,7 +681,6 @@ class EmailCampaignsApi:
 
         _param = self._messages_uid_delete_post_serialize(
             uid=uid,
-            accept=accept,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -757,7 +706,6 @@ class EmailCampaignsApi:
     def messages_uid_delete_post_without_preload_content(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the campaign to delete")],
-        accept: Optional[StrictStr] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
             None,
@@ -778,8 +726,6 @@ class EmailCampaignsApi:
 
         :param uid: (Required) The uid of the campaign to delete (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param body:
         :type body: object
         :param _request_timeout: timeout setting for this request. If one
@@ -806,7 +752,6 @@ class EmailCampaignsApi:
 
         _param = self._messages_uid_delete_post_serialize(
             uid=uid,
-            accept=accept,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -827,7 +772,6 @@ class EmailCampaignsApi:
     def _messages_uid_delete_post_serialize(
         self,
         uid,
-        accept,
         body,
         _request_auth,
         _content_type,
@@ -854,8 +798,6 @@ class EmailCampaignsApi:
             _path_params['uid'] = uid
         # process the query parameters
         # process the header parameters
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
         if body is not None:
@@ -911,7 +853,6 @@ class EmailCampaignsApi:
     def messages_uid_get(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the campaign to fetch")],
-        accept: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -931,8 +872,6 @@ class EmailCampaignsApi:
 
         :param uid: (Required) The uid of the campaign to fetch (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -957,7 +896,6 @@ class EmailCampaignsApi:
 
         _param = self._messages_uid_get_serialize(
             uid=uid,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -982,7 +920,6 @@ class EmailCampaignsApi:
     def messages_uid_get_with_http_info(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the campaign to fetch")],
-        accept: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1002,8 +939,6 @@ class EmailCampaignsApi:
 
         :param uid: (Required) The uid of the campaign to fetch (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1028,7 +963,6 @@ class EmailCampaignsApi:
 
         _param = self._messages_uid_get_serialize(
             uid=uid,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1053,7 +987,6 @@ class EmailCampaignsApi:
     def messages_uid_get_without_preload_content(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the campaign to fetch")],
-        accept: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1073,8 +1006,6 @@ class EmailCampaignsApi:
 
         :param uid: (Required) The uid of the campaign to fetch (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1099,7 +1030,6 @@ class EmailCampaignsApi:
 
         _param = self._messages_uid_get_serialize(
             uid=uid,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1119,7 +1049,6 @@ class EmailCampaignsApi:
     def _messages_uid_get_serialize(
         self,
         uid,
-        accept,
         _request_auth,
         _content_type,
         _headers,
@@ -1145,8 +1074,6 @@ class EmailCampaignsApi:
             _path_params['uid'] = uid
         # process the query parameters
         # process the header parameters
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
 
@@ -1187,9 +1114,7 @@ class EmailCampaignsApi:
     def messages_uid_patch(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the campaign to update")],
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        campaign_update_request: Optional[CampaignUpdateRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1209,12 +1134,8 @@ class EmailCampaignsApi:
 
         :param uid: (Required) The uid of the campaign to update (required)
         :type uid: str
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param campaign_update_request:
+        :type campaign_update_request: CampaignUpdateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1239,9 +1160,7 @@ class EmailCampaignsApi:
 
         _param = self._messages_uid_patch_serialize(
             uid=uid,
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            campaign_update_request=campaign_update_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1266,9 +1185,7 @@ class EmailCampaignsApi:
     def messages_uid_patch_with_http_info(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the campaign to update")],
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        campaign_update_request: Optional[CampaignUpdateRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1288,12 +1205,8 @@ class EmailCampaignsApi:
 
         :param uid: (Required) The uid of the campaign to update (required)
         :type uid: str
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param campaign_update_request:
+        :type campaign_update_request: CampaignUpdateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1318,9 +1231,7 @@ class EmailCampaignsApi:
 
         _param = self._messages_uid_patch_serialize(
             uid=uid,
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            campaign_update_request=campaign_update_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1345,9 +1256,7 @@ class EmailCampaignsApi:
     def messages_uid_patch_without_preload_content(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the campaign to update")],
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        campaign_update_request: Optional[CampaignUpdateRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1367,12 +1276,8 @@ class EmailCampaignsApi:
 
         :param uid: (Required) The uid of the campaign to update (required)
         :type uid: str
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param campaign_update_request:
+        :type campaign_update_request: CampaignUpdateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1397,9 +1302,7 @@ class EmailCampaignsApi:
 
         _param = self._messages_uid_patch_serialize(
             uid=uid,
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            campaign_update_request=campaign_update_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1419,9 +1322,7 @@ class EmailCampaignsApi:
     def _messages_uid_patch_serialize(
         self,
         uid,
-        content_type,
-        accept,
-        body,
+        campaign_update_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1447,14 +1348,10 @@ class EmailCampaignsApi:
             _path_params['uid'] = uid
         # process the query parameters
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if campaign_update_request is not None:
+            _body_params = campaign_update_request
 
 
         # set the HTTP header `Accept`
@@ -1506,7 +1403,6 @@ class EmailCampaignsApi:
     def messages_uid_pause_post(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the campaign to pause")],
-        accept: Optional[StrictStr] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
             None,
@@ -1527,8 +1423,6 @@ class EmailCampaignsApi:
 
         :param uid: (Required) The uid of the campaign to pause (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param body:
         :type body: object
         :param _request_timeout: timeout setting for this request. If one
@@ -1555,7 +1449,6 @@ class EmailCampaignsApi:
 
         _param = self._messages_uid_pause_post_serialize(
             uid=uid,
-            accept=accept,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1581,7 +1474,6 @@ class EmailCampaignsApi:
     def messages_uid_pause_post_with_http_info(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the campaign to pause")],
-        accept: Optional[StrictStr] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
             None,
@@ -1602,8 +1494,6 @@ class EmailCampaignsApi:
 
         :param uid: (Required) The uid of the campaign to pause (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param body:
         :type body: object
         :param _request_timeout: timeout setting for this request. If one
@@ -1630,7 +1520,6 @@ class EmailCampaignsApi:
 
         _param = self._messages_uid_pause_post_serialize(
             uid=uid,
-            accept=accept,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1656,7 +1545,6 @@ class EmailCampaignsApi:
     def messages_uid_pause_post_without_preload_content(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the campaign to pause")],
-        accept: Optional[StrictStr] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
             None,
@@ -1677,8 +1565,6 @@ class EmailCampaignsApi:
 
         :param uid: (Required) The uid of the campaign to pause (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param body:
         :type body: object
         :param _request_timeout: timeout setting for this request. If one
@@ -1705,7 +1591,6 @@ class EmailCampaignsApi:
 
         _param = self._messages_uid_pause_post_serialize(
             uid=uid,
-            accept=accept,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1726,7 +1611,6 @@ class EmailCampaignsApi:
     def _messages_uid_pause_post_serialize(
         self,
         uid,
-        accept,
         body,
         _request_auth,
         _content_type,
@@ -1753,8 +1637,6 @@ class EmailCampaignsApi:
             _path_params['uid'] = uid
         # process the query parameters
         # process the header parameters
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
         if body is not None:
@@ -1810,7 +1692,6 @@ class EmailCampaignsApi:
     def messages_uid_resume_post(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the campaign to resume")],
-        accept: Optional[StrictStr] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
             None,
@@ -1831,8 +1712,6 @@ class EmailCampaignsApi:
 
         :param uid: (Required) The uid of the campaign to resume (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param body:
         :type body: object
         :param _request_timeout: timeout setting for this request. If one
@@ -1859,7 +1738,6 @@ class EmailCampaignsApi:
 
         _param = self._messages_uid_resume_post_serialize(
             uid=uid,
-            accept=accept,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1885,7 +1763,6 @@ class EmailCampaignsApi:
     def messages_uid_resume_post_with_http_info(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the campaign to resume")],
-        accept: Optional[StrictStr] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
             None,
@@ -1906,8 +1783,6 @@ class EmailCampaignsApi:
 
         :param uid: (Required) The uid of the campaign to resume (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param body:
         :type body: object
         :param _request_timeout: timeout setting for this request. If one
@@ -1934,7 +1809,6 @@ class EmailCampaignsApi:
 
         _param = self._messages_uid_resume_post_serialize(
             uid=uid,
-            accept=accept,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1960,7 +1834,6 @@ class EmailCampaignsApi:
     def messages_uid_resume_post_without_preload_content(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the campaign to resume")],
-        accept: Optional[StrictStr] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
             None,
@@ -1981,8 +1854,6 @@ class EmailCampaignsApi:
 
         :param uid: (Required) The uid of the campaign to resume (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param body:
         :type body: object
         :param _request_timeout: timeout setting for this request. If one
@@ -2009,7 +1880,6 @@ class EmailCampaignsApi:
 
         _param = self._messages_uid_resume_post_serialize(
             uid=uid,
-            accept=accept,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2030,7 +1900,6 @@ class EmailCampaignsApi:
     def _messages_uid_resume_post_serialize(
         self,
         uid,
-        accept,
         body,
         _request_auth,
         _content_type,
@@ -2057,8 +1926,6 @@ class EmailCampaignsApi:
             _path_params['uid'] = uid
         # process the query parameters
         # process the header parameters
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
         if body is not None:

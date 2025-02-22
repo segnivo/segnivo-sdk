@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **contacts_get**
-> object contacts_get(accept=accept, email=email, per_page=per_page, page=page)
+> object contacts_get(email=email, per_page=per_page, page=page)
 
 Get contacts
 
@@ -51,14 +51,13 @@ configuration.api_key['apiKeyAuth'] = os.environ["API_KEY"]
 with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.SubscribersContactsApi(api_client)
-    accept = 'application/json' # str |  (optional)
     email = '<string>' # str | An email address to search for. (optional)
     per_page = 20 # int | How many items should be returned ahead. (optional)
     page = 1 # int | The offset for the items to be returned, helps in pagination. (optional)
 
     try:
         # Get contacts
-        api_response = api_instance.contacts_get(accept=accept, email=email, per_page=per_page, page=page)
+        api_response = api_instance.contacts_get(email=email, per_page=per_page, page=page)
         print("The response of SubscribersContactsApi->contacts_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -72,7 +71,6 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accept** | **str**|  | [optional] 
  **email** | **str**| An email address to search for. | [optional] 
  **per_page** | **int**| How many items should be returned ahead. | [optional] 
  **page** | **int**| The offset for the items to be returned, helps in pagination. | [optional] 
@@ -99,7 +97,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **contacts_post**
-> object contacts_post(content_type=content_type, accept=accept, body=body)
+> object contacts_post(add_contact_request=add_contact_request)
 
 Add a Contact
 
@@ -111,6 +109,7 @@ Add a new contact/subscriber to your mailing list
 
 ```python
 import segnivo_sdk
+from segnivo_sdk.models.add_contact_request import AddContactRequest
 from segnivo_sdk.rest import ApiException
 from pprint import pprint
 
@@ -135,13 +134,11 @@ configuration.api_key['apiKeyAuth'] = os.environ["API_KEY"]
 with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.SubscribersContactsApi(api_client)
-    content_type = 'application/json' # str |  (optional)
-    accept = 'application/json' # str |  (optional)
-    body = None # object |  (optional)
+    add_contact_request = segnivo_sdk.AddContactRequest() # AddContactRequest |  (optional)
 
     try:
         # Add a Contact
-        api_response = api_instance.contacts_post(content_type=content_type, accept=accept, body=body)
+        api_response = api_instance.contacts_post(add_contact_request=add_contact_request)
         print("The response of SubscribersContactsApi->contacts_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -155,9 +152,7 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **str**|  | [optional] 
- **accept** | **str**|  | [optional] 
- **body** | **object**|  | [optional] 
+ **add_contact_request** | [**AddContactRequest**](AddContactRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -181,7 +176,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **contacts_uid_add_tag_post**
-> object contacts_uid_add_tag_post(uid, content_type=content_type, accept=accept, body=body)
+> object contacts_uid_add_tag_post(uid, contacts_uid_add_tag_post_request=contacts_uid_add_tag_post_request)
 
 Add tags to a contact
 
@@ -193,6 +188,7 @@ Add tags to an existing contact
 
 ```python
 import segnivo_sdk
+from segnivo_sdk.models.contacts_uid_add_tag_post_request import ContactsUidAddTagPostRequest
 from segnivo_sdk.rest import ApiException
 from pprint import pprint
 
@@ -218,13 +214,11 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.SubscribersContactsApi(api_client)
     uid = '<string>' # str | (Required) The uid of the contact to update with the tags.
-    content_type = 'application/json' # str |  (optional)
-    accept = 'application/json' # str |  (optional)
-    body = None # object |  (optional)
+    contacts_uid_add_tag_post_request = segnivo_sdk.ContactsUidAddTagPostRequest() # ContactsUidAddTagPostRequest |  (optional)
 
     try:
         # Add tags to a contact
-        api_response = api_instance.contacts_uid_add_tag_post(uid, content_type=content_type, accept=accept, body=body)
+        api_response = api_instance.contacts_uid_add_tag_post(uid, contacts_uid_add_tag_post_request=contacts_uid_add_tag_post_request)
         print("The response of SubscribersContactsApi->contacts_uid_add_tag_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -239,9 +233,7 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uid** | **str**| (Required) The uid of the contact to update with the tags. | 
- **content_type** | **str**|  | [optional] 
- **accept** | **str**|  | [optional] 
- **body** | **object**|  | [optional] 
+ **contacts_uid_add_tag_post_request** | [**ContactsUidAddTagPostRequest**](ContactsUidAddTagPostRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -265,7 +257,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **contacts_uid_delete_post**
-> object contacts_uid_delete_post(uid, accept=accept, body=body)
+> object contacts_uid_delete_post(uid, body=body)
 
 Delete a contact
 
@@ -302,12 +294,11 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.SubscribersContactsApi(api_client)
     uid = '<string>' # str | (Required) The uid of the contact to delete.
-    accept = 'application/json' # str |  (optional)
     body = None # object |  (optional)
 
     try:
         # Delete a contact
-        api_response = api_instance.contacts_uid_delete_post(uid, accept=accept, body=body)
+        api_response = api_instance.contacts_uid_delete_post(uid, body=body)
         print("The response of SubscribersContactsApi->contacts_uid_delete_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -322,7 +313,6 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uid** | **str**| (Required) The uid of the contact to delete. | 
- **accept** | **str**|  | [optional] 
  **body** | **object**|  | [optional] 
 
 ### Return type
@@ -347,7 +337,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **contacts_uid_get**
-> object contacts_uid_get(uid, accept=accept)
+> object contacts_uid_get(uid)
 
 Get a contact
 
@@ -384,11 +374,10 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.SubscribersContactsApi(api_client)
     uid = '<string>' # str | (Required) The uid of the contact to get.
-    accept = 'application/json' # str |  (optional)
 
     try:
         # Get a contact
-        api_response = api_instance.contacts_uid_get(uid, accept=accept)
+        api_response = api_instance.contacts_uid_get(uid)
         print("The response of SubscribersContactsApi->contacts_uid_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -403,7 +392,6 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uid** | **str**| (Required) The uid of the contact to get. | 
- **accept** | **str**|  | [optional] 
 
 ### Return type
 
@@ -427,7 +415,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **contacts_uid_patch**
-> object contacts_uid_patch(uid, content_type=content_type, accept=accept, body=body)
+> object contacts_uid_patch(uid, contact_update_request=contact_update_request)
 
 Update Contact
 
@@ -439,6 +427,7 @@ Update the specified subscriber/contact
 
 ```python
 import segnivo_sdk
+from segnivo_sdk.models.contact_update_request import ContactUpdateRequest
 from segnivo_sdk.rest import ApiException
 from pprint import pprint
 
@@ -464,13 +453,11 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.SubscribersContactsApi(api_client)
     uid = '<string>' # str | (Required) The uid of the contact to update.
-    content_type = 'application/json' # str |  (optional)
-    accept = 'application/json' # str |  (optional)
-    body = None # object |  (optional)
+    contact_update_request = segnivo_sdk.ContactUpdateRequest() # ContactUpdateRequest |  (optional)
 
     try:
         # Update Contact
-        api_response = api_instance.contacts_uid_patch(uid, content_type=content_type, accept=accept, body=body)
+        api_response = api_instance.contacts_uid_patch(uid, contact_update_request=contact_update_request)
         print("The response of SubscribersContactsApi->contacts_uid_patch:\n")
         pprint(api_response)
     except Exception as e:
@@ -485,9 +472,7 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uid** | **str**| (Required) The uid of the contact to update. | 
- **content_type** | **str**|  | [optional] 
- **accept** | **str**|  | [optional] 
- **body** | **object**|  | [optional] 
+ **contact_update_request** | [**ContactUpdateRequest**](ContactUpdateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -511,7 +496,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **contacts_uid_subscribe_patch**
-> object contacts_uid_subscribe_patch(uid, accept=accept, list_uid=list_uid, body=body)
+> object contacts_uid_subscribe_patch(uid, list_uid=list_uid, body=body)
 
 Subscribe a contact
 
@@ -548,13 +533,12 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.SubscribersContactsApi(api_client)
     uid = '<string>' # str | (Required) The uid of the contact to subscribe.
-    accept = 'application/json' # str |  (optional)
     list_uid = '<string>' # str | (Required) The uid of the mail list to subscribe the contact. (optional)
     body = None # object |  (optional)
 
     try:
         # Subscribe a contact
-        api_response = api_instance.contacts_uid_subscribe_patch(uid, accept=accept, list_uid=list_uid, body=body)
+        api_response = api_instance.contacts_uid_subscribe_patch(uid, list_uid=list_uid, body=body)
         print("The response of SubscribersContactsApi->contacts_uid_subscribe_patch:\n")
         pprint(api_response)
     except Exception as e:
@@ -569,7 +553,6 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uid** | **str**| (Required) The uid of the contact to subscribe. | 
- **accept** | **str**|  | [optional] 
  **list_uid** | **str**| (Required) The uid of the mail list to subscribe the contact. | [optional] 
  **body** | **object**|  | [optional] 
 
@@ -595,7 +578,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **contacts_uid_unsubscribe_patch**
-> object contacts_uid_unsubscribe_patch(uid, accept=accept, list_uid=list_uid, body=body)
+> object contacts_uid_unsubscribe_patch(uid, list_uid=list_uid, body=body)
 
 Unsubscribe a contact
 
@@ -632,13 +615,12 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.SubscribersContactsApi(api_client)
     uid = '<string>' # str | (Required) The uid of the contact to unsubscribe.
-    accept = 'application/json' # str |  (optional)
     list_uid = '<string>' # str | (Required) The uid of the mail list to unsubscribe the contact. (optional)
     body = None # object |  (optional)
 
     try:
         # Unsubscribe a contact
-        api_response = api_instance.contacts_uid_unsubscribe_patch(uid, accept=accept, list_uid=list_uid, body=body)
+        api_response = api_instance.contacts_uid_unsubscribe_patch(uid, list_uid=list_uid, body=body)
         print("The response of SubscribersContactsApi->contacts_uid_unsubscribe_patch:\n")
         pprint(api_response)
     except Exception as e:
@@ -653,7 +635,6 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uid** | **str**| (Required) The uid of the contact to unsubscribe. | 
- **accept** | **str**|  | [optional] 
  **list_uid** | **str**| (Required) The uid of the mail list to unsubscribe the contact. | [optional] 
  **body** | **object**|  | [optional] 
 

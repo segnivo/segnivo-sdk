@@ -14,3 +14,13 @@
 
 
 # import models into model package
+from segnivo_sdk.models.add_contact_request import AddContactRequest
+from segnivo_sdk.models.campaign_create_request import CampaignCreateRequest
+from segnivo_sdk.models.campaign_update_request import CampaignUpdateRequest
+from segnivo_sdk.models.contact_update_request import ContactUpdateRequest
+from segnivo_sdk.models.contacts_uid_add_tag_post_request import ContactsUidAddTagPostRequest
+from segnivo_sdk.models.email_address_verification_request import EmailAddressVerificationRequest
+from segnivo_sdk.models.mailing_list_add_field_request import MailingListAddFieldRequest
+from segnivo_sdk.models.mailing_list_request import MailingListRequest
+from segnivo_sdk.models.mailing_list_request_contact import MailingListRequestContact
+from segnivo_sdk.models.relay_email_request import RelayEmailRequest

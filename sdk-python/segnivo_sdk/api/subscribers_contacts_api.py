@@ -19,6 +19,9 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import Any, Dict, Optional
 from typing_extensions import Annotated
+from segnivo_sdk.models.add_contact_request import AddContactRequest
+from segnivo_sdk.models.contact_update_request import ContactUpdateRequest
+from segnivo_sdk.models.contacts_uid_add_tag_post_request import ContactsUidAddTagPostRequest
 
 from segnivo_sdk.api_client import ApiClient, RequestSerialized
 from segnivo_sdk.api_response import ApiResponse
@@ -41,7 +44,6 @@ class SubscribersContactsApi:
     @validate_call
     def contacts_get(
         self,
-        accept: Optional[StrictStr] = None,
         email: Annotated[Optional[StrictStr], Field(description="An email address to search for.")] = None,
         per_page: Annotated[Optional[StrictInt], Field(description="How many items should be returned ahead.")] = None,
         page: Annotated[Optional[StrictInt], Field(description="The offset for the items to be returned, helps in pagination.")] = None,
@@ -62,8 +64,6 @@ class SubscribersContactsApi:
 
         Returns a list of contacts/subscribers on your account  This endpoint accepts three **optional** query parameters  - `email` — An email address to search for. If set, the endpoint only returns subscribers that have an identical email address.      - `per_page` — A limit on the number of records to return.      - `page` — The parameter serves as an offset on the number of records returned.
 
-        :param accept:
-        :type accept: str
         :param email: An email address to search for.
         :type email: str
         :param per_page: How many items should be returned ahead.
@@ -93,7 +93,6 @@ class SubscribersContactsApi:
         """ # noqa: E501
 
         _param = self._contacts_get_serialize(
-            accept=accept,
             email=email,
             per_page=per_page,
             page=page,
@@ -120,7 +119,6 @@ class SubscribersContactsApi:
     @validate_call
     def contacts_get_with_http_info(
         self,
-        accept: Optional[StrictStr] = None,
         email: Annotated[Optional[StrictStr], Field(description="An email address to search for.")] = None,
         per_page: Annotated[Optional[StrictInt], Field(description="How many items should be returned ahead.")] = None,
         page: Annotated[Optional[StrictInt], Field(description="The offset for the items to be returned, helps in pagination.")] = None,
@@ -141,8 +139,6 @@ class SubscribersContactsApi:
 
         Returns a list of contacts/subscribers on your account  This endpoint accepts three **optional** query parameters  - `email` — An email address to search for. If set, the endpoint only returns subscribers that have an identical email address.      - `per_page` — A limit on the number of records to return.      - `page` — The parameter serves as an offset on the number of records returned.
 
-        :param accept:
-        :type accept: str
         :param email: An email address to search for.
         :type email: str
         :param per_page: How many items should be returned ahead.
@@ -172,7 +168,6 @@ class SubscribersContactsApi:
         """ # noqa: E501
 
         _param = self._contacts_get_serialize(
-            accept=accept,
             email=email,
             per_page=per_page,
             page=page,
@@ -199,7 +194,6 @@ class SubscribersContactsApi:
     @validate_call
     def contacts_get_without_preload_content(
         self,
-        accept: Optional[StrictStr] = None,
         email: Annotated[Optional[StrictStr], Field(description="An email address to search for.")] = None,
         per_page: Annotated[Optional[StrictInt], Field(description="How many items should be returned ahead.")] = None,
         page: Annotated[Optional[StrictInt], Field(description="The offset for the items to be returned, helps in pagination.")] = None,
@@ -220,8 +214,6 @@ class SubscribersContactsApi:
 
         Returns a list of contacts/subscribers on your account  This endpoint accepts three **optional** query parameters  - `email` — An email address to search for. If set, the endpoint only returns subscribers that have an identical email address.      - `per_page` — A limit on the number of records to return.      - `page` — The parameter serves as an offset on the number of records returned.
 
-        :param accept:
-        :type accept: str
         :param email: An email address to search for.
         :type email: str
         :param per_page: How many items should be returned ahead.
@@ -251,7 +243,6 @@ class SubscribersContactsApi:
         """ # noqa: E501
 
         _param = self._contacts_get_serialize(
-            accept=accept,
             email=email,
             per_page=per_page,
             page=page,
@@ -273,7 +264,6 @@ class SubscribersContactsApi:
 
     def _contacts_get_serialize(
         self,
-        accept,
         email,
         per_page,
         page,
@@ -312,8 +302,6 @@ class SubscribersContactsApi:
             _query_params.append(('page', page))
             
         # process the header parameters
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
 
@@ -353,9 +341,7 @@ class SubscribersContactsApi:
     @validate_call
     def contacts_post(
         self,
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        add_contact_request: Optional[AddContactRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -373,12 +359,8 @@ class SubscribersContactsApi:
 
         Add a new contact/subscriber to your mailing list
 
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param add_contact_request:
+        :type add_contact_request: AddContactRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -402,9 +384,7 @@ class SubscribersContactsApi:
         """ # noqa: E501
 
         _param = self._contacts_post_serialize(
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            add_contact_request=add_contact_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -428,9 +408,7 @@ class SubscribersContactsApi:
     @validate_call
     def contacts_post_with_http_info(
         self,
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        add_contact_request: Optional[AddContactRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -448,12 +426,8 @@ class SubscribersContactsApi:
 
         Add a new contact/subscriber to your mailing list
 
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param add_contact_request:
+        :type add_contact_request: AddContactRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -477,9 +451,7 @@ class SubscribersContactsApi:
         """ # noqa: E501
 
         _param = self._contacts_post_serialize(
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            add_contact_request=add_contact_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -503,9 +475,7 @@ class SubscribersContactsApi:
     @validate_call
     def contacts_post_without_preload_content(
         self,
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        add_contact_request: Optional[AddContactRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -523,12 +493,8 @@ class SubscribersContactsApi:
 
         Add a new contact/subscriber to your mailing list
 
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param add_contact_request:
+        :type add_contact_request: AddContactRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -552,9 +518,7 @@ class SubscribersContactsApi:
         """ # noqa: E501
 
         _param = self._contacts_post_serialize(
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            add_contact_request=add_contact_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -573,9 +537,7 @@ class SubscribersContactsApi:
 
     def _contacts_post_serialize(
         self,
-        content_type,
-        accept,
-        body,
+        add_contact_request,
         _request_auth,
         _content_type,
         _headers,
@@ -599,14 +561,10 @@ class SubscribersContactsApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if add_contact_request is not None:
+            _body_params = add_contact_request
 
 
         # set the HTTP header `Accept`
@@ -658,9 +616,7 @@ class SubscribersContactsApi:
     def contacts_uid_add_tag_post(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to update with the tags.")],
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        contacts_uid_add_tag_post_request: Optional[ContactsUidAddTagPostRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -680,12 +636,8 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to update with the tags. (required)
         :type uid: str
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param contacts_uid_add_tag_post_request:
+        :type contacts_uid_add_tag_post_request: ContactsUidAddTagPostRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -710,9 +662,7 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_add_tag_post_serialize(
             uid=uid,
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            contacts_uid_add_tag_post_request=contacts_uid_add_tag_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -737,9 +687,7 @@ class SubscribersContactsApi:
     def contacts_uid_add_tag_post_with_http_info(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to update with the tags.")],
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        contacts_uid_add_tag_post_request: Optional[ContactsUidAddTagPostRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -759,12 +707,8 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to update with the tags. (required)
         :type uid: str
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param contacts_uid_add_tag_post_request:
+        :type contacts_uid_add_tag_post_request: ContactsUidAddTagPostRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -789,9 +733,7 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_add_tag_post_serialize(
             uid=uid,
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            contacts_uid_add_tag_post_request=contacts_uid_add_tag_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -816,9 +758,7 @@ class SubscribersContactsApi:
     def contacts_uid_add_tag_post_without_preload_content(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to update with the tags.")],
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        contacts_uid_add_tag_post_request: Optional[ContactsUidAddTagPostRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -838,12 +778,8 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to update with the tags. (required)
         :type uid: str
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param contacts_uid_add_tag_post_request:
+        :type contacts_uid_add_tag_post_request: ContactsUidAddTagPostRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -868,9 +804,7 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_add_tag_post_serialize(
             uid=uid,
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            contacts_uid_add_tag_post_request=contacts_uid_add_tag_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -890,9 +824,7 @@ class SubscribersContactsApi:
     def _contacts_uid_add_tag_post_serialize(
         self,
         uid,
-        content_type,
-        accept,
-        body,
+        contacts_uid_add_tag_post_request,
         _request_auth,
         _content_type,
         _headers,
@@ -918,14 +850,10 @@ class SubscribersContactsApi:
             _path_params['uid'] = uid
         # process the query parameters
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if contacts_uid_add_tag_post_request is not None:
+            _body_params = contacts_uid_add_tag_post_request
 
 
         # set the HTTP header `Accept`
@@ -977,7 +905,6 @@ class SubscribersContactsApi:
     def contacts_uid_delete_post(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to delete.")],
-        accept: Optional[StrictStr] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
             None,
@@ -998,8 +925,6 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to delete. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param body:
         :type body: object
         :param _request_timeout: timeout setting for this request. If one
@@ -1026,7 +951,6 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_delete_post_serialize(
             uid=uid,
-            accept=accept,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1052,7 +976,6 @@ class SubscribersContactsApi:
     def contacts_uid_delete_post_with_http_info(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to delete.")],
-        accept: Optional[StrictStr] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
             None,
@@ -1073,8 +996,6 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to delete. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param body:
         :type body: object
         :param _request_timeout: timeout setting for this request. If one
@@ -1101,7 +1022,6 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_delete_post_serialize(
             uid=uid,
-            accept=accept,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1127,7 +1047,6 @@ class SubscribersContactsApi:
     def contacts_uid_delete_post_without_preload_content(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to delete.")],
-        accept: Optional[StrictStr] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
             None,
@@ -1148,8 +1067,6 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to delete. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param body:
         :type body: object
         :param _request_timeout: timeout setting for this request. If one
@@ -1176,7 +1093,6 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_delete_post_serialize(
             uid=uid,
-            accept=accept,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1197,7 +1113,6 @@ class SubscribersContactsApi:
     def _contacts_uid_delete_post_serialize(
         self,
         uid,
-        accept,
         body,
         _request_auth,
         _content_type,
@@ -1224,8 +1139,6 @@ class SubscribersContactsApi:
             _path_params['uid'] = uid
         # process the query parameters
         # process the header parameters
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
         if body is not None:
@@ -1281,7 +1194,6 @@ class SubscribersContactsApi:
     def contacts_uid_get(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to get.")],
-        accept: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1301,8 +1213,6 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to get. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1327,7 +1237,6 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_get_serialize(
             uid=uid,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1352,7 +1261,6 @@ class SubscribersContactsApi:
     def contacts_uid_get_with_http_info(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to get.")],
-        accept: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1372,8 +1280,6 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to get. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1398,7 +1304,6 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_get_serialize(
             uid=uid,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1423,7 +1328,6 @@ class SubscribersContactsApi:
     def contacts_uid_get_without_preload_content(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to get.")],
-        accept: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1443,8 +1347,6 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to get. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1469,7 +1371,6 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_get_serialize(
             uid=uid,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1489,7 +1390,6 @@ class SubscribersContactsApi:
     def _contacts_uid_get_serialize(
         self,
         uid,
-        accept,
         _request_auth,
         _content_type,
         _headers,
@@ -1515,8 +1415,6 @@ class SubscribersContactsApi:
             _path_params['uid'] = uid
         # process the query parameters
         # process the header parameters
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
 
@@ -1557,9 +1455,7 @@ class SubscribersContactsApi:
     def contacts_uid_patch(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to update.")],
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        contact_update_request: Optional[ContactUpdateRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1579,12 +1475,8 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to update. (required)
         :type uid: str
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param contact_update_request:
+        :type contact_update_request: ContactUpdateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1609,9 +1501,7 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_patch_serialize(
             uid=uid,
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            contact_update_request=contact_update_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1636,9 +1526,7 @@ class SubscribersContactsApi:
     def contacts_uid_patch_with_http_info(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to update.")],
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        contact_update_request: Optional[ContactUpdateRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1658,12 +1546,8 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to update. (required)
         :type uid: str
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param contact_update_request:
+        :type contact_update_request: ContactUpdateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1688,9 +1572,7 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_patch_serialize(
             uid=uid,
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            contact_update_request=contact_update_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1715,9 +1597,7 @@ class SubscribersContactsApi:
     def contacts_uid_patch_without_preload_content(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to update.")],
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        contact_update_request: Optional[ContactUpdateRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1737,12 +1617,8 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to update. (required)
         :type uid: str
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param contact_update_request:
+        :type contact_update_request: ContactUpdateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1767,9 +1643,7 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_patch_serialize(
             uid=uid,
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            contact_update_request=contact_update_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1789,9 +1663,7 @@ class SubscribersContactsApi:
     def _contacts_uid_patch_serialize(
         self,
         uid,
-        content_type,
-        accept,
-        body,
+        contact_update_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1817,14 +1689,10 @@ class SubscribersContactsApi:
             _path_params['uid'] = uid
         # process the query parameters
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if contact_update_request is not None:
+            _body_params = contact_update_request
 
 
         # set the HTTP header `Accept`
@@ -1876,7 +1744,6 @@ class SubscribersContactsApi:
     def contacts_uid_subscribe_patch(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to subscribe.")],
-        accept: Optional[StrictStr] = None,
         list_uid: Annotated[Optional[StrictStr], Field(description="(Required) The uid of the mail list to subscribe the contact.")] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
@@ -1898,8 +1765,6 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to subscribe. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param list_uid: (Required) The uid of the mail list to subscribe the contact.
         :type list_uid: str
         :param body:
@@ -1928,7 +1793,6 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_subscribe_patch_serialize(
             uid=uid,
-            accept=accept,
             list_uid=list_uid,
             body=body,
             _request_auth=_request_auth,
@@ -1955,7 +1819,6 @@ class SubscribersContactsApi:
     def contacts_uid_subscribe_patch_with_http_info(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to subscribe.")],
-        accept: Optional[StrictStr] = None,
         list_uid: Annotated[Optional[StrictStr], Field(description="(Required) The uid of the mail list to subscribe the contact.")] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
@@ -1977,8 +1840,6 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to subscribe. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param list_uid: (Required) The uid of the mail list to subscribe the contact.
         :type list_uid: str
         :param body:
@@ -2007,7 +1868,6 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_subscribe_patch_serialize(
             uid=uid,
-            accept=accept,
             list_uid=list_uid,
             body=body,
             _request_auth=_request_auth,
@@ -2034,7 +1894,6 @@ class SubscribersContactsApi:
     def contacts_uid_subscribe_patch_without_preload_content(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to subscribe.")],
-        accept: Optional[StrictStr] = None,
         list_uid: Annotated[Optional[StrictStr], Field(description="(Required) The uid of the mail list to subscribe the contact.")] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
@@ -2056,8 +1915,6 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to subscribe. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param list_uid: (Required) The uid of the mail list to subscribe the contact.
         :type list_uid: str
         :param body:
@@ -2086,7 +1943,6 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_subscribe_patch_serialize(
             uid=uid,
-            accept=accept,
             list_uid=list_uid,
             body=body,
             _request_auth=_request_auth,
@@ -2108,7 +1964,6 @@ class SubscribersContactsApi:
     def _contacts_uid_subscribe_patch_serialize(
         self,
         uid,
-        accept,
         list_uid,
         body,
         _request_auth,
@@ -2140,8 +1995,6 @@ class SubscribersContactsApi:
             _query_params.append(('list_uid', list_uid))
             
         # process the header parameters
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
         if body is not None:
@@ -2197,7 +2050,6 @@ class SubscribersContactsApi:
     def contacts_uid_unsubscribe_patch(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to unsubscribe.")],
-        accept: Optional[StrictStr] = None,
         list_uid: Annotated[Optional[StrictStr], Field(description="(Required) The uid of the mail list to unsubscribe the contact.")] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
@@ -2219,8 +2071,6 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to unsubscribe. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param list_uid: (Required) The uid of the mail list to unsubscribe the contact.
         :type list_uid: str
         :param body:
@@ -2249,7 +2099,6 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_unsubscribe_patch_serialize(
             uid=uid,
-            accept=accept,
             list_uid=list_uid,
             body=body,
             _request_auth=_request_auth,
@@ -2276,7 +2125,6 @@ class SubscribersContactsApi:
     def contacts_uid_unsubscribe_patch_with_http_info(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to unsubscribe.")],
-        accept: Optional[StrictStr] = None,
         list_uid: Annotated[Optional[StrictStr], Field(description="(Required) The uid of the mail list to unsubscribe the contact.")] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
@@ -2298,8 +2146,6 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to unsubscribe. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param list_uid: (Required) The uid of the mail list to unsubscribe the contact.
         :type list_uid: str
         :param body:
@@ -2328,7 +2174,6 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_unsubscribe_patch_serialize(
             uid=uid,
-            accept=accept,
             list_uid=list_uid,
             body=body,
             _request_auth=_request_auth,
@@ -2355,7 +2200,6 @@ class SubscribersContactsApi:
     def contacts_uid_unsubscribe_patch_without_preload_content(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the contact to unsubscribe.")],
-        accept: Optional[StrictStr] = None,
         list_uid: Annotated[Optional[StrictStr], Field(description="(Required) The uid of the mail list to unsubscribe the contact.")] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
@@ -2377,8 +2221,6 @@ class SubscribersContactsApi:
 
         :param uid: (Required) The uid of the contact to unsubscribe. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param list_uid: (Required) The uid of the mail list to unsubscribe the contact.
         :type list_uid: str
         :param body:
@@ -2407,7 +2249,6 @@ class SubscribersContactsApi:
 
         _param = self._contacts_uid_unsubscribe_patch_serialize(
             uid=uid,
-            accept=accept,
             list_uid=list_uid,
             body=body,
             _request_auth=_request_auth,
@@ -2429,7 +2270,6 @@ class SubscribersContactsApi:
     def _contacts_uid_unsubscribe_patch_serialize(
         self,
         uid,
-        accept,
         list_uid,
         body,
         _request_auth,
@@ -2461,8 +2301,6 @@ class SubscribersContactsApi:
             _query_params.append(('list_uid', list_uid))
             
         # process the header parameters
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
         if body is not None:

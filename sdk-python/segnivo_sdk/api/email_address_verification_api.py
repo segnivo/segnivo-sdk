@@ -17,6 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from typing import Any, Dict, Optional
+from segnivo_sdk.models.email_address_verification_request import EmailAddressVerificationRequest
 
 from segnivo_sdk.api_client import ApiClient, RequestSerialized
 from segnivo_sdk.api_response import ApiResponse
@@ -39,7 +40,7 @@ class EmailAddressVerificationApi:
     @validate_call
     def validate_email_post(
         self,
-        body: Optional[Dict[str, Any]] = None,
+        email_address_verification_request: Optional[EmailAddressVerificationRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -57,8 +58,8 @@ class EmailAddressVerificationApi:
 
         The `/validate-email` endpoint allows you to pass the email addresses you wish to verify and get a response on each of their status.  The following data should be passed in JSON format in the request body  - **emails** - An array/collection containing a minimum of one and maximum of fifty email addresses for verification/validation.
 
-        :param body:
-        :type body: object
+        :param email_address_verification_request:
+        :type email_address_verification_request: EmailAddressVerificationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -82,7 +83,7 @@ class EmailAddressVerificationApi:
         """ # noqa: E501
 
         _param = self._validate_email_post_serialize(
-            body=body,
+            email_address_verification_request=email_address_verification_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -106,7 +107,7 @@ class EmailAddressVerificationApi:
     @validate_call
     def validate_email_post_with_http_info(
         self,
-        body: Optional[Dict[str, Any]] = None,
+        email_address_verification_request: Optional[EmailAddressVerificationRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -124,8 +125,8 @@ class EmailAddressVerificationApi:
 
         The `/validate-email` endpoint allows you to pass the email addresses you wish to verify and get a response on each of their status.  The following data should be passed in JSON format in the request body  - **emails** - An array/collection containing a minimum of one and maximum of fifty email addresses for verification/validation.
 
-        :param body:
-        :type body: object
+        :param email_address_verification_request:
+        :type email_address_verification_request: EmailAddressVerificationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -149,7 +150,7 @@ class EmailAddressVerificationApi:
         """ # noqa: E501
 
         _param = self._validate_email_post_serialize(
-            body=body,
+            email_address_verification_request=email_address_verification_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -173,7 +174,7 @@ class EmailAddressVerificationApi:
     @validate_call
     def validate_email_post_without_preload_content(
         self,
-        body: Optional[Dict[str, Any]] = None,
+        email_address_verification_request: Optional[EmailAddressVerificationRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -191,8 +192,8 @@ class EmailAddressVerificationApi:
 
         The `/validate-email` endpoint allows you to pass the email addresses you wish to verify and get a response on each of their status.  The following data should be passed in JSON format in the request body  - **emails** - An array/collection containing a minimum of one and maximum of fifty email addresses for verification/validation.
 
-        :param body:
-        :type body: object
+        :param email_address_verification_request:
+        :type email_address_verification_request: EmailAddressVerificationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -216,7 +217,7 @@ class EmailAddressVerificationApi:
         """ # noqa: E501
 
         _param = self._validate_email_post_serialize(
-            body=body,
+            email_address_verification_request=email_address_verification_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -235,7 +236,7 @@ class EmailAddressVerificationApi:
 
     def _validate_email_post_serialize(
         self,
-        body,
+        email_address_verification_request,
         _request_auth,
         _content_type,
         _headers,
@@ -261,8 +262,8 @@ class EmailAddressVerificationApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if email_address_verification_request is not None:
+            _body_params = email_address_verification_request
 
 
         # set the HTTP header `Accept`

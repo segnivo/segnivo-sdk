@@ -36,7 +36,6 @@ describe 'SubscribersContactsApi' do
   # Get contacts
   # Returns a list of contacts/subscribers on your account  This endpoint accepts three **optional** query parameters  - &#x60;email&#x60; — An email address to search for. If set, the endpoint only returns subscribers that have an identical email address.      - &#x60;per_page&#x60; — A limit on the number of records to return.      - &#x60;page&#x60; — The parameter serves as an offset on the number of records returned.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :accept 
   # @option opts [String] :email An email address to search for.
   # @option opts [Integer] :per_page How many items should be returned ahead.
   # @option opts [Integer] :page The offset for the items to be returned, helps in pagination.
@@ -51,9 +50,7 @@ describe 'SubscribersContactsApi' do
   # Add a Contact
   # Add a new contact/subscriber to your mailing list
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :content_type 
-  # @option opts [String] :accept 
-  # @option opts [Object] :body 
+  # @option opts [AddContactRequest] :add_contact_request 
   # @return [Object]
   describe 'contacts_post test' do
     it 'should work' do
@@ -66,9 +63,7 @@ describe 'SubscribersContactsApi' do
   # Add tags to an existing contact
   # @param uid (Required) The uid of the contact to update with the tags.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :content_type 
-  # @option opts [String] :accept 
-  # @option opts [Object] :body 
+  # @option opts [ContactsUidAddTagPostRequest] :contacts_uid_add_tag_post_request 
   # @return [Object]
   describe 'contacts_uid_add_tag_post test' do
     it 'should work' do
@@ -81,7 +76,6 @@ describe 'SubscribersContactsApi' do
   # Delete an existing contact
   # @param uid (Required) The uid of the contact to delete.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :accept 
   # @option opts [Object] :body 
   # @return [Object]
   describe 'contacts_uid_delete_post test' do
@@ -95,7 +89,6 @@ describe 'SubscribersContactsApi' do
   # Fetch detailed contact information for specified a contact
   # @param uid (Required) The uid of the contact to get.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :accept 
   # @return [Object]
   describe 'contacts_uid_get test' do
     it 'should work' do
@@ -108,9 +101,7 @@ describe 'SubscribersContactsApi' do
   # Update the specified subscriber/contact
   # @param uid (Required) The uid of the contact to update.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :content_type 
-  # @option opts [String] :accept 
-  # @option opts [Object] :body 
+  # @option opts [ContactUpdateRequest] :contact_update_request 
   # @return [Object]
   describe 'contacts_uid_patch test' do
     it 'should work' do
@@ -123,7 +114,6 @@ describe 'SubscribersContactsApi' do
   # Subscribe a contact to a list
   # @param uid (Required) The uid of the contact to subscribe.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :accept 
   # @option opts [String] :list_uid (Required) The uid of the mail list to subscribe the contact.
   # @option opts [Object] :body 
   # @return [Object]
@@ -138,7 +128,6 @@ describe 'SubscribersContactsApi' do
   # Unsubscribe a contact from a list
   # @param uid (Required) The uid of the contact to unsubscribe.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :accept 
   # @option opts [String] :list_uid (Required) The uid of the mail list to unsubscribe the contact.
   # @option opts [Object] :body 
   # @return [Object]

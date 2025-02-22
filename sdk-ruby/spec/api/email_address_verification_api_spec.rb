@@ -36,7 +36,7 @@ describe 'EmailAddressVerificationApi' do
   # Email Address Verification Validation
   # The &#x60;/validate-email&#x60; endpoint allows you to pass the email addresses you wish to verify and get a response on each of their status.  The following data should be passed in JSON format in the request body  - **emails** - An array/collection containing a minimum of one and maximum of fifty email addresses for verification/validation.
   # @param [Hash] opts the optional parameters
-  # @option opts [Object] :body 
+  # @option opts [EmailAddressVerificationRequest] :email_address_verification_request 
   # @return [Object]
   describe 'validate_email_post test' do
     it 'should work' do

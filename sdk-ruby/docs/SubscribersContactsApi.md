@@ -37,7 +37,6 @@ end
 
 api_instance = SegnivoSDK::SubscribersContactsApi.new
 opts = {
-  accept: 'application/json', # String | 
   email: '<string>', # String | An email address to search for.
   per_page: 20, # Integer | How many items should be returned ahead.
   page: 1 # Integer | The offset for the items to be returned, helps in pagination.
@@ -74,7 +73,6 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **accept** | **String** |  | [optional] |
 | **email** | **String** | An email address to search for. | [optional] |
 | **per_page** | **Integer** | How many items should be returned ahead. | [optional] |
 | **page** | **Integer** | The offset for the items to be returned, helps in pagination. | [optional] |
@@ -116,9 +114,7 @@ end
 
 api_instance = SegnivoSDK::SubscribersContactsApi.new
 opts = {
-  content_type: 'application/json', # String | 
-  accept: 'application/json', # String | 
-  body: { ... } # Object | 
+  add_contact_request: SegnivoSDK::AddContactRequest.new({list_uid: 'list_uid_example', email: 'email_example'}) # AddContactRequest | 
 }
 
 begin
@@ -152,9 +148,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **content_type** | **String** |  | [optional] |
-| **accept** | **String** |  | [optional] |
-| **body** | **Object** |  | [optional] |
+| **add_contact_request** | [**AddContactRequest**](AddContactRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -194,9 +188,7 @@ end
 api_instance = SegnivoSDK::SubscribersContactsApi.new
 uid = '<string>' # String | (Required) The uid of the contact to update with the tags.
 opts = {
-  content_type: 'application/json', # String | 
-  accept: 'application/json', # String | 
-  body: { ... } # Object | 
+  contacts_uid_add_tag_post_request: SegnivoSDK::ContactsUidAddTagPostRequest.new # ContactsUidAddTagPostRequest | 
 }
 
 begin
@@ -231,9 +223,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **uid** | **String** | (Required) The uid of the contact to update with the tags. |  |
-| **content_type** | **String** |  | [optional] |
-| **accept** | **String** |  | [optional] |
-| **body** | **Object** |  | [optional] |
+| **contacts_uid_add_tag_post_request** | [**ContactsUidAddTagPostRequest**](ContactsUidAddTagPostRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -273,7 +263,6 @@ end
 api_instance = SegnivoSDK::SubscribersContactsApi.new
 uid = '<string>' # String | (Required) The uid of the contact to delete.
 opts = {
-  accept: 'application/json', # String | 
   body: { ... } # Object | 
 }
 
@@ -309,7 +298,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **uid** | **String** | (Required) The uid of the contact to delete. |  |
-| **accept** | **String** |  | [optional] |
 | **body** | **Object** |  | [optional] |
 
 ### Return type
@@ -328,7 +316,7 @@ end
 
 ## contacts_uid_get
 
-> Object contacts_uid_get(uid, opts)
+> Object contacts_uid_get(uid)
 
 Get a contact
 
@@ -349,13 +337,10 @@ end
 
 api_instance = SegnivoSDK::SubscribersContactsApi.new
 uid = '<string>' # String | (Required) The uid of the contact to get.
-opts = {
-  accept: 'application/json' # String | 
-}
 
 begin
   # Get a contact
-  result = api_instance.contacts_uid_get(uid, opts)
+  result = api_instance.contacts_uid_get(uid)
   p result
 rescue SegnivoSDK::ApiError => e
   puts "Error when calling SubscribersContactsApi->contacts_uid_get: #{e}"
@@ -366,12 +351,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> contacts_uid_get_with_http_info(uid, opts)
+> <Array(Object, Integer, Hash)> contacts_uid_get_with_http_info(uid)
 
 ```ruby
 begin
   # Get a contact
-  data, status_code, headers = api_instance.contacts_uid_get_with_http_info(uid, opts)
+  data, status_code, headers = api_instance.contacts_uid_get_with_http_info(uid)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
@@ -385,7 +370,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **uid** | **String** | (Required) The uid of the contact to get. |  |
-| **accept** | **String** |  | [optional] |
 
 ### Return type
 
@@ -425,9 +409,7 @@ end
 api_instance = SegnivoSDK::SubscribersContactsApi.new
 uid = '<string>' # String | (Required) The uid of the contact to update.
 opts = {
-  content_type: 'application/json', # String | 
-  accept: 'application/json', # String | 
-  body: { ... } # Object | 
+  contact_update_request: SegnivoSDK::ContactUpdateRequest.new # ContactUpdateRequest | 
 }
 
 begin
@@ -462,9 +444,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **uid** | **String** | (Required) The uid of the contact to update. |  |
-| **content_type** | **String** |  | [optional] |
-| **accept** | **String** |  | [optional] |
-| **body** | **Object** |  | [optional] |
+| **contact_update_request** | [**ContactUpdateRequest**](ContactUpdateRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -504,7 +484,6 @@ end
 api_instance = SegnivoSDK::SubscribersContactsApi.new
 uid = '<string>' # String | (Required) The uid of the contact to subscribe.
 opts = {
-  accept: 'application/json', # String | 
   list_uid: '<string>', # String | (Required) The uid of the mail list to subscribe the contact.
   body: { ... } # Object | 
 }
@@ -541,7 +520,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **uid** | **String** | (Required) The uid of the contact to subscribe. |  |
-| **accept** | **String** |  | [optional] |
 | **list_uid** | **String** | (Required) The uid of the mail list to subscribe the contact. | [optional] |
 | **body** | **Object** |  | [optional] |
 
@@ -583,7 +561,6 @@ end
 api_instance = SegnivoSDK::SubscribersContactsApi.new
 uid = '<string>' # String | (Required) The uid of the contact to unsubscribe.
 opts = {
-  accept: 'application/json', # String | 
   list_uid: '<string>', # String | (Required) The uid of the mail list to unsubscribe the contact.
   body: { ... } # Object | 
 }
@@ -620,7 +597,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **uid** | **String** | (Required) The uid of the contact to unsubscribe. |  |
-| **accept** | **String** |  | [optional] |
 | **list_uid** | **String** | (Required) The uid of the mail list to unsubscribe the contact. | [optional] |
 | **body** | **Object** |  | [optional] |
 

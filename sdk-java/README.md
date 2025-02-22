@@ -100,7 +100,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.segnivo</groupId>
   <artifactId>segnivo-sdk</artifactId>
-  <version>1.7.2</version>
+  <version>1.7.16</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -116,7 +116,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.segnivo:segnivo-sdk:1.7.2"
+     implementation "com.segnivo:segnivo-sdk:1.7.16"
   }
 ```
 
@@ -130,7 +130,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/segnivo-sdk-1.7.2.jar`
+- `target/segnivo-sdk-1.7.16.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -157,9 +157,9 @@ public class EmailAddressVerificationApiExample {
         //apiKeyAuth.setApiKeyPrefix("Token");
 
         EmailAddressVerificationApi apiInstance = new EmailAddressVerificationApi(defaultClient);
-        Object body = null; // Object | 
+        EmailAddressVerificationRequest emailAddressVerificationRequest = new EmailAddressVerificationRequest(); // EmailAddressVerificationRequest | 
         try {
-            Object result = apiInstance.validateEmailPost(body);
+            Object result = apiInstance.validateEmailPost(emailAddressVerificationRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling EmailAddressVerificationApi#validateEmailPost");
@@ -208,6 +208,16 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [AddContactRequest](docs/AddContactRequest.md)
+ - [CampaignCreateRequest](docs/CampaignCreateRequest.md)
+ - [CampaignUpdateRequest](docs/CampaignUpdateRequest.md)
+ - [ContactUpdateRequest](docs/ContactUpdateRequest.md)
+ - [ContactsUidAddTagPostRequest](docs/ContactsUidAddTagPostRequest.md)
+ - [EmailAddressVerificationRequest](docs/EmailAddressVerificationRequest.md)
+ - [MailingListAddFieldRequest](docs/MailingListAddFieldRequest.md)
+ - [MailingListRequest](docs/MailingListRequest.md)
+ - [MailingListRequestContact](docs/MailingListRequestContact.md)
+ - [RelayEmailRequest](docs/RelayEmailRequest.md)
 
 
 <a id="documentation-for-authorization"></a>

@@ -319,11 +319,11 @@ class RelayApi:
     @validate_call
     def relay_raw_post(
         self,
-        message: Optional[StrictStr] = None,
-        is_transactional: Optional[StrictBool] = None,
-        track_click: Optional[StrictBool] = None,
-        track_open: Optional[StrictBool] = None,
-        sign_dkim: Optional[StrictBool] = None,
+        message: Annotated[Optional[StrictStr], Field(description="The raw email content in RFC822 format. This should include headers, body content, and any attachments.")] = None,
+        is_transactional: Annotated[Optional[StrictBool], Field(description="Indicates whether the email is transactional (e.g., receipts, order confirmations) or marketing. Transactional emails typically bypass unsubscribes.")] = None,
+        track_click: Annotated[Optional[StrictBool], Field(description="Enables or disables click tracking within the email. When enabled, any hyperlinks in the email will be tracked to gather analytics on user interactions.")] = None,
+        track_open: Annotated[Optional[StrictBool], Field(description="Enables or disables open tracking for the email. When enabled, a tracking pixel is embedded in the email to monitor whether the recipient has opened it.")] = None,
+        sign_dkim: Annotated[Optional[StrictBool], Field(description="Specifies whether the email should be signed with a DKIM (DomainKeys Identified Mail) signature. DKIM helps improve email deliverability by ensuring the email's integrity.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -341,15 +341,15 @@ class RelayApi:
 
         The `/raw` endpoint lets you send marketing and transactional emails from your `Segnivo Messaging` account by passing a raw RFC822 message to the `message` attribute in the request body.  The following parameters should be passed as a form data to the endpoint  - **message** - A raw RFC822 message      - **sign_dkim** (optional, defaults to `true`) - A boolean value on if a DKIM signature should be included in this message      - **track_click** (optional, defaults to `true`) - A boolean value on if email clicks should be tracked. If `true` links in the email will be rewritten to enable tracking      - **track_open** (optional, defaults to `true`) - A boolean value on if the email opens should be tracked      - **is_transactional** (optional, defaults to `false`) - A boolean value to flag this email as a transactional email
 
-        :param message:
+        :param message: The raw email content in RFC822 format. This should include headers, body content, and any attachments.
         :type message: str
-        :param is_transactional:
+        :param is_transactional: Indicates whether the email is transactional (e.g., receipts, order confirmations) or marketing. Transactional emails typically bypass unsubscribes.
         :type is_transactional: bool
-        :param track_click:
+        :param track_click: Enables or disables click tracking within the email. When enabled, any hyperlinks in the email will be tracked to gather analytics on user interactions.
         :type track_click: bool
-        :param track_open:
+        :param track_open: Enables or disables open tracking for the email. When enabled, a tracking pixel is embedded in the email to monitor whether the recipient has opened it.
         :type track_open: bool
-        :param sign_dkim:
+        :param sign_dkim: Specifies whether the email should be signed with a DKIM (DomainKeys Identified Mail) signature. DKIM helps improve email deliverability by ensuring the email's integrity.
         :type sign_dkim: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -402,11 +402,11 @@ class RelayApi:
     @validate_call
     def relay_raw_post_with_http_info(
         self,
-        message: Optional[StrictStr] = None,
-        is_transactional: Optional[StrictBool] = None,
-        track_click: Optional[StrictBool] = None,
-        track_open: Optional[StrictBool] = None,
-        sign_dkim: Optional[StrictBool] = None,
+        message: Annotated[Optional[StrictStr], Field(description="The raw email content in RFC822 format. This should include headers, body content, and any attachments.")] = None,
+        is_transactional: Annotated[Optional[StrictBool], Field(description="Indicates whether the email is transactional (e.g., receipts, order confirmations) or marketing. Transactional emails typically bypass unsubscribes.")] = None,
+        track_click: Annotated[Optional[StrictBool], Field(description="Enables or disables click tracking within the email. When enabled, any hyperlinks in the email will be tracked to gather analytics on user interactions.")] = None,
+        track_open: Annotated[Optional[StrictBool], Field(description="Enables or disables open tracking for the email. When enabled, a tracking pixel is embedded in the email to monitor whether the recipient has opened it.")] = None,
+        sign_dkim: Annotated[Optional[StrictBool], Field(description="Specifies whether the email should be signed with a DKIM (DomainKeys Identified Mail) signature. DKIM helps improve email deliverability by ensuring the email's integrity.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -424,15 +424,15 @@ class RelayApi:
 
         The `/raw` endpoint lets you send marketing and transactional emails from your `Segnivo Messaging` account by passing a raw RFC822 message to the `message` attribute in the request body.  The following parameters should be passed as a form data to the endpoint  - **message** - A raw RFC822 message      - **sign_dkim** (optional, defaults to `true`) - A boolean value on if a DKIM signature should be included in this message      - **track_click** (optional, defaults to `true`) - A boolean value on if email clicks should be tracked. If `true` links in the email will be rewritten to enable tracking      - **track_open** (optional, defaults to `true`) - A boolean value on if the email opens should be tracked      - **is_transactional** (optional, defaults to `false`) - A boolean value to flag this email as a transactional email
 
-        :param message:
+        :param message: The raw email content in RFC822 format. This should include headers, body content, and any attachments.
         :type message: str
-        :param is_transactional:
+        :param is_transactional: Indicates whether the email is transactional (e.g., receipts, order confirmations) or marketing. Transactional emails typically bypass unsubscribes.
         :type is_transactional: bool
-        :param track_click:
+        :param track_click: Enables or disables click tracking within the email. When enabled, any hyperlinks in the email will be tracked to gather analytics on user interactions.
         :type track_click: bool
-        :param track_open:
+        :param track_open: Enables or disables open tracking for the email. When enabled, a tracking pixel is embedded in the email to monitor whether the recipient has opened it.
         :type track_open: bool
-        :param sign_dkim:
+        :param sign_dkim: Specifies whether the email should be signed with a DKIM (DomainKeys Identified Mail) signature. DKIM helps improve email deliverability by ensuring the email's integrity.
         :type sign_dkim: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -485,11 +485,11 @@ class RelayApi:
     @validate_call
     def relay_raw_post_without_preload_content(
         self,
-        message: Optional[StrictStr] = None,
-        is_transactional: Optional[StrictBool] = None,
-        track_click: Optional[StrictBool] = None,
-        track_open: Optional[StrictBool] = None,
-        sign_dkim: Optional[StrictBool] = None,
+        message: Annotated[Optional[StrictStr], Field(description="The raw email content in RFC822 format. This should include headers, body content, and any attachments.")] = None,
+        is_transactional: Annotated[Optional[StrictBool], Field(description="Indicates whether the email is transactional (e.g., receipts, order confirmations) or marketing. Transactional emails typically bypass unsubscribes.")] = None,
+        track_click: Annotated[Optional[StrictBool], Field(description="Enables or disables click tracking within the email. When enabled, any hyperlinks in the email will be tracked to gather analytics on user interactions.")] = None,
+        track_open: Annotated[Optional[StrictBool], Field(description="Enables or disables open tracking for the email. When enabled, a tracking pixel is embedded in the email to monitor whether the recipient has opened it.")] = None,
+        sign_dkim: Annotated[Optional[StrictBool], Field(description="Specifies whether the email should be signed with a DKIM (DomainKeys Identified Mail) signature. DKIM helps improve email deliverability by ensuring the email's integrity.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -507,15 +507,15 @@ class RelayApi:
 
         The `/raw` endpoint lets you send marketing and transactional emails from your `Segnivo Messaging` account by passing a raw RFC822 message to the `message` attribute in the request body.  The following parameters should be passed as a form data to the endpoint  - **message** - A raw RFC822 message      - **sign_dkim** (optional, defaults to `true`) - A boolean value on if a DKIM signature should be included in this message      - **track_click** (optional, defaults to `true`) - A boolean value on if email clicks should be tracked. If `true` links in the email will be rewritten to enable tracking      - **track_open** (optional, defaults to `true`) - A boolean value on if the email opens should be tracked      - **is_transactional** (optional, defaults to `false`) - A boolean value to flag this email as a transactional email
 
-        :param message:
+        :param message: The raw email content in RFC822 format. This should include headers, body content, and any attachments.
         :type message: str
-        :param is_transactional:
+        :param is_transactional: Indicates whether the email is transactional (e.g., receipts, order confirmations) or marketing. Transactional emails typically bypass unsubscribes.
         :type is_transactional: bool
-        :param track_click:
+        :param track_click: Enables or disables click tracking within the email. When enabled, any hyperlinks in the email will be tracked to gather analytics on user interactions.
         :type track_click: bool
-        :param track_open:
+        :param track_open: Enables or disables open tracking for the email. When enabled, a tracking pixel is embedded in the email to monitor whether the recipient has opened it.
         :type track_open: bool
-        :param sign_dkim:
+        :param sign_dkim: Specifies whether the email should be signed with a DKIM (DomainKeys Identified Mail) signature. DKIM helps improve email deliverability by ensuring the email's integrity.
         :type sign_dkim: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

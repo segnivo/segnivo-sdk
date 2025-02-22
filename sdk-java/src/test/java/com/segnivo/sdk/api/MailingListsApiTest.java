@@ -13,6 +13,8 @@
 
 package com.segnivo.sdk.api;
 
+import com.segnivo.sdk.model.MailingListAddFieldRequest;
+import com.segnivo.sdk.model.MailingListRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.client.RestClientException;
@@ -43,9 +45,8 @@ class MailingListsApiTest {
      */
     @Test
     void listsGetTest() {
-        String accept = null;
 
-        Object response = api.listsGet(accept);
+        Object response = api.listsGet();
 
         // TODO: test validations
     }
@@ -60,11 +61,9 @@ class MailingListsApiTest {
      */
     @Test
     void listsPostTest() {
-        String contentType = null;
-        String accept = null;
-        Object body = null;
+        MailingListRequest mailingListRequest = null;
 
-        Object response = api.listsPost(contentType, accept, body);
+        Object response = api.listsPost(mailingListRequest);
 
         // TODO: test validations
     }
@@ -80,11 +79,9 @@ class MailingListsApiTest {
     @Test
     void listsUidAddFieldPostTest() {
         String uid = null;
-        String contentType = null;
-        String accept = null;
-        Object body = null;
+        MailingListAddFieldRequest mailingListAddFieldRequest = null;
 
-        Object response = api.listsUidAddFieldPost(uid, contentType, accept, body);
+        Object response = api.listsUidAddFieldPost(uid, mailingListAddFieldRequest);
 
         // TODO: test validations
     }
@@ -100,10 +97,9 @@ class MailingListsApiTest {
     @Test
     void listsUidDeletePostTest() {
         String uid = null;
-        String accept = null;
         Object body = null;
 
-        Object response = api.listsUidDeletePost(uid, accept, body);
+        Object response = api.listsUidDeletePost(uid, body);
 
         // TODO: test validations
     }
@@ -119,9 +115,8 @@ class MailingListsApiTest {
     @Test
     void listsUidGetTest() {
         String uid = null;
-        String accept = null;
 
-        Object response = api.listsUidGet(uid, accept);
+        Object response = api.listsUidGet(uid);
 
         // TODO: test validations
     }
@@ -137,11 +132,9 @@ class MailingListsApiTest {
     @Test
     void listsUidPatchTest() {
         String uid = null;
-        String contentType = null;
-        String accept = null;
-        Object body = null;
+        MailingListRequest mailingListRequest = null;
 
-        Object response = api.listsUidPatch(uid, contentType, accept, body);
+        Object response = api.listsUidPatch(uid, mailingListRequest);
 
         // TODO: test validations
     }

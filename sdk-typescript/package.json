@@ -1,49 +1,24 @@
 {
   "name": "segnivo-typescript-sdk",
-  "version": "1.7.6",
+  "version": "1.7.16",
   "description": "OpenAPI client for segnivo-typescript-sdk",
-  "author": "OpenAPI-Generator Contributors",
+  "author": "OpenAPI-Generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+    "url": "https://github.com/segnivo/segnivo-sdk/tree/main/sdk-typescript"
   },
-  "keywords": [
-    "fetch",
-    "typescript",
-    "openapi-client",
-    "openapi-generator"
-  ],
-  "license": "Unlicense",
   "main": "./dist/index.js",
-  "type": "module",
-  "module": "./dist/index.js",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.js"
-    }
-  },
-  "files": [
-    "dist"
-  ],
   "typings": "./dist/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "sideEffects": false,
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && tsc -p tsconfig.esm.json",
     "prepare": "npm run build"
   },
-  "dependencies": {
-    "node-fetch": "^2.6.0",
-    "@types/node-fetch": "^2.5.7",
-    "@types/node": "*",
-    "form-data": "^2.5.0",
-    "es6-promise": "^4.2.4",
-    "url-parse": "^1.4.3"
-  },
   "devDependencies": {
-    "typescript": "^4.0",
-    "@types/url-parse": "1.4.4"
+    "typescript": "^4.0 || ^5.0"
   },
-  "publishConfig":{
-    "registry":"https://registry.npmjs.org"
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   }
 }

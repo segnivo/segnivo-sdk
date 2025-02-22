@@ -13,6 +13,7 @@
 
 package com.segnivo.sdk.api;
 
+import com.segnivo.sdk.model.EmailAddressVerificationRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.client.RestClientException;
@@ -43,9 +44,9 @@ class EmailAddressVerificationApiTest {
      */
     @Test
     void validateEmailPostTest() {
-        Object body = null;
+        EmailAddressVerificationRequest emailAddressVerificationRequest = null;
 
-        Object response = api.validateEmailPost(body);
+        Object response = api.validateEmailPost(emailAddressVerificationRequest);
 
         // TODO: test validations
     }

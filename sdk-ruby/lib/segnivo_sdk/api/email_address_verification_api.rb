@@ -22,7 +22,7 @@ module SegnivoSDK
     # Email Address Verification Validation
     # The `/validate-email` endpoint allows you to pass the email addresses you wish to verify and get a response on each of their status.  The following data should be passed in JSON format in the request body  - **emails** - An array/collection containing a minimum of one and maximum of fifty email addresses for verification/validation.
     # @param [Hash] opts the optional parameters
-    # @option opts [Object] :body 
+    # @option opts [EmailAddressVerificationRequest] :email_address_verification_request 
     # @return [Object]
     def validate_email_post(opts = {})
       data, _status_code, _headers = validate_email_post_with_http_info(opts)
@@ -32,7 +32,7 @@ module SegnivoSDK
     # Email Address Verification Validation
     # The &#x60;/validate-email&#x60; endpoint allows you to pass the email addresses you wish to verify and get a response on each of their status.  The following data should be passed in JSON format in the request body  - **emails** - An array/collection containing a minimum of one and maximum of fifty email addresses for verification/validation.
     # @param [Hash] opts the optional parameters
-    # @option opts [Object] :body 
+    # @option opts [EmailAddressVerificationRequest] :email_address_verification_request 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def validate_email_post_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -58,7 +58,7 @@ module SegnivoSDK
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'email_address_verification_request'])
 
       # return_type
       return_type = opts[:debug_return_type] || 'Object'

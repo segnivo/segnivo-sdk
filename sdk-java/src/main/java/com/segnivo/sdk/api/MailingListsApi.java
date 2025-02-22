@@ -3,6 +3,8 @@ package com.segnivo.sdk.api;
 import com.segnivo.sdk.ApiClient;
 import com.segnivo.sdk.BaseApi;
 
+import com.segnivo.sdk.model.MailingListAddFieldRequest;
+import com.segnivo.sdk.model.MailingListRequest;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -40,23 +42,21 @@ public class MailingListsApi extends BaseApi {
      * Get mailing lists
      * Returns all your existing lists
      * <p><b>200</b> - OK
-     * @param accept  (optional)
      * @return Object
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public Object listsGet(String accept) throws RestClientException {
-        return listsGetWithHttpInfo(accept).getBody();
+    public Object listsGet() throws RestClientException {
+        return listsGetWithHttpInfo().getBody();
     }
 
     /**
      * Get mailing lists
      * Returns all your existing lists
      * <p><b>200</b> - OK
-     * @param accept  (optional)
      * @return ResponseEntity&lt;Object&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Object> listsGetWithHttpInfo(String accept) throws RestClientException {
+    public ResponseEntity<Object> listsGetWithHttpInfo() throws RestClientException {
         Object localVarPostBody = null;
         
 
@@ -64,9 +64,6 @@ public class MailingListsApi extends BaseApi {
         final HttpHeaders localVarHeaderParams = new HttpHeaders();
         final MultiValueMap<String, String> localVarCookieParams = new LinkedMultiValueMap<String, String>();
         final MultiValueMap<String, Object> localVarFormParams = new LinkedMultiValueMap<String, Object>();
-
-        if (accept != null)
-        localVarHeaderParams.add("Accept", apiClient.parameterToString(accept));
 
         final String[] localVarAccepts = { 
             "application/json"
@@ -84,39 +81,30 @@ public class MailingListsApi extends BaseApi {
      * Create a Mailing List
      * Create a new mailing list
      * <p><b>200</b> - OK
-     * @param contentType  (optional)
-     * @param accept  (optional)
-     * @param body  (optional)
+     * @param mailingListRequest  (optional)
      * @return Object
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public Object listsPost(String contentType, String accept, Object body) throws RestClientException {
-        return listsPostWithHttpInfo(contentType, accept, body).getBody();
+    public Object listsPost(MailingListRequest mailingListRequest) throws RestClientException {
+        return listsPostWithHttpInfo(mailingListRequest).getBody();
     }
 
     /**
      * Create a Mailing List
      * Create a new mailing list
      * <p><b>200</b> - OK
-     * @param contentType  (optional)
-     * @param accept  (optional)
-     * @param body  (optional)
+     * @param mailingListRequest  (optional)
      * @return ResponseEntity&lt;Object&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Object> listsPostWithHttpInfo(String contentType, String accept, Object body) throws RestClientException {
-        Object localVarPostBody = body;
+    public ResponseEntity<Object> listsPostWithHttpInfo(MailingListRequest mailingListRequest) throws RestClientException {
+        Object localVarPostBody = mailingListRequest;
         
 
         final MultiValueMap<String, String> localVarQueryParams = new LinkedMultiValueMap<String, String>();
         final HttpHeaders localVarHeaderParams = new HttpHeaders();
         final MultiValueMap<String, String> localVarCookieParams = new LinkedMultiValueMap<String, String>();
         final MultiValueMap<String, Object> localVarFormParams = new LinkedMultiValueMap<String, Object>();
-
-        if (contentType != null)
-        localVarHeaderParams.add("Content-Type", apiClient.parameterToString(contentType));
-        if (accept != null)
-        localVarHeaderParams.add("Accept", apiClient.parameterToString(accept));
 
         final String[] localVarAccepts = { 
             "application/json"
@@ -137,14 +125,12 @@ public class MailingListsApi extends BaseApi {
      * Add a field to an existing list
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the list to add a field to. (required)
-     * @param contentType  (optional)
-     * @param accept  (optional)
-     * @param body  (optional)
+     * @param mailingListAddFieldRequest  (optional)
      * @return Object
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public Object listsUidAddFieldPost(String uid, String contentType, String accept, Object body) throws RestClientException {
-        return listsUidAddFieldPostWithHttpInfo(uid, contentType, accept, body).getBody();
+    public Object listsUidAddFieldPost(String uid, MailingListAddFieldRequest mailingListAddFieldRequest) throws RestClientException {
+        return listsUidAddFieldPostWithHttpInfo(uid, mailingListAddFieldRequest).getBody();
     }
 
     /**
@@ -152,14 +138,12 @@ public class MailingListsApi extends BaseApi {
      * Add a field to an existing list
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the list to add a field to. (required)
-     * @param contentType  (optional)
-     * @param accept  (optional)
-     * @param body  (optional)
+     * @param mailingListAddFieldRequest  (optional)
      * @return ResponseEntity&lt;Object&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Object> listsUidAddFieldPostWithHttpInfo(String uid, String contentType, String accept, Object body) throws RestClientException {
-        Object localVarPostBody = body;
+    public ResponseEntity<Object> listsUidAddFieldPostWithHttpInfo(String uid, MailingListAddFieldRequest mailingListAddFieldRequest) throws RestClientException {
+        Object localVarPostBody = mailingListAddFieldRequest;
         
         // verify the required parameter 'uid' is set
         if (uid == null) {
@@ -174,11 +158,6 @@ public class MailingListsApi extends BaseApi {
         final HttpHeaders localVarHeaderParams = new HttpHeaders();
         final MultiValueMap<String, String> localVarCookieParams = new LinkedMultiValueMap<String, String>();
         final MultiValueMap<String, Object> localVarFormParams = new LinkedMultiValueMap<String, Object>();
-
-        if (contentType != null)
-        localVarHeaderParams.add("Content-Type", apiClient.parameterToString(contentType));
-        if (accept != null)
-        localVarHeaderParams.add("Accept", apiClient.parameterToString(accept));
 
         final String[] localVarAccepts = { 
             "application/json"
@@ -199,13 +178,12 @@ public class MailingListsApi extends BaseApi {
      * Delete an existing list
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the list to delete. (required)
-     * @param accept  (optional)
      * @param body  (optional)
      * @return Object
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public Object listsUidDeletePost(String uid, String accept, Object body) throws RestClientException {
-        return listsUidDeletePostWithHttpInfo(uid, accept, body).getBody();
+    public Object listsUidDeletePost(String uid, Object body) throws RestClientException {
+        return listsUidDeletePostWithHttpInfo(uid, body).getBody();
     }
 
     /**
@@ -213,12 +191,11 @@ public class MailingListsApi extends BaseApi {
      * Delete an existing list
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the list to delete. (required)
-     * @param accept  (optional)
      * @param body  (optional)
      * @return ResponseEntity&lt;Object&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Object> listsUidDeletePostWithHttpInfo(String uid, String accept, Object body) throws RestClientException {
+    public ResponseEntity<Object> listsUidDeletePostWithHttpInfo(String uid, Object body) throws RestClientException {
         Object localVarPostBody = body;
         
         // verify the required parameter 'uid' is set
@@ -234,9 +211,6 @@ public class MailingListsApi extends BaseApi {
         final HttpHeaders localVarHeaderParams = new HttpHeaders();
         final MultiValueMap<String, String> localVarCookieParams = new LinkedMultiValueMap<String, String>();
         final MultiValueMap<String, Object> localVarFormParams = new LinkedMultiValueMap<String, Object>();
-
-        if (accept != null)
-        localVarHeaderParams.add("Accept", apiClient.parameterToString(accept));
 
         final String[] localVarAccepts = { 
             "application/json"
@@ -257,12 +231,11 @@ public class MailingListsApi extends BaseApi {
      * Returns detailed information about a specified list
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the mailing list to fetch. (required)
-     * @param accept  (optional)
      * @return Object
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public Object listsUidGet(String uid, String accept) throws RestClientException {
-        return listsUidGetWithHttpInfo(uid, accept).getBody();
+    public Object listsUidGet(String uid) throws RestClientException {
+        return listsUidGetWithHttpInfo(uid).getBody();
     }
 
     /**
@@ -270,11 +243,10 @@ public class MailingListsApi extends BaseApi {
      * Returns detailed information about a specified list
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the mailing list to fetch. (required)
-     * @param accept  (optional)
      * @return ResponseEntity&lt;Object&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Object> listsUidGetWithHttpInfo(String uid, String accept) throws RestClientException {
+    public ResponseEntity<Object> listsUidGetWithHttpInfo(String uid) throws RestClientException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'uid' is set
@@ -290,9 +262,6 @@ public class MailingListsApi extends BaseApi {
         final HttpHeaders localVarHeaderParams = new HttpHeaders();
         final MultiValueMap<String, String> localVarCookieParams = new LinkedMultiValueMap<String, String>();
         final MultiValueMap<String, Object> localVarFormParams = new LinkedMultiValueMap<String, Object>();
-
-        if (accept != null)
-        localVarHeaderParams.add("Accept", apiClient.parameterToString(accept));
 
         final String[] localVarAccepts = { 
             "application/json"
@@ -311,14 +280,12 @@ public class MailingListsApi extends BaseApi {
      * Update an existing mailing list
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the list to update. (required)
-     * @param contentType  (optional)
-     * @param accept  (optional)
-     * @param body  (optional)
+     * @param mailingListRequest  (optional)
      * @return Object
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public Object listsUidPatch(String uid, String contentType, String accept, Object body) throws RestClientException {
-        return listsUidPatchWithHttpInfo(uid, contentType, accept, body).getBody();
+    public Object listsUidPatch(String uid, MailingListRequest mailingListRequest) throws RestClientException {
+        return listsUidPatchWithHttpInfo(uid, mailingListRequest).getBody();
     }
 
     /**
@@ -326,14 +293,12 @@ public class MailingListsApi extends BaseApi {
      * Update an existing mailing list
      * <p><b>200</b> - OK
      * @param uid (Required) The uid of the list to update. (required)
-     * @param contentType  (optional)
-     * @param accept  (optional)
-     * @param body  (optional)
+     * @param mailingListRequest  (optional)
      * @return ResponseEntity&lt;Object&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Object> listsUidPatchWithHttpInfo(String uid, String contentType, String accept, Object body) throws RestClientException {
-        Object localVarPostBody = body;
+    public ResponseEntity<Object> listsUidPatchWithHttpInfo(String uid, MailingListRequest mailingListRequest) throws RestClientException {
+        Object localVarPostBody = mailingListRequest;
         
         // verify the required parameter 'uid' is set
         if (uid == null) {
@@ -348,11 +313,6 @@ public class MailingListsApi extends BaseApi {
         final HttpHeaders localVarHeaderParams = new HttpHeaders();
         final MultiValueMap<String, String> localVarCookieParams = new LinkedMultiValueMap<String, String>();
         final MultiValueMap<String, Object> localVarFormParams = new LinkedMultiValueMap<String, Object>();
-
-        if (contentType != null)
-        localVarHeaderParams.add("Content-Type", apiClient.parameterToString(contentType));
-        if (accept != null)
-        localVarHeaderParams.add("Accept", apiClient.parameterToString(accept));
 
         final String[] localVarAccepts = { 
             "application/json"

@@ -30,7 +30,7 @@ end
 
 api_instance = SegnivoSDK::RelayTransactionalEmailsApi.new
 opts = {
-  body: { ... } # Object | 
+  relay_email_request: SegnivoSDK::RelayEmailRequest.new # RelayEmailRequest | 
 }
 
 begin
@@ -64,7 +64,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | **Object** |  | [optional] |
+| **relay_email_request** | [**RelayEmailRequest**](RelayEmailRequest.md) |  | [optional] |
 
 ### Return type
 

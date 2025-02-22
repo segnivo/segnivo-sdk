@@ -19,6 +19,8 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr
 from typing import Any, Dict, Optional
 from typing_extensions import Annotated
+from segnivo_sdk.models.mailing_list_add_field_request import MailingListAddFieldRequest
+from segnivo_sdk.models.mailing_list_request import MailingListRequest
 
 from segnivo_sdk.api_client import ApiClient, RequestSerialized
 from segnivo_sdk.api_response import ApiResponse
@@ -41,7 +43,6 @@ class MailingListsApi:
     @validate_call
     def lists_get(
         self,
-        accept: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -59,8 +60,6 @@ class MailingListsApi:
 
         Returns all your existing lists
 
-        :param accept:
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -84,7 +83,6 @@ class MailingListsApi:
         """ # noqa: E501
 
         _param = self._lists_get_serialize(
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -108,7 +106,6 @@ class MailingListsApi:
     @validate_call
     def lists_get_with_http_info(
         self,
-        accept: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -126,8 +123,6 @@ class MailingListsApi:
 
         Returns all your existing lists
 
-        :param accept:
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -151,7 +146,6 @@ class MailingListsApi:
         """ # noqa: E501
 
         _param = self._lists_get_serialize(
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -175,7 +169,6 @@ class MailingListsApi:
     @validate_call
     def lists_get_without_preload_content(
         self,
-        accept: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -193,8 +186,6 @@ class MailingListsApi:
 
         Returns all your existing lists
 
-        :param accept:
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -218,7 +209,6 @@ class MailingListsApi:
         """ # noqa: E501
 
         _param = self._lists_get_serialize(
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -237,7 +227,6 @@ class MailingListsApi:
 
     def _lists_get_serialize(
         self,
-        accept,
         _request_auth,
         _content_type,
         _headers,
@@ -261,8 +250,6 @@ class MailingListsApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
 
@@ -302,9 +289,7 @@ class MailingListsApi:
     @validate_call
     def lists_post(
         self,
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        mailing_list_request: Optional[MailingListRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -322,12 +307,8 @@ class MailingListsApi:
 
         Create a new mailing list
 
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param mailing_list_request:
+        :type mailing_list_request: MailingListRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -351,9 +332,7 @@ class MailingListsApi:
         """ # noqa: E501
 
         _param = self._lists_post_serialize(
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            mailing_list_request=mailing_list_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -377,9 +356,7 @@ class MailingListsApi:
     @validate_call
     def lists_post_with_http_info(
         self,
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        mailing_list_request: Optional[MailingListRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -397,12 +374,8 @@ class MailingListsApi:
 
         Create a new mailing list
 
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param mailing_list_request:
+        :type mailing_list_request: MailingListRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -426,9 +399,7 @@ class MailingListsApi:
         """ # noqa: E501
 
         _param = self._lists_post_serialize(
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            mailing_list_request=mailing_list_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -452,9 +423,7 @@ class MailingListsApi:
     @validate_call
     def lists_post_without_preload_content(
         self,
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        mailing_list_request: Optional[MailingListRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -472,12 +441,8 @@ class MailingListsApi:
 
         Create a new mailing list
 
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param mailing_list_request:
+        :type mailing_list_request: MailingListRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -501,9 +466,7 @@ class MailingListsApi:
         """ # noqa: E501
 
         _param = self._lists_post_serialize(
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            mailing_list_request=mailing_list_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -522,9 +485,7 @@ class MailingListsApi:
 
     def _lists_post_serialize(
         self,
-        content_type,
-        accept,
-        body,
+        mailing_list_request,
         _request_auth,
         _content_type,
         _headers,
@@ -548,14 +509,10 @@ class MailingListsApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if mailing_list_request is not None:
+            _body_params = mailing_list_request
 
 
         # set the HTTP header `Accept`
@@ -607,9 +564,7 @@ class MailingListsApi:
     def lists_uid_add_field_post(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the list to add a field to.")],
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        mailing_list_add_field_request: Optional[MailingListAddFieldRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -629,12 +584,8 @@ class MailingListsApi:
 
         :param uid: (Required) The uid of the list to add a field to. (required)
         :type uid: str
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param mailing_list_add_field_request:
+        :type mailing_list_add_field_request: MailingListAddFieldRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -659,9 +610,7 @@ class MailingListsApi:
 
         _param = self._lists_uid_add_field_post_serialize(
             uid=uid,
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            mailing_list_add_field_request=mailing_list_add_field_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -686,9 +635,7 @@ class MailingListsApi:
     def lists_uid_add_field_post_with_http_info(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the list to add a field to.")],
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        mailing_list_add_field_request: Optional[MailingListAddFieldRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -708,12 +655,8 @@ class MailingListsApi:
 
         :param uid: (Required) The uid of the list to add a field to. (required)
         :type uid: str
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param mailing_list_add_field_request:
+        :type mailing_list_add_field_request: MailingListAddFieldRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -738,9 +681,7 @@ class MailingListsApi:
 
         _param = self._lists_uid_add_field_post_serialize(
             uid=uid,
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            mailing_list_add_field_request=mailing_list_add_field_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -765,9 +706,7 @@ class MailingListsApi:
     def lists_uid_add_field_post_without_preload_content(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the list to add a field to.")],
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        mailing_list_add_field_request: Optional[MailingListAddFieldRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -787,12 +726,8 @@ class MailingListsApi:
 
         :param uid: (Required) The uid of the list to add a field to. (required)
         :type uid: str
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param mailing_list_add_field_request:
+        :type mailing_list_add_field_request: MailingListAddFieldRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -817,9 +752,7 @@ class MailingListsApi:
 
         _param = self._lists_uid_add_field_post_serialize(
             uid=uid,
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            mailing_list_add_field_request=mailing_list_add_field_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -839,9 +772,7 @@ class MailingListsApi:
     def _lists_uid_add_field_post_serialize(
         self,
         uid,
-        content_type,
-        accept,
-        body,
+        mailing_list_add_field_request,
         _request_auth,
         _content_type,
         _headers,
@@ -867,14 +798,10 @@ class MailingListsApi:
             _path_params['uid'] = uid
         # process the query parameters
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if mailing_list_add_field_request is not None:
+            _body_params = mailing_list_add_field_request
 
 
         # set the HTTP header `Accept`
@@ -926,7 +853,6 @@ class MailingListsApi:
     def lists_uid_delete_post(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the list to delete.")],
-        accept: Optional[StrictStr] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
             None,
@@ -947,8 +873,6 @@ class MailingListsApi:
 
         :param uid: (Required) The uid of the list to delete. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param body:
         :type body: object
         :param _request_timeout: timeout setting for this request. If one
@@ -975,7 +899,6 @@ class MailingListsApi:
 
         _param = self._lists_uid_delete_post_serialize(
             uid=uid,
-            accept=accept,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1001,7 +924,6 @@ class MailingListsApi:
     def lists_uid_delete_post_with_http_info(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the list to delete.")],
-        accept: Optional[StrictStr] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
             None,
@@ -1022,8 +944,6 @@ class MailingListsApi:
 
         :param uid: (Required) The uid of the list to delete. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param body:
         :type body: object
         :param _request_timeout: timeout setting for this request. If one
@@ -1050,7 +970,6 @@ class MailingListsApi:
 
         _param = self._lists_uid_delete_post_serialize(
             uid=uid,
-            accept=accept,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1076,7 +995,6 @@ class MailingListsApi:
     def lists_uid_delete_post_without_preload_content(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the list to delete.")],
-        accept: Optional[StrictStr] = None,
         body: Optional[Dict[str, Any]] = None,
         _request_timeout: Union[
             None,
@@ -1097,8 +1015,6 @@ class MailingListsApi:
 
         :param uid: (Required) The uid of the list to delete. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param body:
         :type body: object
         :param _request_timeout: timeout setting for this request. If one
@@ -1125,7 +1041,6 @@ class MailingListsApi:
 
         _param = self._lists_uid_delete_post_serialize(
             uid=uid,
-            accept=accept,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1146,7 +1061,6 @@ class MailingListsApi:
     def _lists_uid_delete_post_serialize(
         self,
         uid,
-        accept,
         body,
         _request_auth,
         _content_type,
@@ -1173,8 +1087,6 @@ class MailingListsApi:
             _path_params['uid'] = uid
         # process the query parameters
         # process the header parameters
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
         if body is not None:
@@ -1230,7 +1142,6 @@ class MailingListsApi:
     def lists_uid_get(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the mailing list to fetch.")],
-        accept: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1250,8 +1161,6 @@ class MailingListsApi:
 
         :param uid: (Required) The uid of the mailing list to fetch. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1276,7 +1185,6 @@ class MailingListsApi:
 
         _param = self._lists_uid_get_serialize(
             uid=uid,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1301,7 +1209,6 @@ class MailingListsApi:
     def lists_uid_get_with_http_info(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the mailing list to fetch.")],
-        accept: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1321,8 +1228,6 @@ class MailingListsApi:
 
         :param uid: (Required) The uid of the mailing list to fetch. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1347,7 +1252,6 @@ class MailingListsApi:
 
         _param = self._lists_uid_get_serialize(
             uid=uid,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1372,7 +1276,6 @@ class MailingListsApi:
     def lists_uid_get_without_preload_content(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the mailing list to fetch.")],
-        accept: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1392,8 +1295,6 @@ class MailingListsApi:
 
         :param uid: (Required) The uid of the mailing list to fetch. (required)
         :type uid: str
-        :param accept:
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1418,7 +1319,6 @@ class MailingListsApi:
 
         _param = self._lists_uid_get_serialize(
             uid=uid,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1438,7 +1338,6 @@ class MailingListsApi:
     def _lists_uid_get_serialize(
         self,
         uid,
-        accept,
         _request_auth,
         _content_type,
         _headers,
@@ -1464,8 +1363,6 @@ class MailingListsApi:
             _path_params['uid'] = uid
         # process the query parameters
         # process the header parameters
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
 
@@ -1506,9 +1403,7 @@ class MailingListsApi:
     def lists_uid_patch(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the list to update.")],
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        mailing_list_request: Optional[MailingListRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1528,12 +1423,8 @@ class MailingListsApi:
 
         :param uid: (Required) The uid of the list to update. (required)
         :type uid: str
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param mailing_list_request:
+        :type mailing_list_request: MailingListRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1558,9 +1449,7 @@ class MailingListsApi:
 
         _param = self._lists_uid_patch_serialize(
             uid=uid,
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            mailing_list_request=mailing_list_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1585,9 +1474,7 @@ class MailingListsApi:
     def lists_uid_patch_with_http_info(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the list to update.")],
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        mailing_list_request: Optional[MailingListRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1607,12 +1494,8 @@ class MailingListsApi:
 
         :param uid: (Required) The uid of the list to update. (required)
         :type uid: str
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param mailing_list_request:
+        :type mailing_list_request: MailingListRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1637,9 +1520,7 @@ class MailingListsApi:
 
         _param = self._lists_uid_patch_serialize(
             uid=uid,
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            mailing_list_request=mailing_list_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1664,9 +1545,7 @@ class MailingListsApi:
     def lists_uid_patch_without_preload_content(
         self,
         uid: Annotated[StrictStr, Field(description="(Required) The uid of the list to update.")],
-        content_type: Optional[StrictStr] = None,
-        accept: Optional[StrictStr] = None,
-        body: Optional[Dict[str, Any]] = None,
+        mailing_list_request: Optional[MailingListRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1686,12 +1565,8 @@ class MailingListsApi:
 
         :param uid: (Required) The uid of the list to update. (required)
         :type uid: str
-        :param content_type:
-        :type content_type: str
-        :param accept:
-        :type accept: str
-        :param body:
-        :type body: object
+        :param mailing_list_request:
+        :type mailing_list_request: MailingListRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1716,9 +1591,7 @@ class MailingListsApi:
 
         _param = self._lists_uid_patch_serialize(
             uid=uid,
-            content_type=content_type,
-            accept=accept,
-            body=body,
+            mailing_list_request=mailing_list_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1738,9 +1611,7 @@ class MailingListsApi:
     def _lists_uid_patch_serialize(
         self,
         uid,
-        content_type,
-        accept,
-        body,
+        mailing_list_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1766,14 +1637,10 @@ class MailingListsApi:
             _path_params['uid'] = uid
         # process the query parameters
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if mailing_list_request is not None:
+            _body_params = mailing_list_request
 
 
         # set the HTTP header `Accept`

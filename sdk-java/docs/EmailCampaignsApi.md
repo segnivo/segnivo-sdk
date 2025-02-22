@@ -16,7 +16,7 @@ All URIs are relative to *https://api.segnivo.com/v1*
 
 ## messagesGet
 
-> Object messagesGet(accept)
+> Object messagesGet()
 
 Get campaigns
 
@@ -45,9 +45,8 @@ public class Example {
         //apiKeyAuth.setApiKeyPrefix("Token");
 
         EmailCampaignsApi apiInstance = new EmailCampaignsApi(defaultClient);
-        String accept = "application/json"; // String | 
         try {
-            Object result = apiInstance.messagesGet(accept);
+            Object result = apiInstance.messagesGet();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling EmailCampaignsApi#messagesGet");
@@ -62,10 +61,7 @@ public class Example {
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **accept** | **String**|  | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -89,7 +85,7 @@ public class Example {
 
 ## messagesPost
 
-> Object messagesPost(contentType, accept, body)
+> Object messagesPost(campaignCreateRequest)
 
 Create a Campaign
 
@@ -118,11 +114,9 @@ public class Example {
         //apiKeyAuth.setApiKeyPrefix("Token");
 
         EmailCampaignsApi apiInstance = new EmailCampaignsApi(defaultClient);
-        String contentType = "application/json"; // String | 
-        String accept = "application/json"; // String | 
-        Object body = null; // Object | 
+        CampaignCreateRequest campaignCreateRequest = new CampaignCreateRequest(); // CampaignCreateRequest | 
         try {
-            Object result = apiInstance.messagesPost(contentType, accept, body);
+            Object result = apiInstance.messagesPost(campaignCreateRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling EmailCampaignsApi#messagesPost");
@@ -140,9 +134,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **contentType** | **String**|  | [optional] |
-| **accept** | **String**|  | [optional] |
-| **body** | **Object**|  | [optional] |
+| **campaignCreateRequest** | [**CampaignCreateRequest**](CampaignCreateRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -166,7 +158,7 @@ public class Example {
 
 ## messagesUidDeletePost
 
-> Object messagesUidDeletePost(uid, accept, body)
+> Object messagesUidDeletePost(uid, body)
 
 Delete a campaign
 
@@ -196,10 +188,9 @@ public class Example {
 
         EmailCampaignsApi apiInstance = new EmailCampaignsApi(defaultClient);
         String uid = "<string>"; // String | (Required) The uid of the campaign to delete
-        String accept = "application/json"; // String | 
         Object body = null; // Object | 
         try {
-            Object result = apiInstance.messagesUidDeletePost(uid, accept, body);
+            Object result = apiInstance.messagesUidDeletePost(uid, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling EmailCampaignsApi#messagesUidDeletePost");
@@ -218,7 +209,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **uid** | **String**| (Required) The uid of the campaign to delete | |
-| **accept** | **String**|  | [optional] |
 | **body** | **Object**|  | [optional] |
 
 ### Return type
@@ -243,7 +233,7 @@ public class Example {
 
 ## messagesUidGet
 
-> Object messagesUidGet(uid, accept)
+> Object messagesUidGet(uid)
 
 Get a campaign
 
@@ -273,9 +263,8 @@ public class Example {
 
         EmailCampaignsApi apiInstance = new EmailCampaignsApi(defaultClient);
         String uid = "<string>"; // String | (Required) The uid of the campaign to fetch
-        String accept = "application/json"; // String | 
         try {
-            Object result = apiInstance.messagesUidGet(uid, accept);
+            Object result = apiInstance.messagesUidGet(uid);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling EmailCampaignsApi#messagesUidGet");
@@ -294,7 +283,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **uid** | **String**| (Required) The uid of the campaign to fetch | |
-| **accept** | **String**|  | [optional] |
 
 ### Return type
 
@@ -318,7 +306,7 @@ public class Example {
 
 ## messagesUidPatch
 
-> Object messagesUidPatch(uid, contentType, accept, body)
+> Object messagesUidPatch(uid, campaignUpdateRequest)
 
 Update Campaign
 
@@ -348,11 +336,9 @@ public class Example {
 
         EmailCampaignsApi apiInstance = new EmailCampaignsApi(defaultClient);
         String uid = "<string>"; // String | (Required) The uid of the campaign to update
-        String contentType = "application/json"; // String | 
-        String accept = "application/json"; // String | 
-        Object body = null; // Object | 
+        CampaignUpdateRequest campaignUpdateRequest = new CampaignUpdateRequest(); // CampaignUpdateRequest | 
         try {
-            Object result = apiInstance.messagesUidPatch(uid, contentType, accept, body);
+            Object result = apiInstance.messagesUidPatch(uid, campaignUpdateRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling EmailCampaignsApi#messagesUidPatch");
@@ -371,9 +357,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **uid** | **String**| (Required) The uid of the campaign to update | |
-| **contentType** | **String**|  | [optional] |
-| **accept** | **String**|  | [optional] |
-| **body** | **Object**|  | [optional] |
+| **campaignUpdateRequest** | [**CampaignUpdateRequest**](CampaignUpdateRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -397,7 +381,7 @@ public class Example {
 
 ## messagesUidPausePost
 
-> Object messagesUidPausePost(uid, accept, body)
+> Object messagesUidPausePost(uid, body)
 
 Pause a campaign
 
@@ -427,10 +411,9 @@ public class Example {
 
         EmailCampaignsApi apiInstance = new EmailCampaignsApi(defaultClient);
         String uid = "<string>"; // String | (Required) The uid of the campaign to pause
-        String accept = "application/json"; // String | 
         Object body = null; // Object | 
         try {
-            Object result = apiInstance.messagesUidPausePost(uid, accept, body);
+            Object result = apiInstance.messagesUidPausePost(uid, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling EmailCampaignsApi#messagesUidPausePost");
@@ -449,7 +432,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **uid** | **String**| (Required) The uid of the campaign to pause | |
-| **accept** | **String**|  | [optional] |
 | **body** | **Object**|  | [optional] |
 
 ### Return type
@@ -474,7 +456,7 @@ public class Example {
 
 ## messagesUidResumePost
 
-> Object messagesUidResumePost(uid, accept, body)
+> Object messagesUidResumePost(uid, body)
 
 Resume the delivery of a campaign
 
@@ -504,10 +486,9 @@ public class Example {
 
         EmailCampaignsApi apiInstance = new EmailCampaignsApi(defaultClient);
         String uid = "<string>"; // String | (Required) The uid of the campaign to resume
-        String accept = "application/json"; // String | 
         Object body = null; // Object | 
         try {
-            Object result = apiInstance.messagesUidResumePost(uid, accept, body);
+            Object result = apiInstance.messagesUidResumePost(uid, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling EmailCampaignsApi#messagesUidResumePost");
@@ -526,7 +507,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **uid** | **String**| (Required) The uid of the campaign to resume | |
-| **accept** | **String**|  | [optional] |
 | **body** | **Object**|  | [optional] |
 
 ### Return type

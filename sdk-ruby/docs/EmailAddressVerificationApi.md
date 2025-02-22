@@ -30,7 +30,7 @@ end
 
 api_instance = SegnivoSDK::EmailAddressVerificationApi.new
 opts = {
-  body: { ... } # Object | 
+  email_address_verification_request: SegnivoSDK::EmailAddressVerificationRequest.new # EmailAddressVerificationRequest | 
 }
 
 begin
@@ -64,7 +64,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | **Object** |  | [optional] |
+| **email_address_verification_request** | [**EmailAddressVerificationRequest**](EmailAddressVerificationRequest.md) |  | [optional] |
 
 ### Return type
 

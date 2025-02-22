@@ -13,6 +13,8 @@
 
 package com.segnivo.sdk.api;
 
+import com.segnivo.sdk.model.CampaignCreateRequest;
+import com.segnivo.sdk.model.CampaignUpdateRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.client.RestClientException;
@@ -43,9 +45,8 @@ class EmailCampaignsApiTest {
      */
     @Test
     void messagesGetTest() {
-        String accept = null;
 
-        Object response = api.messagesGet(accept);
+        Object response = api.messagesGet();
 
         // TODO: test validations
     }
@@ -60,11 +61,9 @@ class EmailCampaignsApiTest {
      */
     @Test
     void messagesPostTest() {
-        String contentType = null;
-        String accept = null;
-        Object body = null;
+        CampaignCreateRequest campaignCreateRequest = null;
 
-        Object response = api.messagesPost(contentType, accept, body);
+        Object response = api.messagesPost(campaignCreateRequest);
 
         // TODO: test validations
     }
@@ -80,10 +79,9 @@ class EmailCampaignsApiTest {
     @Test
     void messagesUidDeletePostTest() {
         String uid = null;
-        String accept = null;
         Object body = null;
 
-        Object response = api.messagesUidDeletePost(uid, accept, body);
+        Object response = api.messagesUidDeletePost(uid, body);
 
         // TODO: test validations
     }
@@ -99,9 +97,8 @@ class EmailCampaignsApiTest {
     @Test
     void messagesUidGetTest() {
         String uid = null;
-        String accept = null;
 
-        Object response = api.messagesUidGet(uid, accept);
+        Object response = api.messagesUidGet(uid);
 
         // TODO: test validations
     }
@@ -117,11 +114,9 @@ class EmailCampaignsApiTest {
     @Test
     void messagesUidPatchTest() {
         String uid = null;
-        String contentType = null;
-        String accept = null;
-        Object body = null;
+        CampaignUpdateRequest campaignUpdateRequest = null;
 
-        Object response = api.messagesUidPatch(uid, contentType, accept, body);
+        Object response = api.messagesUidPatch(uid, campaignUpdateRequest);
 
         // TODO: test validations
     }
@@ -137,10 +132,9 @@ class EmailCampaignsApiTest {
     @Test
     void messagesUidPausePostTest() {
         String uid = null;
-        String accept = null;
         Object body = null;
 
-        Object response = api.messagesUidPausePost(uid, accept, body);
+        Object response = api.messagesUidPausePost(uid, body);
 
         // TODO: test validations
     }
@@ -156,10 +150,9 @@ class EmailCampaignsApiTest {
     @Test
     void messagesUidResumePostTest() {
         String uid = null;
-        String accept = null;
         Object body = null;
 
-        Object response = api.messagesUidResumePost(uid, accept, body);
+        Object response = api.messagesUidResumePost(uid, body);
 
         // TODO: test validations
     }

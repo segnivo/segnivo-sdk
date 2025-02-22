@@ -115,11 +115,11 @@ public class Example {
         //apiKeyAuth.setApiKeyPrefix("Token");
 
         RelayApi apiInstance = new RelayApi(defaultClient);
-        String message = "message_example"; // String | 
-        Boolean isTransactional = true; // Boolean | 
-        Boolean trackClick = true; // Boolean | 
-        Boolean trackOpen = true; // Boolean | 
-        Boolean signDkim = true; // Boolean | 
+        String message = "message_example"; // String | The raw email content in RFC822 format. This should include headers, body content, and any attachments.
+        Boolean isTransactional = true; // Boolean | Indicates whether the email is transactional (e.g., receipts, order confirmations) or marketing. Transactional emails typically bypass unsubscribes.
+        Boolean trackClick = true; // Boolean | Enables or disables click tracking within the email. When enabled, any hyperlinks in the email will be tracked to gather analytics on user interactions.
+        Boolean trackOpen = true; // Boolean | Enables or disables open tracking for the email. When enabled, a tracking pixel is embedded in the email to monitor whether the recipient has opened it.
+        Boolean signDkim = true; // Boolean | Specifies whether the email should be signed with a DKIM (DomainKeys Identified Mail) signature. DKIM helps improve email deliverability by ensuring the email's integrity.
         try {
             Object result = apiInstance.relayRawPost(message, isTransactional, trackClick, trackOpen, signDkim);
             System.out.println(result);
@@ -139,11 +139,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **message** | **String**|  | [optional] |
-| **isTransactional** | **Boolean**|  | [optional] |
-| **trackClick** | **Boolean**|  | [optional] |
-| **trackOpen** | **Boolean**|  | [optional] |
-| **signDkim** | **Boolean**|  | [optional] |
+| **message** | **String**| The raw email content in RFC822 format. This should include headers, body content, and any attachments. | [optional] |
+| **isTransactional** | **Boolean**| Indicates whether the email is transactional (e.g., receipts, order confirmations) or marketing. Transactional emails typically bypass unsubscribes. | [optional] |
+| **trackClick** | **Boolean**| Enables or disables click tracking within the email. When enabled, any hyperlinks in the email will be tracked to gather analytics on user interactions. | [optional] |
+| **trackOpen** | **Boolean**| Enables or disables open tracking for the email. When enabled, a tracking pixel is embedded in the email to monitor whether the recipient has opened it. | [optional] |
+| **signDkim** | **Boolean**| Specifies whether the email should be signed with a DKIM (DomainKeys Identified Mail) signature. DKIM helps improve email deliverability by ensuring the email&#39;s integrity. | [optional] |
 
 ### Return type
 

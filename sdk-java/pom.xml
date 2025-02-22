@@ -5,13 +5,13 @@
     <artifactId>segnivo-sdk</artifactId>
     <packaging>jar</packaging>
     <name>segnivo-sdk</name>
-    <version>1.7.2</version>
-    <url>https://github.com/munchads/segnivo-sdk</url>
+    <version>1.7.16</version>
+    <url>https://github.com/segnivo/segnivo-sdk/tree/main/sdk-java</url>
     <description>This.is.the.offical.sdk.for.segnivo.client</description>
     <scm>
-        <connection>scm:git:git://github.com/munchads/java-sdk.git</connection>
-        <developerConnection>scm:git:ssh://github.com:munchads/java-sdk.git</developerConnection>
-        <url>https://github.com/munchads/segnivo-sdk/java-sdk</url>
+        <connection>scm:git:git://github.com/segnivo/segnivo-sdk.git</connection>
+        <developerConnection>scm:git:ssh://github.com:segnivo/segnivo-sdk.git</developerConnection>
+        <url>https://github.com/segnivo/segnivo-sdk/sdk-java</url>
     </scm>
 
     <licenses>
@@ -27,7 +27,7 @@
             <name>Hanis.Hapsa</name>
             <email>hanis.hapsa@segnivo.com</email>
             <organization>Segnivo</organization>
-            <organizationUrl>https://github.com/munchads</organizationUrl>
+            <organizationUrl>https://github.com/segnivo/segnivo-sdk/tree/main/sdk-java</organizationUrl>
         </developer>
     </developers>
 

@@ -159,27 +159,7 @@ paths:
         content:
           application/json:
             schema:
-              example:
-                subject: Relay Transactional Email
-                from_name: Jane Doe
-                from_email: <string>
-                content_type: html
-                reply_to: <string>
-                recipients:
-                - <string>
-                content: <p>Welcome to <a href='https://segnivo.com'>Segnivo</a></p>
-                sign_dkim: true
-                track_open: true
-                track_click: true
-                is_transactional: false
-                custom_headers:
-                  x-custom-header: demo-header
-                delivery_at: 1720311502
-                attachments:
-                - https://media.macphun.com/img/uploads/customer/how-to/608/15542038745ca344e267fb80.28757312.jpg
-                - https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg
-                preheader: Awesome Email
-              type: object
+              $ref: '#/components/schemas/RelayEmailRequest'
       responses:
         "200":
           content:
@@ -221,7 +201,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/_relay_raw_post_request'
+              $ref: '#/components/schemas/RelayRawEmailRequest'
       responses:
         "200":
           content:
@@ -362,10 +342,7 @@ paths:
         content:
           application/json:
             schema:
-              example:
-                emails:
-                - hello@gmail.com
-              type: object
+              $ref: '#/components/schemas/EmailAddressVerificationRequest'
       responses:
         "200":
           content:
@@ -448,15 +425,6 @@ paths:
   /messages:
     get:
       description: Returns a collection of all your campaigns
-      parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           content:
@@ -523,35 +491,11 @@ paths:
       - application/json
     post:
       description: Creat an email campaign for processing
-      parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Content-Type
-        required: false
-        schema:
-          type: string
-        style: simple
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
             schema:
-              example:
-                mail_list_uid: <string>
-                name: <string>
-                subject: <string>
-                from_email: <string>
-                from_name: <string>
-                reply_to: <string>
-              type: object
+              $ref: '#/components/schemas/CampaignCreateRequest'
       responses:
         "201":
           content:
@@ -602,14 +546,6 @@ paths:
     get:
       description: Returns the specified campaign details
       parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       - description: (Required) The uid of the campaign to fetch
         example: <string>
         explode: false
@@ -665,22 +601,6 @@ paths:
       description: Updates a previously added campaign. Only Active and Paused campaigns
         can be updated.
       parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Content-Type
-        required: false
-        schema:
-          type: string
-        style: simple
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       - description: (Required) The uid of the campaign to update
         example: <string>
         explode: false
@@ -694,13 +614,7 @@ paths:
         content:
           application/json:
             schema:
-              example:
-                name: <string>
-                subject: <string>
-                from_email: <string>
-                from_name: <string>
-                reply_to: <string>
-              type: object
+              $ref: '#/components/schemas/CampaignUpdateRequest'
       responses:
         "200":
           content:
@@ -751,14 +665,6 @@ paths:
     post:
       description: Pause the specified campaign
       parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       - description: (Required) The uid of the campaign to pause
         example: <string>
         explode: false
@@ -823,14 +729,6 @@ paths:
     post:
       description: Resume delivery of the specified campaign
       parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       - description: (Required) The uid of the campaign to resume
         example: <string>
         explode: false
@@ -895,14 +793,6 @@ paths:
     post:
       description: Delete the specified campaign
       parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       - description: (Required) The uid of the campaign to delete
         example: <string>
         explode: false
@@ -949,14 +839,6 @@ paths:
         \ of records to return.\n    \n- `page` — The parameter serves as an offset\
         \ on the number of records returned."
       parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       - description: An email address to search for.
         example: <string>
         explode: true
@@ -1026,34 +908,11 @@ paths:
       - application/json
     post:
       description: Add a new contact/subscriber to your mailing list
-      parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Content-Type
-        required: false
-        schema:
-          type: string
-        style: simple
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
             schema:
-              example:
-                list_uid: <string>
-                email: <string>
-                first_name: <string>
-                last_name: <string>
-                tag: <string>
-              type: object
+              $ref: '#/components/schemas/AddContactRequest'
       responses:
         "200":
           content:
@@ -1082,14 +941,6 @@ paths:
     get:
       description: Fetch detailed contact information for specified a contact
       parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       - description: (Required) The uid of the contact to get.
         example: <string>
         explode: false
@@ -1132,22 +983,6 @@ paths:
     patch:
       description: Update the specified subscriber/contact
       parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Content-Type
-        required: false
-        schema:
-          type: string
-        style: simple
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       - description: (Required) The uid of the contact to update.
         example: <string>
         explode: false
@@ -1161,11 +996,7 @@ paths:
         content:
           application/json:
             schema:
-              example:
-                email: <string>
-                first_name: <string>
-                last_name: <string>
-              type: object
+              $ref: '#/components/schemas/ContactUpdateRequest'
       responses:
         "200":
           content:
@@ -1194,22 +1025,6 @@ paths:
     post:
       description: Add tags to an existing contact
       parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Content-Type
-        required: false
-        schema:
-          type: string
-        style: simple
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       - description: (Required) The uid of the contact to update with the tags.
         example: <string>
         explode: false
@@ -1223,9 +1038,7 @@ paths:
         content:
           application/json:
             schema:
-              example:
-                tag: <string>
-              type: object
+              $ref: '#/components/schemas/_contacts__uid__add_tag_post_request'
       responses:
         "200":
           content:
@@ -1255,14 +1068,6 @@ paths:
     patch:
       description: Subscribe a contact to a list
       parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       - description: (Required) The uid of the mail list to subscribe the contact.
         example: <string>
         explode: true
@@ -1313,14 +1118,6 @@ paths:
     patch:
       description: Unsubscribe a contact from a list
       parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       - description: (Required) The uid of the mail list to unsubscribe the contact.
         example: <string>
         explode: true
@@ -1371,14 +1168,6 @@ paths:
     post:
       description: Delete an existing contact
       parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       - description: (Required) The uid of the contact to delete.
         example: <string>
         explode: false
@@ -1419,15 +1208,6 @@ paths:
   /lists:
     get:
       description: Returns all your existing lists
-      parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1476,35 +1256,11 @@ paths:
       - application/json
     post:
       description: Create a new mailing list
-      parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Content-Type
-        required: false
-        schema:
-          type: string
-        style: simple
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
             schema:
-              example:
-                name: <string>
-                from_email: <string>
-                from_name: <string>
-                contact:
-                  email: <string>
-                  company: <string>
-              type: object
+              $ref: '#/components/schemas/MailingListRequest'
       responses:
         "200":
           content:
@@ -1533,14 +1289,6 @@ paths:
     get:
       description: Returns detailed information about a specified list
       parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       - description: (Required) The uid of the mailing list to fetch.
         example: <string>
         explode: false
@@ -1586,22 +1334,6 @@ paths:
     patch:
       description: Update an existing mailing list
       parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Content-Type
-        required: false
-        schema:
-          type: string
-        style: simple
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       - description: (Required) The uid of the list to update.
         example: <string>
         explode: false
@@ -1615,14 +1347,7 @@ paths:
         content:
           application/json:
             schema:
-              example:
-                name: <string>
-                from_email: <string>
-                from_name: <string>
-                contact:
-                  email: <string>
-                  company: <string>
-              type: object
+              $ref: '#/components/schemas/MailingListRequest'
       responses:
         "200":
           content:
@@ -1649,22 +1374,6 @@ paths:
     post:
       description: Add a field to an existing list
       parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Content-Type
-        required: false
-        schema:
-          type: string
-        style: simple
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       - description: (Required) The uid of the list to add a field to.
         example: <string>
         explode: false
@@ -1678,12 +1387,7 @@ paths:
         content:
           application/json:
             schema:
-              example:
-                type: text
-                label: <string>
-                tag: <string>
-                default_value: <string>
-              type: object
+              $ref: '#/components/schemas/MailingListAddFieldRequest'
       responses:
         "200":
           content:
@@ -1720,14 +1424,6 @@ paths:
     post:
       description: Delete an existing list
       parameters:
-      - example: application/json
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       - description: (Required) The uid of the list to delete.
         example: <string>
         explode: false
@@ -1767,23 +1463,335 @@ paths:
       - application/json
 components:
   schemas:
-    _relay_raw_post_request:
+    AddContactRequest:
+      example:
+        list_uid: list_uid
+        last_name: last_name
+        tag: tag
+        first_name: first_name
+        email: email
+      properties:
+        list_uid:
+          description: Unique identifier for the mailing list.
+          type: string
+        email:
+          description: Subscriber's email address.
+          type: string
+        first_name:
+          description: Subscriber's first name.
+          type: string
+        last_name:
+          description: Subscriber's last name.
+          type: string
+        tag:
+          description: Tag to categorize the subscriber.
+          type: string
+      required:
+      - email
+      - list_uid
+      type: object
+    RelayEmailRequest:
+      example:
+        track_click: true
+        from_email: from_email
+        attachments:
+        - attachments
+        - attachments
+        subject: subject
+        from_name: from_name
+        content: content
+        preheader: preheader
+        reply_to: reply_to
+        content_type: html
+        sign_dkim: true
+        recipients:
+        - recipients
+        - recipients
+        - recipients
+        - recipients
+        - recipients
+        is_transactional: false
+        custom_headers: "{}"
+        delivery_at: 0
+        track_open: true
+      properties:
+        subject:
+          description: The subject of the email
+          type: string
+        from_name:
+          description: The full name of the sender
+          type: string
+        from_email:
+          description: The email of the sender
+          type: string
+        reply_to:
+          description: The email to which replies should be sent
+          type: string
+        content_type:
+          default: html
+          description: The content type of the email body
+          enum:
+          - text
+          - html
+          type: string
+        recipients:
+          description: An array of email addresses to deliver this message
+          items:
+            type: string
+          maxItems: 50
+          type: array
+        content:
+          description: The HTML or plain text content of the email
+          type: string
+        preheader:
+          description: The email preheader
+          type: string
+        custom_headers:
+          description: An object of custom headers to add to the email
+          type: object
+        delivery_at:
+          description: The 10-digit unix timestamp of the date/time at which this
+            email should be delivered
+          type: integer
+        attachments:
+          description: An array of URLs of files to attach to the email
+          items:
+            type: string
+          type: array
+        sign_dkim:
+          default: true
+          description: A boolean value on if a DKIM signature should be included in
+            this message
+          type: boolean
+        track_click:
+          default: true
+          description: A boolean value on if email clicks should be tracked
+          type: boolean
+        track_open:
+          default: true
+          description: A boolean value on if the email opens should be tracked
+          type: boolean
+        is_transactional:
+          default: false
+          description: A boolean value to flag this email as a transactional email
+          type: boolean
+      type: object
+    RelayRawEmailRequest:
       properties:
         message:
-          example: A raw RFC822 message string
+          description: "The raw email content in RFC822 format. This should include\
+            \ headers, body content, and any attachments."
+          example: |-
+            From: sender@example.com
+            To: recipient@example.com
+            Subject: Test Email
+
+            This is a test email message.
           type: string
         is_transactional:
+          description: "Indicates whether the email is transactional (e.g., receipts,\
+            \ order confirmations) or marketing. Transactional emails typically bypass\
+            \ unsubscribes."
           example: true
           type: boolean
         track_click:
+          description: "Enables or disables click tracking within the email. When\
+            \ enabled, any hyperlinks in the email will be tracked to gather analytics\
+            \ on user interactions."
           example: false
           type: boolean
         track_open:
+          description: "Enables or disables open tracking for the email. When enabled,\
+            \ a tracking pixel is embedded in the email to monitor whether the recipient\
+            \ has opened it."
           example: false
           type: boolean
         sign_dkim:
+          description: Specifies whether the email should be signed with a DKIM (DomainKeys
+            Identified Mail) signature. DKIM helps improve email deliverability by
+            ensuring the email's integrity.
           example: true
           type: boolean
+      type: object
+    CampaignCreateRequest:
+      example:
+        from_email: from_email
+        reply_to: reply_to
+        mail_list_uid: mail_list_uid
+        subject: subject
+        name: name
+        from_name: from_name
+      properties:
+        mail_list_uid:
+          description: Unique identifier for the mailing list
+          type: string
+        name:
+          description: Name of the campaign
+          type: string
+        subject:
+          description: Subject of the email campaign
+          type: string
+        from_email:
+          description: Sender's email address
+          type: string
+        from_name:
+          description: Sender's full name
+          type: string
+        reply_to:
+          description: Email address for replies
+          type: string
+      type: object
+    CampaignUpdateRequest:
+      example:
+        from_email: no-reply@example.com
+        reply_to: support@example.com
+        subject: Welcome to our service!
+        name: Your Campaign Name
+        from_name: Example Team
+      properties:
+        name:
+          example: Your Campaign Name
+          type: string
+        subject:
+          example: Welcome to our service!
+          type: string
+        from_email:
+          example: no-reply@example.com
+          format: email
+          type: string
+        from_name:
+          example: Example Team
+          type: string
+        reply_to:
+          example: support@example.com
+          format: email
+          type: string
+      required:
+      - from_email
+      - from_name
+      - name
+      - reply_to
+      - subject
+      type: object
+    MailingListRequest:
+      example:
+        from_email: no-reply@example.com
+        contact:
+          company: Example Company Inc.
+          email: support@example.com
+        name: Welcome Email
+        from_name: Example Company
+      properties:
+        name:
+          description: The name of the email template or campaign. This is used for
+            internal identification and organization.
+          example: Welcome Email
+          type: string
+        from_email:
+          description: The sender's email address that will appear in the "From" field
+            of the email.
+          example: no-reply@example.com
+          type: string
+        from_name:
+          description: The sender's name that will appear in the "From" field of the
+            email.
+          example: Example Company
+          type: string
+        contact:
+          $ref: '#/components/schemas/MailingListRequest_contact'
+      required:
+      - contact - email - company
+      - from_email
+      - from_name
+      - name
+      type: object
+    EmailAddressVerificationRequest:
+      example:
+        emails:
+        - emails
+        - emails
+        - emails
+        - emails
+        - emails
+      properties:
+        emails:
+          description: List of email addresses to validate
+          items:
+            type: string
+          maxItems: 50
+          minItems: 1
+          type: array
+      type: object
+    ContactUpdateRequest:
+      example:
+        last_name: last_name
+        first_name: first_name
+        email: email
+      properties:
+        email:
+          description: Updated email address
+          type: string
+        first_name:
+          description: Updated first name
+          type: string
+        last_name:
+          description: Updated last name
+          type: string
+      type: object
+    MailingListAddFieldRequest:
+      example:
+        default_value: John Doe
+        label: Enter your name
+        tag: username
+        type: text
+      properties:
+        type:
+          description: The type of input field to be created. This defines the behavior
+            and appearance of the input.
+          example: text
+          type: string
+        label:
+          description: The label associated with the input field. This is typically
+            displayed to the user as a descriptor.
+          example: Enter your name
+          type: string
+        tag:
+          description: "A unique identifier or tag for the input field, useful for\
+            \ internal processing or referencing the field in the system."
+          example: username
+          type: string
+        default_value:
+          description: The default value pre-filled in the input field when it is
+            rendered. This is optional and can be left blank.
+          example: John Doe
+          type: string
+      required:
+      - label
+      - tag
+      - type
+      type: object
+    _contacts__uid__add_tag_post_request:
+      properties:
+        tag:
+          description: Tag for a contact.
+          type: string
+      type: object
+    MailingListRequest_contact:
+      description: "Contact details for the email sender or organization. Used for\
+        \ compliance with email regulations (e.g., CAN-SPAM)."
+      example:
+        company: Example Company Inc.
+        email: support@example.com
+      properties:
+        email:
+          description: The email address of the sender or organization. Usually used
+            for replies or compliance purposes.
+          example: support@example.com
+          type: string
+        company:
+          description: The name of the organization sending the email.
+          example: Example Company Inc.
+          type: string
       type: object
   securitySchemes:
     apiKeyAuth:

@@ -22,7 +22,6 @@ module SegnivoSDK
     # Get contacts
     # Returns a list of contacts/subscribers on your account  This endpoint accepts three **optional** query parameters  - `email` — An email address to search for. If set, the endpoint only returns subscribers that have an identical email address.      - `per_page` — A limit on the number of records to return.      - `page` — The parameter serves as an offset on the number of records returned.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @option opts [String] :email An email address to search for.
     # @option opts [Integer] :per_page How many items should be returned ahead.
     # @option opts [Integer] :page The offset for the items to be returned, helps in pagination.
@@ -35,7 +34,6 @@ module SegnivoSDK
     # Get contacts
     # Returns a list of contacts/subscribers on your account  This endpoint accepts three **optional** query parameters  - &#x60;email&#x60; — An email address to search for. If set, the endpoint only returns subscribers that have an identical email address.      - &#x60;per_page&#x60; — A limit on the number of records to return.      - &#x60;page&#x60; — The parameter serves as an offset on the number of records returned.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @option opts [String] :email An email address to search for.
     # @option opts [Integer] :per_page How many items should be returned ahead.
     # @option opts [Integer] :page The offset for the items to be returned, helps in pagination.
@@ -57,7 +55,6 @@ module SegnivoSDK
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -91,9 +88,7 @@ module SegnivoSDK
     # Add a Contact
     # Add a new contact/subscriber to your mailing list
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type 
-    # @option opts [String] :accept 
-    # @option opts [Object] :body 
+    # @option opts [AddContactRequest] :add_contact_request 
     # @return [Object]
     def contacts_post(opts = {})
       data, _status_code, _headers = contacts_post_with_http_info(opts)
@@ -103,9 +98,7 @@ module SegnivoSDK
     # Add a Contact
     # Add a new contact/subscriber to your mailing list
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type 
-    # @option opts [String] :accept 
-    # @option opts [Object] :body 
+    # @option opts [AddContactRequest] :add_contact_request 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def contacts_post_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -126,14 +119,12 @@ module SegnivoSDK
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'add_contact_request'])
 
       # return_type
       return_type = opts[:debug_return_type] || 'Object'
@@ -162,9 +153,7 @@ module SegnivoSDK
     # Add tags to an existing contact
     # @param uid [String] (Required) The uid of the contact to update with the tags.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type 
-    # @option opts [String] :accept 
-    # @option opts [Object] :body 
+    # @option opts [ContactsUidAddTagPostRequest] :contacts_uid_add_tag_post_request 
     # @return [Object]
     def contacts_uid_add_tag_post(uid, opts = {})
       data, _status_code, _headers = contacts_uid_add_tag_post_with_http_info(uid, opts)
@@ -175,9 +164,7 @@ module SegnivoSDK
     # Add tags to an existing contact
     # @param uid [String] (Required) The uid of the contact to update with the tags.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type 
-    # @option opts [String] :accept 
-    # @option opts [Object] :body 
+    # @option opts [ContactsUidAddTagPostRequest] :contacts_uid_add_tag_post_request 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def contacts_uid_add_tag_post_with_http_info(uid, opts = {})
       if @api_client.config.debugging
@@ -202,14 +189,12 @@ module SegnivoSDK
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'contacts_uid_add_tag_post_request'])
 
       # return_type
       return_type = opts[:debug_return_type] || 'Object'
@@ -238,7 +223,6 @@ module SegnivoSDK
     # Delete an existing contact
     # @param uid [String] (Required) The uid of the contact to delete.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @option opts [Object] :body 
     # @return [Object]
     def contacts_uid_delete_post(uid, opts = {})
@@ -250,7 +234,6 @@ module SegnivoSDK
     # Delete an existing contact
     # @param uid [String] (Required) The uid of the contact to delete.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @option opts [Object] :body 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def contacts_uid_delete_post_with_http_info(uid, opts = {})
@@ -276,7 +259,6 @@ module SegnivoSDK
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -311,7 +293,6 @@ module SegnivoSDK
     # Fetch detailed contact information for specified a contact
     # @param uid [String] (Required) The uid of the contact to get.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @return [Object]
     def contacts_uid_get(uid, opts = {})
       data, _status_code, _headers = contacts_uid_get_with_http_info(uid, opts)
@@ -322,7 +303,6 @@ module SegnivoSDK
     # Fetch detailed contact information for specified a contact
     # @param uid [String] (Required) The uid of the contact to get.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def contacts_uid_get_with_http_info(uid, opts = {})
       if @api_client.config.debugging
@@ -342,7 +322,6 @@ module SegnivoSDK
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -377,9 +356,7 @@ module SegnivoSDK
     # Update the specified subscriber/contact
     # @param uid [String] (Required) The uid of the contact to update.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type 
-    # @option opts [String] :accept 
-    # @option opts [Object] :body 
+    # @option opts [ContactUpdateRequest] :contact_update_request 
     # @return [Object]
     def contacts_uid_patch(uid, opts = {})
       data, _status_code, _headers = contacts_uid_patch_with_http_info(uid, opts)
@@ -390,9 +367,7 @@ module SegnivoSDK
     # Update the specified subscriber/contact
     # @param uid [String] (Required) The uid of the contact to update.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type 
-    # @option opts [String] :accept 
-    # @option opts [Object] :body 
+    # @option opts [ContactUpdateRequest] :contact_update_request 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def contacts_uid_patch_with_http_info(uid, opts = {})
       if @api_client.config.debugging
@@ -417,14 +392,12 @@ module SegnivoSDK
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'contact_update_request'])
 
       # return_type
       return_type = opts[:debug_return_type] || 'Object'
@@ -453,7 +426,6 @@ module SegnivoSDK
     # Subscribe a contact to a list
     # @param uid [String] (Required) The uid of the contact to subscribe.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @option opts [String] :list_uid (Required) The uid of the mail list to subscribe the contact.
     # @option opts [Object] :body 
     # @return [Object]
@@ -466,7 +438,6 @@ module SegnivoSDK
     # Subscribe a contact to a list
     # @param uid [String] (Required) The uid of the contact to subscribe.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @option opts [String] :list_uid (Required) The uid of the mail list to subscribe the contact.
     # @option opts [Object] :body 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -494,7 +465,6 @@ module SegnivoSDK
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -529,7 +499,6 @@ module SegnivoSDK
     # Unsubscribe a contact from a list
     # @param uid [String] (Required) The uid of the contact to unsubscribe.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @option opts [String] :list_uid (Required) The uid of the mail list to unsubscribe the contact.
     # @option opts [Object] :body 
     # @return [Object]
@@ -542,7 +511,6 @@ module SegnivoSDK
     # Unsubscribe a contact from a list
     # @param uid [String] (Required) The uid of the contact to unsubscribe.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @option opts [String] :list_uid (Required) The uid of the mail list to unsubscribe the contact.
     # @option opts [Object] :body 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -570,7 +538,6 @@ module SegnivoSDK
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}

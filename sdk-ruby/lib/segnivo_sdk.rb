@@ -17,6 +17,16 @@ require 'segnivo_sdk/version'
 require 'segnivo_sdk/configuration'
 
 # Models
+require 'segnivo_sdk/models/add_contact_request'
+require 'segnivo_sdk/models/campaign_create_request'
+require 'segnivo_sdk/models/campaign_update_request'
+require 'segnivo_sdk/models/contact_update_request'
+require 'segnivo_sdk/models/contacts_uid_add_tag_post_request'
+require 'segnivo_sdk/models/email_address_verification_request'
+require 'segnivo_sdk/models/mailing_list_add_field_request'
+require 'segnivo_sdk/models/mailing_list_request'
+require 'segnivo_sdk/models/mailing_list_request_contact'
+require 'segnivo_sdk/models/relay_email_request'
 
 # APIs
 require 'segnivo_sdk/api/email_address_verification_api'

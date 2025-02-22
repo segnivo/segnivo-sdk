@@ -36,7 +36,6 @@ describe 'MailingListsApi' do
   # Get mailing lists
   # Returns all your existing lists
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :accept 
   # @return [Object]
   describe 'lists_get test' do
     it 'should work' do
@@ -48,9 +47,7 @@ describe 'MailingListsApi' do
   # Create a Mailing List
   # Create a new mailing list
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :content_type 
-  # @option opts [String] :accept 
-  # @option opts [Object] :body 
+  # @option opts [MailingListRequest] :mailing_list_request 
   # @return [Object]
   describe 'lists_post test' do
     it 'should work' do
@@ -63,9 +60,7 @@ describe 'MailingListsApi' do
   # Add a field to an existing list
   # @param uid (Required) The uid of the list to add a field to.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :content_type 
-  # @option opts [String] :accept 
-  # @option opts [Object] :body 
+  # @option opts [MailingListAddFieldRequest] :mailing_list_add_field_request 
   # @return [Object]
   describe 'lists_uid_add_field_post test' do
     it 'should work' do
@@ -78,7 +73,6 @@ describe 'MailingListsApi' do
   # Delete an existing list
   # @param uid (Required) The uid of the list to delete.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :accept 
   # @option opts [Object] :body 
   # @return [Object]
   describe 'lists_uid_delete_post test' do
@@ -92,7 +86,6 @@ describe 'MailingListsApi' do
   # Returns detailed information about a specified list
   # @param uid (Required) The uid of the mailing list to fetch.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :accept 
   # @return [Object]
   describe 'lists_uid_get test' do
     it 'should work' do
@@ -105,9 +98,7 @@ describe 'MailingListsApi' do
   # Update an existing mailing list
   # @param uid (Required) The uid of the list to update.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :content_type 
-  # @option opts [String] :accept 
-  # @option opts [Object] :body 
+  # @option opts [MailingListRequest] :mailing_list_request 
   # @return [Object]
   describe 'lists_uid_patch test' do
     it 'should work' do

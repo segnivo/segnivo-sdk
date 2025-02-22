@@ -15,7 +15,7 @@ All URIs are relative to *https://api.segnivo.com/v1*
 
 ## listsGet
 
-> Object listsGet(accept)
+> Object listsGet()
 
 Get mailing lists
 
@@ -44,9 +44,8 @@ public class Example {
         //apiKeyAuth.setApiKeyPrefix("Token");
 
         MailingListsApi apiInstance = new MailingListsApi(defaultClient);
-        String accept = "application/json"; // String | 
         try {
-            Object result = apiInstance.listsGet(accept);
+            Object result = apiInstance.listsGet();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MailingListsApi#listsGet");
@@ -61,10 +60,7 @@ public class Example {
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **accept** | **String**|  | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -88,7 +84,7 @@ public class Example {
 
 ## listsPost
 
-> Object listsPost(contentType, accept, body)
+> Object listsPost(mailingListRequest)
 
 Create a Mailing List
 
@@ -117,11 +113,9 @@ public class Example {
         //apiKeyAuth.setApiKeyPrefix("Token");
 
         MailingListsApi apiInstance = new MailingListsApi(defaultClient);
-        String contentType = "application/json"; // String | 
-        String accept = "application/json"; // String | 
-        Object body = null; // Object | 
+        MailingListRequest mailingListRequest = new MailingListRequest(); // MailingListRequest | 
         try {
-            Object result = apiInstance.listsPost(contentType, accept, body);
+            Object result = apiInstance.listsPost(mailingListRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MailingListsApi#listsPost");
@@ -139,9 +133,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **contentType** | **String**|  | [optional] |
-| **accept** | **String**|  | [optional] |
-| **body** | **Object**|  | [optional] |
+| **mailingListRequest** | [**MailingListRequest**](MailingListRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -165,7 +157,7 @@ public class Example {
 
 ## listsUidAddFieldPost
 
-> Object listsUidAddFieldPost(uid, contentType, accept, body)
+> Object listsUidAddFieldPost(uid, mailingListAddFieldRequest)
 
 Add a field
 
@@ -195,11 +187,9 @@ public class Example {
 
         MailingListsApi apiInstance = new MailingListsApi(defaultClient);
         String uid = "<string>"; // String | (Required) The uid of the list to add a field to.
-        String contentType = "application/json"; // String | 
-        String accept = "application/json"; // String | 
-        Object body = null; // Object | 
+        MailingListAddFieldRequest mailingListAddFieldRequest = new MailingListAddFieldRequest(); // MailingListAddFieldRequest | 
         try {
-            Object result = apiInstance.listsUidAddFieldPost(uid, contentType, accept, body);
+            Object result = apiInstance.listsUidAddFieldPost(uid, mailingListAddFieldRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MailingListsApi#listsUidAddFieldPost");
@@ -218,9 +208,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **uid** | **String**| (Required) The uid of the list to add a field to. | |
-| **contentType** | **String**|  | [optional] |
-| **accept** | **String**|  | [optional] |
-| **body** | **Object**|  | [optional] |
+| **mailingListAddFieldRequest** | [**MailingListAddFieldRequest**](MailingListAddFieldRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -244,7 +232,7 @@ public class Example {
 
 ## listsUidDeletePost
 
-> Object listsUidDeletePost(uid, accept, body)
+> Object listsUidDeletePost(uid, body)
 
 Delete a list
 
@@ -274,10 +262,9 @@ public class Example {
 
         MailingListsApi apiInstance = new MailingListsApi(defaultClient);
         String uid = "<string>"; // String | (Required) The uid of the list to delete.
-        String accept = "application/json"; // String | 
         Object body = null; // Object | 
         try {
-            Object result = apiInstance.listsUidDeletePost(uid, accept, body);
+            Object result = apiInstance.listsUidDeletePost(uid, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MailingListsApi#listsUidDeletePost");
@@ -296,7 +283,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **uid** | **String**| (Required) The uid of the list to delete. | |
-| **accept** | **String**|  | [optional] |
 | **body** | **Object**|  | [optional] |
 
 ### Return type
@@ -321,7 +307,7 @@ public class Example {
 
 ## listsUidGet
 
-> Object listsUidGet(uid, accept)
+> Object listsUidGet(uid)
 
 Get a list
 
@@ -351,9 +337,8 @@ public class Example {
 
         MailingListsApi apiInstance = new MailingListsApi(defaultClient);
         String uid = "<string>"; // String | (Required) The uid of the mailing list to fetch.
-        String accept = "application/json"; // String | 
         try {
-            Object result = apiInstance.listsUidGet(uid, accept);
+            Object result = apiInstance.listsUidGet(uid);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MailingListsApi#listsUidGet");
@@ -372,7 +357,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **uid** | **String**| (Required) The uid of the mailing list to fetch. | |
-| **accept** | **String**|  | [optional] |
 
 ### Return type
 
@@ -396,7 +380,7 @@ public class Example {
 
 ## listsUidPatch
 
-> Object listsUidPatch(uid, contentType, accept, body)
+> Object listsUidPatch(uid, mailingListRequest)
 
 Update a List
 
@@ -426,11 +410,9 @@ public class Example {
 
         MailingListsApi apiInstance = new MailingListsApi(defaultClient);
         String uid = "<string>"; // String | (Required) The uid of the list to update.
-        String contentType = "application/json"; // String | 
-        String accept = "application/json"; // String | 
-        Object body = null; // Object | 
+        MailingListRequest mailingListRequest = new MailingListRequest(); // MailingListRequest | 
         try {
-            Object result = apiInstance.listsUidPatch(uid, contentType, accept, body);
+            Object result = apiInstance.listsUidPatch(uid, mailingListRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MailingListsApi#listsUidPatch");
@@ -449,9 +431,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **uid** | **String**| (Required) The uid of the list to update. | |
-| **contentType** | **String**|  | [optional] |
-| **accept** | **String**|  | [optional] |
-| **body** | **Object**|  | [optional] |
+| **mailingListRequest** | [**MailingListRequest**](MailingListRequest.md)|  | [optional] |
 
 ### Return type
 

@@ -22,7 +22,6 @@ module SegnivoSDK
     # Get mailing lists
     # Returns all your existing lists
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @return [Object]
     def lists_get(opts = {})
       data, _status_code, _headers = lists_get_with_http_info(opts)
@@ -32,7 +31,6 @@ module SegnivoSDK
     # Get mailing lists
     # Returns all your existing lists
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def lists_get_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -48,7 +46,6 @@ module SegnivoSDK
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -82,9 +79,7 @@ module SegnivoSDK
     # Create a Mailing List
     # Create a new mailing list
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type 
-    # @option opts [String] :accept 
-    # @option opts [Object] :body 
+    # @option opts [MailingListRequest] :mailing_list_request 
     # @return [Object]
     def lists_post(opts = {})
       data, _status_code, _headers = lists_post_with_http_info(opts)
@@ -94,9 +89,7 @@ module SegnivoSDK
     # Create a Mailing List
     # Create a new mailing list
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type 
-    # @option opts [String] :accept 
-    # @option opts [Object] :body 
+    # @option opts [MailingListRequest] :mailing_list_request 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def lists_post_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -117,14 +110,12 @@ module SegnivoSDK
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'mailing_list_request'])
 
       # return_type
       return_type = opts[:debug_return_type] || 'Object'
@@ -153,9 +144,7 @@ module SegnivoSDK
     # Add a field to an existing list
     # @param uid [String] (Required) The uid of the list to add a field to.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type 
-    # @option opts [String] :accept 
-    # @option opts [Object] :body 
+    # @option opts [MailingListAddFieldRequest] :mailing_list_add_field_request 
     # @return [Object]
     def lists_uid_add_field_post(uid, opts = {})
       data, _status_code, _headers = lists_uid_add_field_post_with_http_info(uid, opts)
@@ -166,9 +155,7 @@ module SegnivoSDK
     # Add a field to an existing list
     # @param uid [String] (Required) The uid of the list to add a field to.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type 
-    # @option opts [String] :accept 
-    # @option opts [Object] :body 
+    # @option opts [MailingListAddFieldRequest] :mailing_list_add_field_request 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def lists_uid_add_field_post_with_http_info(uid, opts = {})
       if @api_client.config.debugging
@@ -193,14 +180,12 @@ module SegnivoSDK
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'mailing_list_add_field_request'])
 
       # return_type
       return_type = opts[:debug_return_type] || 'Object'
@@ -229,7 +214,6 @@ module SegnivoSDK
     # Delete an existing list
     # @param uid [String] (Required) The uid of the list to delete.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @option opts [Object] :body 
     # @return [Object]
     def lists_uid_delete_post(uid, opts = {})
@@ -241,7 +225,6 @@ module SegnivoSDK
     # Delete an existing list
     # @param uid [String] (Required) The uid of the list to delete.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @option opts [Object] :body 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def lists_uid_delete_post_with_http_info(uid, opts = {})
@@ -267,7 +250,6 @@ module SegnivoSDK
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -302,7 +284,6 @@ module SegnivoSDK
     # Returns detailed information about a specified list
     # @param uid [String] (Required) The uid of the mailing list to fetch.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @return [Object]
     def lists_uid_get(uid, opts = {})
       data, _status_code, _headers = lists_uid_get_with_http_info(uid, opts)
@@ -313,7 +294,6 @@ module SegnivoSDK
     # Returns detailed information about a specified list
     # @param uid [String] (Required) The uid of the mailing list to fetch.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def lists_uid_get_with_http_info(uid, opts = {})
       if @api_client.config.debugging
@@ -333,7 +313,6 @@ module SegnivoSDK
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -368,9 +347,7 @@ module SegnivoSDK
     # Update an existing mailing list
     # @param uid [String] (Required) The uid of the list to update.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type 
-    # @option opts [String] :accept 
-    # @option opts [Object] :body 
+    # @option opts [MailingListRequest] :mailing_list_request 
     # @return [Object]
     def lists_uid_patch(uid, opts = {})
       data, _status_code, _headers = lists_uid_patch_with_http_info(uid, opts)
@@ -381,9 +358,7 @@ module SegnivoSDK
     # Update an existing mailing list
     # @param uid [String] (Required) The uid of the list to update.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type 
-    # @option opts [String] :accept 
-    # @option opts [Object] :body 
+    # @option opts [MailingListRequest] :mailing_list_request 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def lists_uid_patch_with_http_info(uid, opts = {})
       if @api_client.config.debugging
@@ -408,14 +383,12 @@ module SegnivoSDK
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'mailing_list_request'])
 
       # return_type
       return_type = opts[:debug_return_type] || 'Object'

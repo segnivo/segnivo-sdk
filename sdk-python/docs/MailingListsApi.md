@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **lists_get**
-> object lists_get(accept=accept)
+> object lists_get()
 
 Get mailing lists
 
@@ -49,11 +49,10 @@ configuration.api_key['apiKeyAuth'] = os.environ["API_KEY"]
 with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.MailingListsApi(api_client)
-    accept = 'application/json' # str |  (optional)
 
     try:
         # Get mailing lists
-        api_response = api_instance.lists_get(accept=accept)
+        api_response = api_instance.lists_get()
         print("The response of MailingListsApi->lists_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -64,10 +63,7 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accept** | **str**|  | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -91,7 +87,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lists_post**
-> object lists_post(content_type=content_type, accept=accept, body=body)
+> object lists_post(mailing_list_request=mailing_list_request)
 
 Create a Mailing List
 
@@ -103,6 +99,7 @@ Create a new mailing list
 
 ```python
 import segnivo_sdk
+from segnivo_sdk.models.mailing_list_request import MailingListRequest
 from segnivo_sdk.rest import ApiException
 from pprint import pprint
 
@@ -127,13 +124,11 @@ configuration.api_key['apiKeyAuth'] = os.environ["API_KEY"]
 with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.MailingListsApi(api_client)
-    content_type = 'application/json' # str |  (optional)
-    accept = 'application/json' # str |  (optional)
-    body = None # object |  (optional)
+    mailing_list_request = segnivo_sdk.MailingListRequest() # MailingListRequest |  (optional)
 
     try:
         # Create a Mailing List
-        api_response = api_instance.lists_post(content_type=content_type, accept=accept, body=body)
+        api_response = api_instance.lists_post(mailing_list_request=mailing_list_request)
         print("The response of MailingListsApi->lists_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -147,9 +142,7 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **str**|  | [optional] 
- **accept** | **str**|  | [optional] 
- **body** | **object**|  | [optional] 
+ **mailing_list_request** | [**MailingListRequest**](MailingListRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -173,7 +166,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lists_uid_add_field_post**
-> object lists_uid_add_field_post(uid, content_type=content_type, accept=accept, body=body)
+> object lists_uid_add_field_post(uid, mailing_list_add_field_request=mailing_list_add_field_request)
 
 Add a field
 
@@ -185,6 +178,7 @@ Add a field to an existing list
 
 ```python
 import segnivo_sdk
+from segnivo_sdk.models.mailing_list_add_field_request import MailingListAddFieldRequest
 from segnivo_sdk.rest import ApiException
 from pprint import pprint
 
@@ -210,13 +204,11 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.MailingListsApi(api_client)
     uid = '<string>' # str | (Required) The uid of the list to add a field to.
-    content_type = 'application/json' # str |  (optional)
-    accept = 'application/json' # str |  (optional)
-    body = None # object |  (optional)
+    mailing_list_add_field_request = segnivo_sdk.MailingListAddFieldRequest() # MailingListAddFieldRequest |  (optional)
 
     try:
         # Add a field
-        api_response = api_instance.lists_uid_add_field_post(uid, content_type=content_type, accept=accept, body=body)
+        api_response = api_instance.lists_uid_add_field_post(uid, mailing_list_add_field_request=mailing_list_add_field_request)
         print("The response of MailingListsApi->lists_uid_add_field_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -231,9 +223,7 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uid** | **str**| (Required) The uid of the list to add a field to. | 
- **content_type** | **str**|  | [optional] 
- **accept** | **str**|  | [optional] 
- **body** | **object**|  | [optional] 
+ **mailing_list_add_field_request** | [**MailingListAddFieldRequest**](MailingListAddFieldRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -257,7 +247,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lists_uid_delete_post**
-> object lists_uid_delete_post(uid, accept=accept, body=body)
+> object lists_uid_delete_post(uid, body=body)
 
 Delete a list
 
@@ -294,12 +284,11 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.MailingListsApi(api_client)
     uid = '<string>' # str | (Required) The uid of the list to delete.
-    accept = 'application/json' # str |  (optional)
     body = None # object |  (optional)
 
     try:
         # Delete a list
-        api_response = api_instance.lists_uid_delete_post(uid, accept=accept, body=body)
+        api_response = api_instance.lists_uid_delete_post(uid, body=body)
         print("The response of MailingListsApi->lists_uid_delete_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -314,7 +303,6 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uid** | **str**| (Required) The uid of the list to delete. | 
- **accept** | **str**|  | [optional] 
  **body** | **object**|  | [optional] 
 
 ### Return type
@@ -339,7 +327,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lists_uid_get**
-> object lists_uid_get(uid, accept=accept)
+> object lists_uid_get(uid)
 
 Get a list
 
@@ -376,11 +364,10 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.MailingListsApi(api_client)
     uid = '<string>' # str | (Required) The uid of the mailing list to fetch.
-    accept = 'application/json' # str |  (optional)
 
     try:
         # Get a list
-        api_response = api_instance.lists_uid_get(uid, accept=accept)
+        api_response = api_instance.lists_uid_get(uid)
         print("The response of MailingListsApi->lists_uid_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -395,7 +382,6 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uid** | **str**| (Required) The uid of the mailing list to fetch. | 
- **accept** | **str**|  | [optional] 
 
 ### Return type
 
@@ -419,7 +405,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lists_uid_patch**
-> object lists_uid_patch(uid, content_type=content_type, accept=accept, body=body)
+> object lists_uid_patch(uid, mailing_list_request=mailing_list_request)
 
 Update a List
 
@@ -431,6 +417,7 @@ Update an existing mailing list
 
 ```python
 import segnivo_sdk
+from segnivo_sdk.models.mailing_list_request import MailingListRequest
 from segnivo_sdk.rest import ApiException
 from pprint import pprint
 
@@ -456,13 +443,11 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.MailingListsApi(api_client)
     uid = '<string>' # str | (Required) The uid of the list to update.
-    content_type = 'application/json' # str |  (optional)
-    accept = 'application/json' # str |  (optional)
-    body = None # object |  (optional)
+    mailing_list_request = segnivo_sdk.MailingListRequest() # MailingListRequest |  (optional)
 
     try:
         # Update a List
-        api_response = api_instance.lists_uid_patch(uid, content_type=content_type, accept=accept, body=body)
+        api_response = api_instance.lists_uid_patch(uid, mailing_list_request=mailing_list_request)
         print("The response of MailingListsApi->lists_uid_patch:\n")
         pprint(api_response)
     except Exception as e:
@@ -477,9 +462,7 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uid** | **str**| (Required) The uid of the list to update. | 
- **content_type** | **str**|  | [optional] 
- **accept** | **str**|  | [optional] 
- **body** | **object**|  | [optional] 
+ **mailing_list_request** | [**MailingListRequest**](MailingListRequest.md)|  | [optional] 
 
 ### Return type
 

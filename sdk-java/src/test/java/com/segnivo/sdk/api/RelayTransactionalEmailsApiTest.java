@@ -13,6 +13,7 @@
 
 package com.segnivo.sdk.api;
 
+import com.segnivo.sdk.model.RelayEmailRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.client.RestClientException;
@@ -43,9 +44,9 @@ class RelayTransactionalEmailsApiTest {
      */
     @Test
     void relaySendPostTest() {
-        Object body = null;
+        RelayEmailRequest relayEmailRequest = null;
 
-        Object response = api.relaySendPost(body);
+        Object response = api.relaySendPost(relayEmailRequest);
 
         // TODO: test validations
     }

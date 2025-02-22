@@ -125,11 +125,11 @@ configuration.api_key['apiKeyAuth'] = os.environ["API_KEY"]
 with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.RelayApi(api_client)
-    message = 'message_example' # str |  (optional)
-    is_transactional = True # bool |  (optional)
-    track_click = True # bool |  (optional)
-    track_open = True # bool |  (optional)
-    sign_dkim = True # bool |  (optional)
+    message = 'message_example' # str | The raw email content in RFC822 format. This should include headers, body content, and any attachments. (optional)
+    is_transactional = True # bool | Indicates whether the email is transactional (e.g., receipts, order confirmations) or marketing. Transactional emails typically bypass unsubscribes. (optional)
+    track_click = True # bool | Enables or disables click tracking within the email. When enabled, any hyperlinks in the email will be tracked to gather analytics on user interactions. (optional)
+    track_open = True # bool | Enables or disables open tracking for the email. When enabled, a tracking pixel is embedded in the email to monitor whether the recipient has opened it. (optional)
+    sign_dkim = True # bool | Specifies whether the email should be signed with a DKIM (DomainKeys Identified Mail) signature. DKIM helps improve email deliverability by ensuring the email's integrity. (optional)
 
     try:
         # Send a Raw Email Message
@@ -147,11 +147,11 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **message** | **str**|  | [optional] 
- **is_transactional** | **bool**|  | [optional] 
- **track_click** | **bool**|  | [optional] 
- **track_open** | **bool**|  | [optional] 
- **sign_dkim** | **bool**|  | [optional] 
+ **message** | **str**| The raw email content in RFC822 format. This should include headers, body content, and any attachments. | [optional] 
+ **is_transactional** | **bool**| Indicates whether the email is transactional (e.g., receipts, order confirmations) or marketing. Transactional emails typically bypass unsubscribes. | [optional] 
+ **track_click** | **bool**| Enables or disables click tracking within the email. When enabled, any hyperlinks in the email will be tracked to gather analytics on user interactions. | [optional] 
+ **track_open** | **bool**| Enables or disables open tracking for the email. When enabled, a tracking pixel is embedded in the email to monitor whether the recipient has opened it. | [optional] 
+ **sign_dkim** | **bool**| Specifies whether the email should be signed with a DKIM (DomainKeys Identified Mail) signature. DKIM helps improve email deliverability by ensuring the email&#39;s integrity. | [optional] 
 
 ### Return type
 

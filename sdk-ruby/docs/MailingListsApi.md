@@ -14,7 +14,7 @@ All URIs are relative to *https://api.segnivo.com/v1*
 
 ## lists_get
 
-> Object lists_get(opts)
+> Object lists_get
 
 Get mailing lists
 
@@ -34,13 +34,10 @@ SegnivoSDK.configure do |config|
 end
 
 api_instance = SegnivoSDK::MailingListsApi.new
-opts = {
-  accept: 'application/json' # String | 
-}
 
 begin
   # Get mailing lists
-  result = api_instance.lists_get(opts)
+  result = api_instance.lists_get
   p result
 rescue SegnivoSDK::ApiError => e
   puts "Error when calling MailingListsApi->lists_get: #{e}"
@@ -51,12 +48,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> lists_get_with_http_info(opts)
+> <Array(Object, Integer, Hash)> lists_get_with_http_info
 
 ```ruby
 begin
   # Get mailing lists
-  data, status_code, headers = api_instance.lists_get_with_http_info(opts)
+  data, status_code, headers = api_instance.lists_get_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
@@ -67,9 +64,7 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **accept** | **String** |  | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -108,9 +103,7 @@ end
 
 api_instance = SegnivoSDK::MailingListsApi.new
 opts = {
-  content_type: 'application/json', # String | 
-  accept: 'application/json', # String | 
-  body: { ... } # Object | 
+  mailing_list_request: SegnivoSDK::MailingListRequest.new({name: 'Welcome Email', from_email: 'no-reply@example.com', from_name: 'Example Company'}) # MailingListRequest | 
 }
 
 begin
@@ -144,9 +137,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **content_type** | **String** |  | [optional] |
-| **accept** | **String** |  | [optional] |
-| **body** | **Object** |  | [optional] |
+| **mailing_list_request** | [**MailingListRequest**](MailingListRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -186,9 +177,7 @@ end
 api_instance = SegnivoSDK::MailingListsApi.new
 uid = '<string>' # String | (Required) The uid of the list to add a field to.
 opts = {
-  content_type: 'application/json', # String | 
-  accept: 'application/json', # String | 
-  body: { ... } # Object | 
+  mailing_list_add_field_request: SegnivoSDK::MailingListAddFieldRequest.new({type: 'text', label: 'Enter your name', tag: 'username'}) # MailingListAddFieldRequest | 
 }
 
 begin
@@ -223,9 +212,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **uid** | **String** | (Required) The uid of the list to add a field to. |  |
-| **content_type** | **String** |  | [optional] |
-| **accept** | **String** |  | [optional] |
-| **body** | **Object** |  | [optional] |
+| **mailing_list_add_field_request** | [**MailingListAddFieldRequest**](MailingListAddFieldRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -265,7 +252,6 @@ end
 api_instance = SegnivoSDK::MailingListsApi.new
 uid = '<string>' # String | (Required) The uid of the list to delete.
 opts = {
-  accept: 'application/json', # String | 
   body: { ... } # Object | 
 }
 
@@ -301,7 +287,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **uid** | **String** | (Required) The uid of the list to delete. |  |
-| **accept** | **String** |  | [optional] |
 | **body** | **Object** |  | [optional] |
 
 ### Return type
@@ -320,7 +305,7 @@ end
 
 ## lists_uid_get
 
-> Object lists_uid_get(uid, opts)
+> Object lists_uid_get(uid)
 
 Get a list
 
@@ -341,13 +326,10 @@ end
 
 api_instance = SegnivoSDK::MailingListsApi.new
 uid = '<string>' # String | (Required) The uid of the mailing list to fetch.
-opts = {
-  accept: 'application/json' # String | 
-}
 
 begin
   # Get a list
-  result = api_instance.lists_uid_get(uid, opts)
+  result = api_instance.lists_uid_get(uid)
   p result
 rescue SegnivoSDK::ApiError => e
   puts "Error when calling MailingListsApi->lists_uid_get: #{e}"
@@ -358,12 +340,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> lists_uid_get_with_http_info(uid, opts)
+> <Array(Object, Integer, Hash)> lists_uid_get_with_http_info(uid)
 
 ```ruby
 begin
   # Get a list
-  data, status_code, headers = api_instance.lists_uid_get_with_http_info(uid, opts)
+  data, status_code, headers = api_instance.lists_uid_get_with_http_info(uid)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
@@ -377,7 +359,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **uid** | **String** | (Required) The uid of the mailing list to fetch. |  |
-| **accept** | **String** |  | [optional] |
 
 ### Return type
 
@@ -417,9 +398,7 @@ end
 api_instance = SegnivoSDK::MailingListsApi.new
 uid = '<string>' # String | (Required) The uid of the list to update.
 opts = {
-  content_type: 'application/json', # String | 
-  accept: 'application/json', # String | 
-  body: { ... } # Object | 
+  mailing_list_request: SegnivoSDK::MailingListRequest.new({name: 'Welcome Email', from_email: 'no-reply@example.com', from_name: 'Example Company'}) # MailingListRequest | 
 }
 
 begin
@@ -454,9 +433,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **uid** | **String** | (Required) The uid of the list to update. |  |
-| **content_type** | **String** |  | [optional] |
-| **accept** | **String** |  | [optional] |
-| **body** | **Object** |  | [optional] |
+| **mailing_list_request** | [**MailingListRequest**](MailingListRequest.md) |  | [optional] |
 
 ### Return type
 

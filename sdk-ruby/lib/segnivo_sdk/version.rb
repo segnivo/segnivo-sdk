@@ -11,5 +11,5 @@ Generator version: 7.10.0
 =end
 
 module SegnivoSDK
-  VERSION = '1.7.6'
+  VERSION = '1.7.16'
 end

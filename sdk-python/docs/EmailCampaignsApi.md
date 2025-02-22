@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **messages_get**
-> object messages_get(accept=accept)
+> object messages_get()
 
 Get campaigns
 
@@ -50,11 +50,10 @@ configuration.api_key['apiKeyAuth'] = os.environ["API_KEY"]
 with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.EmailCampaignsApi(api_client)
-    accept = 'application/json' # str |  (optional)
 
     try:
         # Get campaigns
-        api_response = api_instance.messages_get(accept=accept)
+        api_response = api_instance.messages_get()
         print("The response of EmailCampaignsApi->messages_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -65,10 +64,7 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accept** | **str**|  | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -92,7 +88,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **messages_post**
-> object messages_post(content_type=content_type, accept=accept, body=body)
+> object messages_post(campaign_create_request=campaign_create_request)
 
 Create a Campaign
 
@@ -104,6 +100,7 @@ Creat an email campaign for processing
 
 ```python
 import segnivo_sdk
+from segnivo_sdk.models.campaign_create_request import CampaignCreateRequest
 from segnivo_sdk.rest import ApiException
 from pprint import pprint
 
@@ -128,13 +125,11 @@ configuration.api_key['apiKeyAuth'] = os.environ["API_KEY"]
 with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.EmailCampaignsApi(api_client)
-    content_type = 'application/json' # str |  (optional)
-    accept = 'application/json' # str |  (optional)
-    body = None # object |  (optional)
+    campaign_create_request = segnivo_sdk.CampaignCreateRequest() # CampaignCreateRequest |  (optional)
 
     try:
         # Create a Campaign
-        api_response = api_instance.messages_post(content_type=content_type, accept=accept, body=body)
+        api_response = api_instance.messages_post(campaign_create_request=campaign_create_request)
         print("The response of EmailCampaignsApi->messages_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -148,9 +143,7 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **str**|  | [optional] 
- **accept** | **str**|  | [optional] 
- **body** | **object**|  | [optional] 
+ **campaign_create_request** | [**CampaignCreateRequest**](CampaignCreateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -174,7 +167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **messages_uid_delete_post**
-> object messages_uid_delete_post(uid, accept=accept, body=body)
+> object messages_uid_delete_post(uid, body=body)
 
 Delete a campaign
 
@@ -211,12 +204,11 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.EmailCampaignsApi(api_client)
     uid = '<string>' # str | (Required) The uid of the campaign to delete
-    accept = 'application/json' # str |  (optional)
     body = None # object |  (optional)
 
     try:
         # Delete a campaign
-        api_response = api_instance.messages_uid_delete_post(uid, accept=accept, body=body)
+        api_response = api_instance.messages_uid_delete_post(uid, body=body)
         print("The response of EmailCampaignsApi->messages_uid_delete_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -231,7 +223,6 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uid** | **str**| (Required) The uid of the campaign to delete | 
- **accept** | **str**|  | [optional] 
  **body** | **object**|  | [optional] 
 
 ### Return type
@@ -256,7 +247,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **messages_uid_get**
-> object messages_uid_get(uid, accept=accept)
+> object messages_uid_get(uid)
 
 Get a campaign
 
@@ -293,11 +284,10 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.EmailCampaignsApi(api_client)
     uid = '<string>' # str | (Required) The uid of the campaign to fetch
-    accept = 'application/json' # str |  (optional)
 
     try:
         # Get a campaign
-        api_response = api_instance.messages_uid_get(uid, accept=accept)
+        api_response = api_instance.messages_uid_get(uid)
         print("The response of EmailCampaignsApi->messages_uid_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -312,7 +302,6 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uid** | **str**| (Required) The uid of the campaign to fetch | 
- **accept** | **str**|  | [optional] 
 
 ### Return type
 
@@ -336,7 +325,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **messages_uid_patch**
-> object messages_uid_patch(uid, content_type=content_type, accept=accept, body=body)
+> object messages_uid_patch(uid, campaign_update_request=campaign_update_request)
 
 Update Campaign
 
@@ -348,6 +337,7 @@ Updates a previously added campaign. Only Active and Paused campaigns can be upd
 
 ```python
 import segnivo_sdk
+from segnivo_sdk.models.campaign_update_request import CampaignUpdateRequest
 from segnivo_sdk.rest import ApiException
 from pprint import pprint
 
@@ -373,13 +363,11 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.EmailCampaignsApi(api_client)
     uid = '<string>' # str | (Required) The uid of the campaign to update
-    content_type = 'application/json' # str |  (optional)
-    accept = 'application/json' # str |  (optional)
-    body = None # object |  (optional)
+    campaign_update_request = segnivo_sdk.CampaignUpdateRequest() # CampaignUpdateRequest |  (optional)
 
     try:
         # Update Campaign
-        api_response = api_instance.messages_uid_patch(uid, content_type=content_type, accept=accept, body=body)
+        api_response = api_instance.messages_uid_patch(uid, campaign_update_request=campaign_update_request)
         print("The response of EmailCampaignsApi->messages_uid_patch:\n")
         pprint(api_response)
     except Exception as e:
@@ -394,9 +382,7 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uid** | **str**| (Required) The uid of the campaign to update | 
- **content_type** | **str**|  | [optional] 
- **accept** | **str**|  | [optional] 
- **body** | **object**|  | [optional] 
+ **campaign_update_request** | [**CampaignUpdateRequest**](CampaignUpdateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -420,7 +406,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **messages_uid_pause_post**
-> object messages_uid_pause_post(uid, accept=accept, body=body)
+> object messages_uid_pause_post(uid, body=body)
 
 Pause a campaign
 
@@ -457,12 +443,11 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.EmailCampaignsApi(api_client)
     uid = '<string>' # str | (Required) The uid of the campaign to pause
-    accept = 'application/json' # str |  (optional)
     body = None # object |  (optional)
 
     try:
         # Pause a campaign
-        api_response = api_instance.messages_uid_pause_post(uid, accept=accept, body=body)
+        api_response = api_instance.messages_uid_pause_post(uid, body=body)
         print("The response of EmailCampaignsApi->messages_uid_pause_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -477,7 +462,6 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uid** | **str**| (Required) The uid of the campaign to pause | 
- **accept** | **str**|  | [optional] 
  **body** | **object**|  | [optional] 
 
 ### Return type
@@ -502,7 +486,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **messages_uid_resume_post**
-> object messages_uid_resume_post(uid, accept=accept, body=body)
+> object messages_uid_resume_post(uid, body=body)
 
 Resume the delivery of a campaign
 
@@ -539,12 +523,11 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = segnivo_sdk.EmailCampaignsApi(api_client)
     uid = '<string>' # str | (Required) The uid of the campaign to resume
-    accept = 'application/json' # str |  (optional)
     body = None # object |  (optional)
 
     try:
         # Resume the delivery of a campaign
-        api_response = api_instance.messages_uid_resume_post(uid, accept=accept, body=body)
+        api_response = api_instance.messages_uid_resume_post(uid, body=body)
         print("The response of EmailCampaignsApi->messages_uid_resume_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -559,7 +542,6 @@ with segnivo_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uid** | **str**| (Required) The uid of the campaign to resume | 
- **accept** | **str**|  | [optional] 
  **body** | **object**|  | [optional] 
 
 ### Return type

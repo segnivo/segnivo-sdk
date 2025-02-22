@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "segnivo_sdk"
-version = "1.7.5"
+version = "1.7.16"
 description = "Segnivo Developer API"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
 license = "NoLicense"

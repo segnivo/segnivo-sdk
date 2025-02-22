@@ -21,11 +21,11 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Segnivo"]
   s.email       = ["developers@segnivo.com"]
-  s.homepage    = "https://github.com/munchads/ruby-sdk"
+  s.homepage    = "https://github.com/segnivo/segnivo-sdk/tree/main/sdk-ruby"
   s.summary     = "Segnivo API Ruby SDK"
   s.description = "Official Ruby SDK for the Segnivo API. Manage messages, campaigns, and more."
   s.license     = "MIT"
-  s.required_ruby_version = "2.7"
+  s.required_ruby_version = ">=2.7"
   s.metadata    = {
         "documentation_uri" => "https://docs.segnivo.com",
         "source_code_uri"  => "https://github.com/munchads/segnivo-sdk/sdk-ruby",

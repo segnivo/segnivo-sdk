@@ -36,7 +36,6 @@ describe 'EmailCampaignsApi' do
   # Get campaigns
   # Returns a collection of all your campaigns
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :accept 
   # @return [Object]
   describe 'messages_get test' do
     it 'should work' do
@@ -48,9 +47,7 @@ describe 'EmailCampaignsApi' do
   # Create a Campaign
   # Creat an email campaign for processing
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :content_type 
-  # @option opts [String] :accept 
-  # @option opts [Object] :body 
+  # @option opts [CampaignCreateRequest] :campaign_create_request 
   # @return [Object]
   describe 'messages_post test' do
     it 'should work' do
@@ -63,7 +60,6 @@ describe 'EmailCampaignsApi' do
   # Delete the specified campaign
   # @param uid (Required) The uid of the campaign to delete
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :accept 
   # @option opts [Object] :body 
   # @return [Object]
   describe 'messages_uid_delete_post test' do
@@ -77,7 +73,6 @@ describe 'EmailCampaignsApi' do
   # Returns the specified campaign details
   # @param uid (Required) The uid of the campaign to fetch
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :accept 
   # @return [Object]
   describe 'messages_uid_get test' do
     it 'should work' do
@@ -90,9 +85,7 @@ describe 'EmailCampaignsApi' do
   # Updates a previously added campaign. Only Active and Paused campaigns can be updated.
   # @param uid (Required) The uid of the campaign to update
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :content_type 
-  # @option opts [String] :accept 
-  # @option opts [Object] :body 
+  # @option opts [CampaignUpdateRequest] :campaign_update_request 
   # @return [Object]
   describe 'messages_uid_patch test' do
     it 'should work' do
@@ -105,7 +98,6 @@ describe 'EmailCampaignsApi' do
   # Pause the specified campaign
   # @param uid (Required) The uid of the campaign to pause
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :accept 
   # @option opts [Object] :body 
   # @return [Object]
   describe 'messages_uid_pause_post test' do
@@ -119,7 +111,6 @@ describe 'EmailCampaignsApi' do
   # Resume delivery of the specified campaign
   # @param uid (Required) The uid of the campaign to resume
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :accept 
   # @option opts [Object] :body 
   # @return [Object]
   describe 'messages_uid_resume_post test' do

@@ -22,7 +22,6 @@ module SegnivoSDK
     # Get campaigns
     # Returns a collection of all your campaigns
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @return [Object]
     def messages_get(opts = {})
       data, _status_code, _headers = messages_get_with_http_info(opts)
@@ -32,7 +31,6 @@ module SegnivoSDK
     # Get campaigns
     # Returns a collection of all your campaigns
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def messages_get_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -48,7 +46,6 @@ module SegnivoSDK
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -82,9 +79,7 @@ module SegnivoSDK
     # Create a Campaign
     # Creat an email campaign for processing
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type 
-    # @option opts [String] :accept 
-    # @option opts [Object] :body 
+    # @option opts [CampaignCreateRequest] :campaign_create_request 
     # @return [Object]
     def messages_post(opts = {})
       data, _status_code, _headers = messages_post_with_http_info(opts)
@@ -94,9 +89,7 @@ module SegnivoSDK
     # Create a Campaign
     # Creat an email campaign for processing
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type 
-    # @option opts [String] :accept 
-    # @option opts [Object] :body 
+    # @option opts [CampaignCreateRequest] :campaign_create_request 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def messages_post_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -117,14 +110,12 @@ module SegnivoSDK
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'campaign_create_request'])
 
       # return_type
       return_type = opts[:debug_return_type] || 'Object'
@@ -153,7 +144,6 @@ module SegnivoSDK
     # Delete the specified campaign
     # @param uid [String] (Required) The uid of the campaign to delete
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @option opts [Object] :body 
     # @return [Object]
     def messages_uid_delete_post(uid, opts = {})
@@ -165,7 +155,6 @@ module SegnivoSDK
     # Delete the specified campaign
     # @param uid [String] (Required) The uid of the campaign to delete
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @option opts [Object] :body 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def messages_uid_delete_post_with_http_info(uid, opts = {})
@@ -191,7 +180,6 @@ module SegnivoSDK
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -226,7 +214,6 @@ module SegnivoSDK
     # Returns the specified campaign details
     # @param uid [String] (Required) The uid of the campaign to fetch
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @return [Object]
     def messages_uid_get(uid, opts = {})
       data, _status_code, _headers = messages_uid_get_with_http_info(uid, opts)
@@ -237,7 +224,6 @@ module SegnivoSDK
     # Returns the specified campaign details
     # @param uid [String] (Required) The uid of the campaign to fetch
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def messages_uid_get_with_http_info(uid, opts = {})
       if @api_client.config.debugging
@@ -257,7 +243,6 @@ module SegnivoSDK
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -292,9 +277,7 @@ module SegnivoSDK
     # Updates a previously added campaign. Only Active and Paused campaigns can be updated.
     # @param uid [String] (Required) The uid of the campaign to update
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type 
-    # @option opts [String] :accept 
-    # @option opts [Object] :body 
+    # @option opts [CampaignUpdateRequest] :campaign_update_request 
     # @return [Object]
     def messages_uid_patch(uid, opts = {})
       data, _status_code, _headers = messages_uid_patch_with_http_info(uid, opts)
@@ -305,9 +288,7 @@ module SegnivoSDK
     # Updates a previously added campaign. Only Active and Paused campaigns can be updated.
     # @param uid [String] (Required) The uid of the campaign to update
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type 
-    # @option opts [String] :accept 
-    # @option opts [Object] :body 
+    # @option opts [CampaignUpdateRequest] :campaign_update_request 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def messages_uid_patch_with_http_info(uid, opts = {})
       if @api_client.config.debugging
@@ -332,14 +313,12 @@ module SegnivoSDK
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'campaign_update_request'])
 
       # return_type
       return_type = opts[:debug_return_type] || 'Object'
@@ -368,7 +347,6 @@ module SegnivoSDK
     # Pause the specified campaign
     # @param uid [String] (Required) The uid of the campaign to pause
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @option opts [Object] :body 
     # @return [Object]
     def messages_uid_pause_post(uid, opts = {})
@@ -380,7 +358,6 @@ module SegnivoSDK
     # Pause the specified campaign
     # @param uid [String] (Required) The uid of the campaign to pause
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @option opts [Object] :body 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def messages_uid_pause_post_with_http_info(uid, opts = {})
@@ -406,7 +383,6 @@ module SegnivoSDK
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -441,7 +417,6 @@ module SegnivoSDK
     # Resume delivery of the specified campaign
     # @param uid [String] (Required) The uid of the campaign to resume
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @option opts [Object] :body 
     # @return [Object]
     def messages_uid_resume_post(uid, opts = {})
@@ -453,7 +428,6 @@ module SegnivoSDK
     # Resume delivery of the specified campaign
     # @param uid [String] (Required) The uid of the campaign to resume
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :accept 
     # @option opts [Object] :body 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def messages_uid_resume_post_with_http_info(uid, opts = {})
@@ -479,7 +453,6 @@ module SegnivoSDK
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
