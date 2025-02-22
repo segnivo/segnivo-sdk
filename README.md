@@ -9,7 +9,7 @@ Welcome to the **SEGNIVO SDKs Repository**! This repository contains a collectio
 | Language       | SDK Folder       | Description                  | Documentation/Link    |
 |----------------|------------------|------------------------------|-----------------------|
 | **Java**       | `sdk-java`       | SDK for Java applications    | [Java SDK Guide](./sdk-java) |
-| **PHP**        | `sdk-php`        | SDK for PHP applications     | [PHP SDK Guide](https://github.com/segnivo segnivo-php-sdk) |
+| **PHP**        | `sdk-php`        | SDK for PHP applications     | [PHP SDK Guide](https://github.com/segnivo/segnivo-php-sdk) |
 | **Python**     | `sdk-python`     | SDK for Python applications  | [Python SDK Guide](./sdk-python) |
 | **Ruby**       | `sdk-ruby`       | SDK for Ruby applications    | [Ruby SDK Guide](./sdk-ruby) |
 | **TypeScript** | `sdk-typescript` | SDK for TypeScript/Node.js   | [TypeScript SDK Guide](./sdk-typescript) |
